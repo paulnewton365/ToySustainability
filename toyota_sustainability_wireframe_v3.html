@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toyota US Sustainability — Homepage Wireframe v3</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+:root {
+  --red: #EB0A1E;
+  --red-dim: rgba(235,10,30,0.1);
+  --black: #111111;
+  --grey-900: #1e1e1e;
+  --grey-800: #2c2c2c;
+  --grey-700: #444;
+  --grey-600: #666;
+  --grey-500: #888;
+  --grey-400: #aaa;
+  --grey-300: #ccc;
+  --grey-200: #e0e0e0;
+  --grey-100: #f0f0f0;
+  --grey-50: #f8f8f8;
+  --white: #ffffff;
+  --wire: #d8d8d8;
+  --wire-stroke: #bbb;
+  --ann-blue: #1a40a0;
+  --ann-blue-bg: #ebf3fa;
+  --ann-green: #1a6b2a;
+  --ann-green-bg: #edf7ed;
+  --ann-amber: #9a6a00;
+  --ann-amber-bg: #fff8ec;
+  --ann-red: #c0000a;
+  --ann-red-bg: #fde8e8;
+  --pd-orange: #d4520a;
+  --pd-orange-bg: #fff1e8;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: #e8e8e8; color: var(--black); font-size: 13px; line-height: 1.5; }
+
+/* ── CHROME ── */
+.chrome { max-width: 1160px; margin: 0 auto; padding: 32px 24px 80px; }
+
+.doc-top {
+  display: grid; grid-template-columns: 1fr auto; gap: 24px;
+  align-items: start; margin-bottom: 20px; padding-bottom: 18px;
+  border-bottom: 3px solid var(--red);
+}
+.doc-title { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
+.doc-title span { color: var(--red); }
+.doc-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-500); margin-top: 4px; line-height: 1.8; }
+.doc-badges { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+.badge { font-family: 'DM Mono', monospace; font-size: 9px; padding: 3px 8px; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; }
+.badge.v { background: var(--red); color: var(--white); }
+.badge.d { background: var(--grey-200); color: var(--grey-700); }
+.badge.new { background: var(--ann-green); color: var(--white); }
+
+/* ── COMPLIANCE BANNER ── */
+.compliance-banner {
+  background: var(--ann-green-bg);
+  border: 1px solid #b8dfc0;
+  border-left: 4px solid var(--ann-green);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.cb-icon { font-size: 18px; padding-top: 1px; }
+.cb-title { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; color: var(--ann-green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.cb-body { font-size: 11px; color: var(--grey-700); line-height: 1.7; }
+.cb-body strong { font-weight: 600; color: var(--black); }
+
+/* ── SEQUENCE COMPARISON ── */
+.seq-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.seq-box {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.seq-box-header {
+  padding: 9px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.seq-box-header.client { background: var(--red); color: var(--white); }
+.seq-box-header.ours { background: var(--grey-800); color: var(--white); }
+.seq-items { padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
+.seq-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+.seq-item.match { background: var(--ann-green-bg); color: var(--ann-green); }
+.seq-item.moved { background: var(--ann-amber-bg); color: var(--ann-amber); }
+.seq-item.new-section { background: var(--ann-blue-bg); color: var(--ann-blue); }
+.seq-num { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; width: 18px; flex-shrink: 0; }
+.seq-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.seq-item.match .seq-dot { background: var(--ann-green); }
+.seq-item.moved .seq-dot { background: var(--ann-amber); }
+.seq-item.new-section .seq-dot { background: var(--ann-blue); }
+
+/* ── LEGEND + PD KEY ── */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 8px 20px;
+  padding: 10px 14px; background: var(--white);
+  border: 1px solid var(--grey-200); border-radius: 4px;
+  margin-bottom: 14px; font-size: 10px; font-family: 'DM Mono', monospace;
+}
+.leg { display: flex; align-items: center; gap: 6px; color: var(--grey-600); }
+.sw { width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; }
+
+.pd-key {
+  background: var(--pd-orange-bg); border: 1px solid #f0c090;
+  border-left: 4px solid var(--pd-orange); padding: 12px 16px;
+  margin-bottom: 24px; display: grid;
+  grid-template-columns: auto 1fr; gap: 10px 18px; align-items: start;
+}
+.pd-key-title { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; color: var(--pd-orange); text-transform: uppercase; letter-spacing: 0.1em; padding-top: 2px; white-space: nowrap; }
+.pd-levels { display: flex; gap: 14px; flex-wrap: wrap; }
+.pd-level { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--grey-700); font-family: 'DM Mono', monospace; }
+.pd-dot { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: var(--white); flex-shrink: 0; }
+.pd-dot.l1 { background: var(--red); }
+.pd-dot.l2 { background: var(--pd-orange); }
+.pd-dot.l3 { background: var(--grey-700); }
+.pd-dot.cta { background: var(--ann-green); }
+
+/* ── BROWSER ── */
+.browser { background: var(--white); border-radius: 10px; box-shadow: 0 8px 48px rgba(0,0,0,0.14); overflow: hidden; }
+.browser-bar { background: #ddd; padding: 10px 14px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #c8c8c8; }
+.bdots { display: flex; gap: 5px; }
+.bdots i { width: 10px; height: 10px; border-radius: 50%; background: #bbb; display: block; }
+.burl { flex: 1; background: var(--white); border: 1px solid #ccc; border-radius: 4px; padding: 4px 10px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--grey-500); display: flex; align-items: center; gap: 6px; }
+.burl-domain { color: var(--grey-800); font-weight: 500; }
+
+/* ── SECTION LABEL BAR ── */
+.slb { display: flex; align-items: stretch; background: var(--grey-900); min-height: 30px; }
+.slb-num { background: var(--red); color: var(--white); font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; padding: 0 14px; display: flex; align-items: center; flex-shrink: 0; letter-spacing: 0.05em; }
+.slb-num.client { background: #c0000a; }
+.slb-body { display: flex; align-items: center; justify-content: space-between; flex: 1; padding: 0 14px; gap: 12px; }
+.slb-title { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-300); letter-spacing: 0.08em; text-transform: uppercase; }
+.slb-note { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-600); font-style: italic; }
+.slb-pd { display: flex; gap: 5px; align-items: center; flex-shrink: 0; }
+.slb-client-tag { font-family: 'DM Mono', monospace; font-size: 9px; background: var(--red); color: var(--white); padding: 2px 7px; border-radius: 2px; letter-spacing: 0.06em; }
+
+/* ── ANN BARS ── */
+.ann-bar { padding: 8px 14px; font-family: 'DM Mono', monospace; font-size: 10px; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start; }
+.ann-bar.blue { background: var(--ann-blue-bg); color: var(--ann-blue); border-top: 1px solid #c8d8f0; }
+.ann-bar.green { background: var(--ann-green-bg); color: var(--ann-green); border-top: 1px solid #b8dfc0; }
+.ann-bar.amber { background: var(--ann-amber-bg); color: var(--ann-amber); border-top: 1px solid #e8d08a; }
+.ann-bar.red { background: var(--ann-red-bg); color: var(--ann-red); border-top: 1px solid #f0b0b0; }
+.ann-bar.pd { background: var(--pd-orange-bg); color: var(--pd-orange); border-top: 1px solid #f0c090; }
+.ann-bar-icon { flex-shrink: 0; }
+.ann-bar strong { font-weight: 500; }
+
+.pd-strip { background: var(--pd-orange-bg); border-top: 1px dashed #f0a060; padding: 5px 14px; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--pd-orange); display: flex; align-items: center; gap: 7px; }
+.pd-tag { font-weight: 500; }
+
+/* ── SHARED COMPONENTS ── */
+.section-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.section-eyebrow::before { content: '■'; font-size: 7px; }
+.section-h2 { font-size: 26px; font-weight: 600; color: var(--black); letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 8px; }
+.section-body { font-size: 13px; color: var(--grey-600); line-height: 1.7; max-width: 540px; margin-bottom: 24px; font-weight: 300; }
+.text-link { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--red); cursor: default; display: flex; align-items: center; gap: 4px; }
+
+/* ── 00 NAV ── */
+.nav-shell { background: var(--black); }
+.nav-utility { background: #0a0a0a; padding: 5px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e1e1e; }
+.nav-utility-left { font-family: 'DM Mono', monospace; font-size: 9px; color: #444; letter-spacing: 0.08em; }
+.nav-utility-right { display: flex; gap: 18px; }
+.nav-utility-right span { font-family: 'DM Mono', monospace; font-size: 9px; color: #444; }
+.nav-main { padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 58px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo-ring { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; }
+.nav-logo-text { font-size: 10px; color: var(--grey-400); font-family: 'DM Mono', monospace; line-height: 1.4; letter-spacing: 0.06em; }
+.nav-logo-text strong { color: var(--white); display: block; font-size: 11px; }
+.nav-links { display: flex; height: 100%; align-items: stretch; }
+.nav-link { display: flex; align-items: center; padding: 0 16px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-400); letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 2px solid transparent; cursor: default; }
+.nav-link.active { color: var(--white); border-bottom-color: var(--red); }
+.nav-link::after { content: none; }
+.nav-link.dd::after { content: ' ▾'; font-size: 8px; opacity: 0.5; }
+.nav-cta { background: var(--red); color: var(--white); padding: 0 18px; display: flex; align-items: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; cursor: default; margin-left: 12px; gap: 6px; }
+
+/* ── 01 HERO ── */
+.hero {
+  position: relative; min-height: 500px;
+  background: linear-gradient(to bottom right, rgba(17,17,17,0.82) 0%, rgba(17,17,17,0.35) 60%, rgba(17,17,17,0.15) 100%),
+    repeating-linear-gradient(120deg, #c8c8c8 0px, #c8c8c8 1px, #d8d8d8 1px, #d8d8d8 22px);
+  display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
+}
+.hero-img-note { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border: 1px dashed var(--grey-400); padding: 12px 20px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-500); text-align: center; line-height: 1.7; background: rgba(255,255,255,0.6); }
+.hero-content { position: relative; z-index: 2; padding: 48px 56px; max-width: 680px; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--red); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.hero-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+.hero-h1 { font-size: 44px; font-weight: 600; color: var(--white); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
+.hero-h1 em { display: block; font-style: normal; font-weight: 300; color: rgba(255,255,255,0.65); font-size: 34px; }
+.hero-sub { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 28px; font-weight: 300; max-width: 480px; }
+.hero-ctas { display: flex; gap: 12px; align-items: center; }
+.btn-primary { background: var(--red); color: var(--white); padding: 13px 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; cursor: default; }
+.btn-ghost { background: transparent; color: rgba(255,255,255,0.8); padding: 12px 24px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; cursor: default; border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; gap: 6px; }
+
+/* ── 02 KEY MESSAGE ── */
+.key-message { background: var(--white); padding: 32px 56px; border-bottom: 2px solid var(--grey-100); display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.km-text {}
+.km-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.km-eyebrow::before { content: '■'; font-size: 7px; }
+.km-headline { font-size: 28px; font-weight: 600; color: var(--black); letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 10px; }
+.km-body { font-size: 13px; color: var(--grey-600); font-weight: 300; line-height: 1.7; max-width: 560px; }
+.km-cta { flex-shrink: 0; }
+.km-cta-btn { background: var(--black); color: var(--white); padding: 12px 22px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; cursor: default; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+
+/* ── 03 REPORTS STRIP ── */
+.reports-strip { background: var(--black); padding: 22px 56px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid #222; }
+.rs-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-500); text-transform: uppercase; letter-spacing: 0.12em; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.rs-label::before { content: '↓'; color: var(--red); font-size: 14px; }
+.rs-cards { display: flex; gap: 10px; flex: 1; justify-content: flex-end; }
+.rs-card { background: #1a1a1a; border: 1px solid #2e2e2e; padding: 11px 16px; display: flex; align-items: center; gap: 12px; cursor: default; flex: 1; max-width: 230px; }
+.rs-card:hover { border-color: var(--red); }
+.rs-card-icon { font-size: 18px; flex-shrink: 0; opacity: 0.6; }
+.rs-card-body {}
+.rs-card-name { font-size: 11px; font-weight: 500; color: var(--white); line-height: 1.3; }
+.rs-card-meta { font-family: 'DM Mono', monospace; font-size: 9px; color: #444; margin-top: 2px; }
+.rs-card-dl { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); margin-top: 3px; display: flex; align-items: center; gap: 3px; }
+.rs-more { font-family: 'DM Mono', monospace; font-size: 10px; color: #444; white-space: nowrap; flex-shrink: 0; cursor: default; }
+.rs-more:hover { color: var(--white); }
+
+/* ── 04 ESG NAV ── */
+.esg-shell { background: var(--grey-50); }
+.esg-header { padding: 36px 56px 0; }
+.pillar-tabs { display: flex; border-bottom: 1px solid var(--grey-200); padding: 0 56px; }
+.ptab { padding: 12px 28px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--grey-500); cursor: default; border-bottom: 2px solid transparent; margin-bottom: -1px; display: flex; align-items: center; gap: 8px; }
+.ptab.active { color: var(--black); border-bottom-color: var(--red); }
+.ptab-badge { font-size: 8px; padding: 1px 5px; border-radius: 10px; background: var(--grey-200); color: var(--grey-500); }
+.ptab.active .ptab-badge { background: var(--red); color: var(--white); }
+.pillar-content { padding: 24px 56px 36px; }
+
+/* ENV cards */
+.env-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
+.env-card { background: var(--white); border: 1px solid var(--grey-200); border-top: 3px solid var(--red); padding: 20px; display: flex; flex-direction: column; gap: 9px; }
+.env-icon { width: 42px; height: 42px; background: var(--wire); border: 1px dashed var(--wire-stroke); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 8px; color: var(--grey-500); }
+.env-name { font-size: 13px; font-weight: 600; color: var(--black); letter-spacing: -0.01em; }
+.env-desc { font-size: 11px; color: var(--grey-600); line-height: 1.6; flex: 1; font-weight: 300; }
+.env-stat { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-800); padding: 5px 0; border-top: 1px solid var(--grey-100); }
+.env-stat span { color: var(--red); }
+.env-cta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--red); display: flex; align-items: center; gap: 4px; }
+.env-go-deeper { background: var(--black); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+.env-go-deeper-text { font-size: 12px; color: var(--grey-500); font-weight: 300; }
+.env-go-deeper-text strong { color: var(--white); font-weight: 500; }
+.env-go-deeper-btn { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--white); border: 1px solid #444; padding: 7px 16px; cursor: default; white-space: nowrap; }
+
+/* Social tab */
+.social-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 14px; }
+.social-item { background: var(--white); border: 1px solid var(--grey-200); padding: 14px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.social-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--wire); border: 1px dashed var(--wire-stroke); display: flex; align-items: center; justify-content: center; font-size: 8px; color: var(--grey-500); }
+.social-label { font-size: 11px; font-weight: 600; color: var(--black); }
+.social-sub { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-500); line-height: 1.4; }
+.status { font-family: 'DM Mono', monospace; font-size: 8px; padding: 2px 5px; border-radius: 2px; }
+.status.ok { background: var(--ann-green-bg); color: var(--ann-green); }
+.status.forming { background: var(--ann-amber-bg); color: var(--ann-amber); }
+.status.hold { background: var(--ann-red-bg); color: var(--ann-red); }
+
+/* Gov */
+.gov-hold { background: var(--white); border: 1px dashed var(--grey-300); padding: 28px; text-align: center; }
+.gov-hold-title { font-weight: 600; color: var(--grey-500); margin-bottom: 6px; }
+.gov-hold-note { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-400); line-height: 1.6; }
+
+/* social tab inline preview */
+.tab-preview { margin-top: 16px; padding: 12px; background: #fafafa; border: 1px dashed var(--grey-300); }
+.tab-preview-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ann-amber); margin-bottom: 10px; font-weight: 500; }
+
+/* ── 05 KEY FIGURES ── */
+.figures-shell { background: var(--black); }
+.figures-header { padding: 28px 56px 0; display: flex; align-items: flex-end; justify-content: space-between; }
+.figures-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-600); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 7px; }
+.figures-eyebrow::before { content: '■'; font-size: 7px; color: var(--red); }
+.figures-h2 { font-size: 20px; font-weight: 600; color: var(--white); letter-spacing: -0.02em; }
+.figures-source { font-family: 'DM Mono', monospace; font-size: 9px; color: #333; }
+.figures-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 20px 0 0; }
+.figure-item { padding: 20px 24px 24px; border-right: 1px solid #1e1e1e; border-top: 1px solid #1e1e1e; display: flex; flex-direction: column; gap: 4px; }
+.figure-item:last-child { border-right: none; }
+.figure-num { font-size: 34px; font-weight: 600; color: var(--white); font-family: 'DM Mono', monospace; letter-spacing: -0.02em; line-height: 1; }
+.figure-num .unit { font-size: 20px; color: var(--red); }
+.figure-label { font-size: 10px; color: var(--grey-600); font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.4; }
+.figure-source { font-size: 9px; color: #2e2e2e; font-family: 'DM Mono', monospace; margin-top: 2px; }
+.figure-expand { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); margin-top: 6px; cursor: default; }
+
+/* ── 06 LEADERSHIP ── */
+.leadership { background: var(--white); display: grid; grid-template-columns: 240px 1fr; min-height: 260px; border-bottom: 4px solid var(--black); }
+.leader-img { background: var(--wire); border-right: 1px solid var(--grey-200); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; }
+.leader-img-bg { position: absolute; inset: 0; background: repeating-linear-gradient(45deg, #d8d8d8, #d8d8d8 2px, #e2e2e2 2px, #e2e2e2 14px); opacity: 0.5; }
+.leader-img-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-500); text-align: center; }
+.leader-avatar { width: 76px; height: 76px; border-radius: 50%; background: var(--wire-stroke); display: flex; align-items: center; justify-content: center; border: 2px dashed #aaa; }
+.leader-avatar svg { opacity: 0.35; }
+.leader-dots { display: flex; gap: 5px; }
+.leader-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--grey-400); cursor: default; }
+.leader-dot.on { background: var(--red); }
+.leader-body { padding: 32px 44px; display: flex; flex-direction: column; justify-content: center; }
+.leader-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+.leader-quote { font-size: 17px; font-weight: 300; color: var(--grey-800); line-height: 1.65; letter-spacing: -0.01em; margin-bottom: 18px; font-style: italic; max-width: 520px; border-left: 2px solid var(--red); padding-left: 16px; }
+.leader-name { font-weight: 600; font-size: 12px; color: var(--black); }
+.leader-role { font-size: 11px; color: var(--grey-500); font-family: 'DM Mono', monospace; margin-top: 2px; margin-bottom: 12px; }
+.leader-links { display: flex; gap: 14px; }
+
+/* ── 07 NEWS / STORIES ── */
+.stories-shell { background: var(--white); padding: 36px 56px; border-top: 1px solid var(--grey-100); }
+.stories-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; }
+.stories-filters { display: flex; gap: 6px; }
+.filter { padding: 4px 11px; font-family: 'DM Mono', monospace; font-size: 9px; border-radius: 2px; background: var(--grey-100); color: var(--grey-600); cursor: default; letter-spacing: 0.06em; }
+.filter.on { background: var(--red); color: var(--white); }
+.stories-grid { display: grid; grid-template-columns: 5fr 3fr 3fr; gap: 14px; }
+.story { border: 1px solid var(--grey-200); display: flex; flex-direction: column; overflow: hidden; }
+.story-img { background: repeating-linear-gradient(135deg, #e0e0e0, #e0e0e0 2px, #ebebeb 2px, #ebebeb 16px); height: 170px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
+.story.featured .story-img { height: 230px; }
+.story-img-box { border: 1px dashed var(--grey-400); padding: 6px 10px; background: rgba(255,255,255,0.7); font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-500); text-align: center; line-height: 1.6; }
+.story-body { padding: 14px; flex: 1; display: flex; flex-direction: column; gap: 7px; }
+.story-tag { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); text-transform: uppercase; letter-spacing: 0.1em; }
+.story-title { font-size: 12px; font-weight: 600; color: var(--black); line-height: 1.4; flex: 1; }
+.story-meta { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-400); display: flex; justify-content: space-between; }
+.story-read { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--red); }
+.stories-refresh-note { margin-top: 14px; padding: 10px 14px; background: var(--grey-50); border: 1px dashed var(--grey-300); font-family: 'DM Mono', monospace; font-size: 10px; color: var(--grey-500); text-align: center; }
+
+/* ── SIGNPOST (bonus) ── */
+.signpost-shell { background: var(--grey-900); padding: 36px 56px; }
+.sp-header { margin-bottom: 22px; }
+.sp-h2 { font-size: 22px; font-weight: 600; color: var(--white); letter-spacing: -0.02em; margin-bottom: 6px; }
+.sp-sub { font-size: 12px; color: var(--grey-600); font-weight: 300; max-width: 420px; line-height: 1.6; }
+.sp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 2px; }
+.sp-card { background: #1e1e1e; padding: 22px; display: flex; flex-direction: column; gap: 9px; border-top: 2px solid #333; cursor: default; }
+.sp-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.sp-icon { width: 38px; height: 38px; background: #2a2a2a; border: 1px solid #333; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-600); flex-shrink: 0; }
+.sp-arrow { font-size: 14px; color: #333; }
+.sp-name { font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: -0.01em; }
+.sp-desc { font-size: 11px; color: var(--grey-600); line-height: 1.6; font-weight: 300; flex: 1; }
+.sp-url { font-family: 'DM Mono', monospace; font-size: 9px; color: #3a3a3a; padding-top: 7px; border-top: 1px solid #2a2a2a; }
+.sp-row2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.sp-card.compact { padding: 16px 22px; flex-direction: row; align-items: center; gap: 12px; }
+.sp-card.compact .sp-desc { display: none; }
+.sp-card.compact .sp-name { font-size: 12px; }
+.sp-card.compact .sp-url { border: none; padding: 0; margin-left: auto; font-size: 10px; color: #444; }
+
+/* ── FOOTER ── */
+.footer { background: #0a0a0a; padding: 28px 56px 0; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+.footer-brand-desc { font-size: 11px; color: #2e2e2e; line-height: 1.7; font-weight: 300; max-width: 200px; margin-top: 12px; }
+.ft-col-label { font-family: 'DM Mono', monospace; font-size: 9px; color: #3a3a3a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.ft-links { display: flex; flex-direction: column; gap: 5px; }
+.ft-link { font-size: 11px; color: #2a2a2a; font-family: 'DM Mono', monospace; }
+.footer-bottom { background: #0a0a0a; padding: 12px 56px 16px; margin-top: 26px; border-top: 1px solid #181818; display: flex; justify-content: space-between; }
+.ft-legal { font-family: 'DM Mono', monospace; font-size: 9px; color: #222; }
+
+/* ── SUMMARY PANEL ── */
+.summary { margin-top: 28px; border-radius: 6px; overflow: hidden; border: 1px solid var(--grey-200); }
+.summary-head { background: var(--black); padding: 13px 20px; display: flex; align-items: center; justify-content: space-between; }
+.summary-head-title { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--white); letter-spacing: 0.08em; }
+.summary-head-sub { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--grey-600); font-style: italic; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.sum-item { padding: 16px 20px; border-bottom: 1px solid var(--grey-100); border-right: 1px solid var(--grey-100); }
+.sum-item:nth-child(even) { border-right: none; }
+.sum-head { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+.sum-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.sum-title { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+.sum-item ul { padding-left: 14px; }
+.sum-item li { font-size: 11px; color: var(--grey-700); line-height: 1.75; }
+</style>
+</head>
+<body>
+<div class="chrome">
+
+  <!-- DOC HEADER -->
+  <div class="doc-top">
+    <div>
+      <div class="doc-title">Toyota US <span>Sustainability</span> — Homepage Wireframe</div>
+      <div class="doc-meta">v3 &nbsp;·&nbsp; Resequenced to client sketch &nbsp;·&nbsp; Progressive Disclosure · Brand Voice · Signposting &nbsp;·&nbsp; Antenna Group &nbsp;·&nbsp; March 2026</div>
+    </div>
+    <div class="doc-badges">
+      <div class="badge v">Version 3</div>
+      <div class="badge new">Client Sequence Applied</div>
+      <div class="badge d">Directional — Not Final</div>
+    </div>
+  </div>
+
+  <!-- LEGEND + PD KEY -->
+  <div class="legend">
+    <div class="leg"><div class="sw" style="background:#fde8e8;border-left:3px solid #c0000a;"></div> Confirmed requirement</div>
+    <div class="leg"><div class="sw" style="background:#ebf3fa;border-left:3px solid #1a40a0;"></div> Strategic direction</div>
+    <div class="leg"><div class="sw" style="background:#edf7ed;border-left:3px solid #1a6b2a;"></div> SEO / content opportunity</div>
+    <div class="leg"><div class="sw" style="background:#fff8ec;border-left:3px solid #9a6a00;"></div> Editorial caution</div>
+    <div class="leg"><div class="sw" style="background:#fff1e8;border-left:3px solid #d4520a;"></div> Progressive disclosure mechanic</div>
+    <div class="leg"><div class="sw" style="background:#d8d8d8;border:1px dashed #bbb;"></div> Placeholder image / icon</div>
+  </div>
+  <div class="pd-key">
+    <div class="pd-key-title">Progressive Disclosure</div>
+    <div class="pd-levels">
+      <div class="pd-level"><div class="pd-dot l1">L1</div> On load — visible immediately</div>
+      <div class="pd-level"><div class="pd-dot l2">L2</div> On interaction — hover, tab, expand</div>
+      <div class="pd-level"><div class="pd-dot l3">L3</div> On navigation — exits to sister site</div>
+      <div class="pd-level"><div class="pd-dot cta">→</div> Always-visible CTA</div>
+    </div>
+  </div>
+
+  <!-- BROWSER -->
+  <div class="browser">
+    <div class="browser-bar">
+      <div class="bdots"><i></i><i></i><i></i></div>
+      <div class="burl"><span style="color:#1a6b2a;font-size:9px;">🔒</span><span class="burl-domain">toyota.com</span>/sustainability</div>
+    </div>
+
+    <!-- 00 NAV -->
+    <div>
+      <div class="slb">
+        <div class="slb-num">00</div>
+        <div class="slb-body">
+          <span class="slb-title">Global Navigation — Persistent</span>
+          <div class="slb-pd"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div></div>
+        </div>
+      </div>
+      <div class="nav-shell">
+        <div class="nav-utility">
+          <div class="nav-utility-left">TOYOTA MOTOR NORTH AMERICA</div>
+          <div class="nav-utility-right"><span>toyota.com</span><span>Newsroom</span><span>Investors</span><span>Careers</span></div>
+        </div>
+        <div class="nav-main">
+          <div class="nav-logo">
+            <div class="nav-logo-ring">
+              <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><ellipse cx="11" cy="8" rx="10" ry="7" stroke="white" stroke-width="1.5"/><ellipse cx="11" cy="8" rx="4" ry="7" stroke="white" stroke-width="1.5"/><line x1="1" y1="8" x2="21" y2="8" stroke="white" stroke-width="1.5"/></svg>
+            </div>
+            <div class="nav-logo-text"><strong>TOYOTA</strong>Sustainability</div>
+          </div>
+          <div class="nav-links">
+            <div class="nav-link active">Overview</div>
+            <div class="nav-link dd">Environment</div>
+            <div class="nav-link dd">Social</div>
+            <div class="nav-link">Governance</div>
+            <div class="nav-link">Reports</div>
+            <div class="nav-link">Newsroom</div>
+          </div>
+          <div class="nav-cta">↓ Reports</div>
+        </div>
+      </div>
+      <div class="ann-bar blue"><span class="ann-bar-icon">◈</span><span>Nav copy TBD with Corporate Comms (meeting 3/24). Report download always visible in nav — supports confirmed easy-access requirement. L2 dropdown on Environment + Social surfaces sub-pages without leaving homepage.</span></div>
+    </div>
+
+    <!-- 01 HERO -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">01</div>
+        <div class="slb-body">
+          <span class="slb-title">Image — Hero / Masthead</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "Image"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div></div>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="hero-img-note">[ HERO IMAGE — Full Bleed ]<br>People + environment. Not product.<br>Toyota brand visual system.<br>Motion / video option possible v2.</div>
+        <div class="hero-content">
+          <div class="hero-eyebrow">Toyota North America &nbsp;/&nbsp; Sustainability</div>
+          <div class="hero-h1">Producing Happiness<em>for All</em></div>
+          <div class="hero-sub">One or two plain-language sentences. Connects brand mission to real, evidenced action. Earns attention — the rest of the page earns trust.</div>
+          <div class="hero-ctas">
+            <div class="btn-primary">Explore our commitment</div>
+            <div class="btn-ghost"><span>↓</span> Download 2024 Report</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><span class="pd-tag">L1 — On Load:</span> Full hero visible immediately. Headline, body copy, both CTAs. No scroll or interaction required to read the brand commitment.</div>
+      <div class="ann-bar red"><span class="ann-bar-icon">★</span><span><strong>Brand voice:</strong> "Producing Happiness for All" anchors the page. Hero copy must showcase not defend — plain language, no jargon. Image: brand photography, people at human scale in meaningful environments. Report download CTA in hero supports confirmed easy-access requirement.</span></div>
+    </div>
+
+    <!-- 02 KEY MESSAGE -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">02</div>
+        <div class="slb-body">
+          <span class="slb-title">Sustainability Key Message</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "Sustainability Key Message"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div></div>
+        </div>
+      </div>
+      <div class="key-message">
+        <div class="km-text">
+          <div class="km-eyebrow">Our commitment</div>
+          <div class="km-headline">Producing Happiness for All</div>
+          <div class="km-body">2–3 sentences. Plain language. Connects Toyota's global mission to the three sustainability areas — environment, social, governance. Grounded in what we are already doing, not just what we aspire to. This is the brand spine for everything below.</div>
+        </div>
+        <div class="km-cta">
+          <div class="km-cta-btn">Read our full commitment →</div>
+        </div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><span class="pd-tag">L1 — Fully visible on load.</span> Short, accessible, brand-rooted. Sets the tone before audiences encounter data or frameworks below.</div>
+      <div class="ann-bar blue"><span class="ann-bar-icon">◈</span><span><strong>Brand voice note:</strong> This section is the most important copy on the page. Tone: warm, purposeful, grounded. Not defensive, not corporate boilerplate. Should feel like it was written by a person who believes it. Review Toyota Effect + Annual Report for voice reference.</span></div>
+    </div>
+
+    <!-- 03 REPORTS STRIP -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">03</div>
+        <div class="slb-body">
+          <span class="slb-title">Joint Sustainability Report — Easy access, early in the page</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "Easy access to the reports"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot cta" style="width:14px;height:14px;font-size:7px;">→</div></div>
+        </div>
+      </div>
+      <div class="reports-strip">
+        <div class="rs-label">Download Reports</div>
+        <div class="rs-cards">
+          <div class="rs-card">
+            <div class="rs-card-icon">📄</div>
+            <div class="rs-card-body">
+              <div class="rs-card-name">Annual Environmental Sustainability Report</div>
+              <div class="rs-card-meta">2024 Edition &nbsp;·&nbsp; PDF</div>
+              <div class="rs-card-dl">↓ Download</div>
+            </div>
+          </div>
+          <div class="rs-card">
+            <div class="rs-card-icon">📄</div>
+            <div class="rs-card-body">
+              <div class="rs-card-name">TMC Sustainability Data Book</div>
+              <div class="rs-card-meta">2025 Edition &nbsp;·&nbsp; PDF</div>
+              <div class="rs-card-dl">↓ Download</div>
+            </div>
+          </div>
+          <div class="rs-card">
+            <div class="rs-card-icon">📄</div>
+            <div class="rs-card-body">
+              <div class="rs-card-name">[ Additional Report — TBC ]</div>
+              <div class="rs-card-meta">Title + year to be confirmed</div>
+            </div>
+          </div>
+        </div>
+        <div class="rs-more">View all reports →</div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot cta" style="width:14px;height:14px;font-size:7px;">→</div><span class="pd-tag">L1 + direct CTA:</span> Strip is always visible, compact, not disruptive to emotional flow. Download is one click from anywhere on the page. Styled dark to visually separate from the Key Message above.</div>
+      <div class="ann-bar red"><span class="ann-bar-icon">★</span><span><strong>Confirmed requirement (Madoka):</strong> Direct download links on landing page. Placed here per client sketch. Kept as a light strip — compact enough not to interrupt the narrative, prominent enough to be immediately findable. Annual Env. Report confirmed. TMC Data Book flagged by Madoka as key resource.</span></div>
+    </div>
+
+    <!-- 04 ESG NAV -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">04</div>
+        <div class="slb-body">
+          <span class="slb-title">E / S / G — Easy navigation for each sustainability effort</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "E / S / G"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div><div class="pd-dot l3" style="width:14px;height:14px;font-size:7px;">L3</div></div>
+        </div>
+      </div>
+      <div class="esg-shell">
+        <div class="esg-header">
+          <div class="section-eyebrow">Our Approach</div>
+          <div class="section-h2">How We're Shaping a Better Future</div>
+          <div class="section-body">Two sentences. Accessible, plain language. Connects "Producing Happiness for All" to all three pillars. No ESG jargon externally.</div>
+        </div>
+        <div class="pillar-tabs">
+          <div class="ptab active">Environment <span class="ptab-badge">3 pillars</span></div>
+          <div class="ptab">Social <span class="ptab-badge">5 areas</span></div>
+          <div class="ptab">Governance <span class="ptab-badge">TBC</span></div>
+        </div>
+        <div class="pillar-content">
+
+          <!-- ENV ACTIVE -->
+          <div class="env-grid">
+            <div class="env-card">
+              <div class="env-icon">ICN</div>
+              <div class="env-name">Carbon Neutrality</div>
+              <div class="env-desc">Reducing emissions across the full vehicle lifecycle — manufacturing, logistics, and product — with measurable targets.</div>
+              <div class="env-stat">Target: <span>Carbon neutral by [year]</span></div>
+              <div class="env-cta">Explore targets + data →</div>
+            </div>
+            <div class="env-card">
+              <div class="env-icon">ICN</div>
+              <div class="env-name">Circular Economy</div>
+              <div class="env-desc">Materials, recycling, resource efficiency, and end-of-life vehicle management — making more from less.</div>
+              <div class="env-stat">Recycling rate: <span>XX% of production waste</span></div>
+              <div class="env-cta">Explore stories →</div>
+            </div>
+            <div class="env-card">
+              <div class="env-icon">ICN</div>
+              <div class="env-name">Nature Positive</div>
+              <div class="env-desc">Biodiversity, ecosystems, and environmental stewardship beyond carbon — caring for the places our operations touch.</div>
+              <div class="env-stat">Active at: <span>XX sites across XX countries</span></div>
+              <div class="env-cta">Learn more →</div>
+            </div>
+          </div>
+          <div class="env-go-deeper">
+            <div class="env-go-deeper-text"><strong>Want the full data?</strong> Detailed targets, methodology and progress reports live on our Environmental Sustainability site.</div>
+            <div class="env-go-deeper-btn">Go deeper → Environmental Site</div>
+          </div>
+
+          <!-- SOCIAL PREVIEW -->
+          <div class="tab-preview" style="margin-top:16px;">
+            <div class="tab-preview-label">SOCIAL TAB — Active when selected:</div>
+            <div class="social-grid">
+              <div class="social-item">
+                <div class="social-icon">ICN</div>
+                <div class="social-label">Safety</div>
+                <div class="social-sub">CSRC + Safety Sense</div>
+                <div class="status ok">Active content</div>
+              </div>
+              <div class="social-item">
+                <div class="social-icon">ICN</div>
+                <div class="social-label">Workforce</div>
+                <div class="social-sub">Training + development</div>
+                <div class="status ok">Active content</div>
+              </div>
+              <div class="social-item">
+                <div class="social-icon">ICN</div>
+                <div class="social-label">Community</div>
+                <div class="social-sub">Toyota Effect stories</div>
+                <div class="status ok">Active content</div>
+              </div>
+              <div class="social-item">
+                <div class="social-icon">ICN</div>
+                <div class="social-label">Customer</div>
+                <div class="social-sub">Satisfaction + quality</div>
+                <div class="status ok">Active content</div>
+              </div>
+              <div class="social-item">
+                <div class="social-icon">ICN</div>
+                <div class="social-label">Human Rights</div>
+                <div class="social-sub">Supply chain — TBC</div>
+                <div class="status hold">Handle carefully</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GOV -->
+          <div style="margin-top:12px;">
+            <div class="tab-preview-label" style="font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-500);margin-bottom:8px;">GOVERNANCE TAB — Reserved:</div>
+            <div class="gov-hold">
+              <div class="gov-hold-title">Governance</div>
+              <div class="gov-hold-note">Content and structure TBC. Space reserved. Do not populate with placeholder content at launch.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div><div class="pd-dot l3" style="width:14px;height:14px;font-size:7px;">L3</div><span class="pd-tag">Layered disclosure:</span> L1 = active Environment tab visible on load. L2 = tab switch reveals Social / Governance, card hover shows one data stat. L3 = "Go deeper" exits to Environmental Sub-site. Technical audiences can skip this entirely via the nav mega-menu.</div>
+      <div class="ann-bar amber"><span class="ann-bar-icon">⚠</span><span><strong>Environmental pillar icons + colour palette in development for April 2026 launch</strong> — design must flex to accommodate when ready. Social: stories not frameworks. Human Rights: in architecture but not at L1. Governance: reserve space, do not force content.</span></div>
+    </div>
+
+    <!-- 05 KEY FIGURES -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">05</div>
+        <div class="slb-body">
+          <span class="slb-title">Sustainability Key Figures — Quick view of achievements and progress</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "Key Figures"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div></div>
+        </div>
+      </div>
+      <div class="figures-shell">
+        <div class="figures-header">
+          <div>
+            <div class="figures-eyebrow">Impact in Numbers</div>
+            <div class="figures-h2">The Progress So Far</div>
+          </div>
+          <div class="figures-source">All figures sourced from Annual Env. Report 2024 + TMC SDB 2025</div>
+        </div>
+        <div class="figures-grid">
+          <div class="figure-item">
+            <div class="figure-num"><span class="unit">XX</span>%</div>
+            <div class="figure-label">CO₂ reduction vs<br>2013 baseline</div>
+            <div class="figure-source">Annual Env. Report 2024</div>
+            <div class="figure-expand">View targets + methodology →</div>
+          </div>
+          <div class="figure-item">
+            <div class="figure-num"><span class="unit">XX</span></div>
+            <div class="figure-label">Electrified models<br>available now</div>
+            <div class="figure-source">toyota.com/electrified</div>
+            <div class="figure-expand">Explore the lineup →</div>
+          </div>
+          <div class="figure-item">
+            <div class="figure-num">$<span class="unit">XXM</span></div>
+            <div class="figure-label">Community<br>investment</div>
+            <div class="figure-source">Toyota Effect / Newsroom</div>
+            <div class="figure-expand">See community stories →</div>
+          </div>
+          <div class="figure-item">
+            <div class="figure-num"><span class="unit">XX</span></div>
+            <div class="figure-label">Safety research<br>programmes active</div>
+            <div class="figure-source">amrd.toyota.com/csrc</div>
+            <div class="figure-expand">Explore safety research →</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div><span class="pd-tag">L1 numbers visible on load. L2 hover:</span> Source attribution, year, and a direct link to deeper data expands. ESG analysts and investors get the detail they need with one interaction. General visitors see the headline figure only.</div>
+      <div class="ann-bar amber"><span class="ann-bar-icon">⚠</span><span><strong>All figures must be real, verified and sourced before design begins.</strong> Placeholders shown. Team to agree 4 priority metrics. No aspirational or unconfirmed numbers. Pull from Annual Environmental Sustainability Report (2024) + TMC Sustainability Data Book (sdb25_en.pdf).</span></div>
+    </div>
+
+    <!-- 06 LEADERSHIP -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">06</div>
+        <div class="slb-body">
+          <span class="slb-title">Leadership Message + Image — Leadership commitments</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "Leadership commitments"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div></div>
+        </div>
+      </div>
+      <div class="leadership">
+        <div class="leader-img">
+          <div class="leader-img-bg"></div>
+          <div class="leader-img-content">
+            <div class="leader-avatar">
+              <svg width="30" height="30" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="12" r="6" stroke="#888" stroke-width="1.5"/><path d="M3 28c0-7.18 5.82-13 13-13s13 5.82 13 13" stroke="#888" stroke-width="1.5"/></svg>
+            </div>
+            [ CEO or CSO PHOTO ]<br>Portrait or headshot
+            <div class="leader-dots">
+              <div class="leader-dot on"></div>
+              <div class="leader-dot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="leader-body">
+          <div class="leader-eyebrow">A message from our leadership</div>
+          <div class="leader-quote">Pull quote — personal, direct, grounded in a specific commitment or programme. Not corporate language. Written in the individual's voice.</div>
+          <div class="leader-name">[ CEO Name ] &nbsp;·&nbsp; [ CSO Name ]</div>
+          <div class="leader-role">President, Toyota North America &nbsp;/&nbsp; Chief Sustainability Officer</div>
+          <div class="leader-links">
+            <div class="text-link">Read full message →</div>
+            <div class="text-link" style="color:var(--grey-500);">Download Annual Report ↓</div>
+          </div>
+        </div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div><span class="pd-tag">L1 = one leader visible on load. L2 = carousel dot reveals second leader (CEO ↔ CSO). "Read full message" is L3 — links to full statement on Environmental Sub-site or dedicated page.</span></div>
+      <div class="ann-bar blue"><span class="ann-bar-icon">◈</span><span><strong>Priority: CEO + CSO Toyota North America.</strong> Voice reference: Annual Env. Sustainability Report (Nov 2024) — both messages included. Strategic goal: elevate public profile vs other OEMs. Confirm names + titles before design. Leadership transition ~April 2026 — build with update in mind. Antenna to research public profiles.</span></div>
+    </div>
+
+    <!-- 07 NEWS -->
+    <div>
+      <div class="slb">
+        <div class="slb-num client">07</div>
+        <div class="slb-body">
+          <span class="slb-title">News — Stories from Newsroom, Toyota Effect + Pillar-specific content</span>
+          <div class="slb-pd"><span class="slb-client-tag">Client: "News / News / News"</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div><div class="pd-dot l3" style="width:14px;height:14px;font-size:7px;">L3</div></div>
+        </div>
+      </div>
+      <div class="stories-shell">
+        <div class="stories-top">
+          <div>
+            <div class="section-eyebrow">In Action</div>
+            <div class="section-h2" style="font-size:22px;">Stories from the Work</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+            <div class="stories-filters">
+              <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-500);margin-right:4px;">Filter:</span>
+              <div class="filter on">All</div>
+              <div class="filter">Environment</div>
+              <div class="filter">Social</div>
+              <div class="filter">People</div>
+            </div>
+            <div class="text-link" style="font-size:11px;">All stories → Newsroom</div>
+          </div>
+        </div>
+        <div class="stories-grid">
+          <div class="story featured">
+            <div class="story-img"><div class="story-img-box">[ FEATURED IMAGE ]<br>Impact-led, human-centred<br>From Newsroom</div></div>
+            <div class="story-body">
+              <div class="story-tag">Environment — Carbon Neutrality</div>
+              <div class="story-title">Featured story headline — real activity, real measurable outcome. Plain language. Written for a general audience.</div>
+              <div class="story-meta"><span>Toyota Newsroom</span><span class="story-read">Read story →</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-img"><div class="story-img-box">[ IMAGE ]<br>Community story</div></div>
+            <div class="story-body">
+              <div class="story-tag">Social — Community</div>
+              <div class="story-title">Community impact story. Human face, real programme. Sourced from Toyota Effect.</div>
+              <div class="story-meta"><span>Toyota Effect</span><span class="story-read">Read →</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-img"><div class="story-img-box">[ IMAGE ]<br>Team member voice</div></div>
+            <div class="story-body">
+              <div class="story-tag">Social — Workforce</div>
+              <div class="story-title">Team member voice — humanises sustainability from the inside.</div>
+              <div class="story-meta"><span>Newsroom / Careers</span><span class="story-read">Read →</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="stories-refresh-note">Content refresh strategy TBD: Manual curation (v1 launch) → Automated Newsroom feed (near-term) → AI layer with QA (future state)</div>
+      </div>
+      <div class="pd-strip"><div class="pd-dot l2" style="width:14px;height:14px;font-size:7px;">L2</div><div class="pd-dot l3" style="width:14px;height:14px;font-size:7px;">L3</div><span class="pd-tag">L2 — Filter pills</span> re-sort cards without page reload. <span class="pd-tag">L3 — "Read story"</span> exits to full article on Newsroom or Toyota Effect. No article content lives on this page.</div>
+      <div class="ann-bar green"><span class="ann-bar-icon">◉</span><span><strong>SEO value:</strong> Each story card outbound link builds cross-property authority. Story tags should match target search terms. Toyota Effect is a content source — stories drawn from it appear here. Madoka to flag priority stories for elevation during story mining.</span></div>
+    </div>
+
+    <!-- BONUS: SIGNPOST -->
+    <div>
+      <div class="slb">
+        <div class="slb-num" style="background:var(--ann-blue);">+</div>
+        <div class="slb-body">
+          <span class="slb-title">Sister Site Signposting — From sketch email: "website links to redirect to"</span>
+          <div class="slb-pd"><span class="slb-client-tag" style="background:var(--ann-blue);">From email brief</span><div class="pd-dot l1" style="width:14px;height:14px;font-size:7px;">L1</div><div class="pd-dot l3" style="width:14px;height:14px;font-size:7px;">L3</div></div>
+        </div>
+      </div>
+      <div class="signpost-shell">
+        <div class="sp-header">
+          <div class="section-eyebrow" style="color:#666;">There's More to Explore</div>
+          <div class="sp-h2">Go Deeper on What Matters to You</div>
+          <div class="sp-sub">One sentence. Invites the user to choose their own path into Toyota's broader sustainability story.</div>
+        </div>
+        <div class="sp-grid">
+          <div class="sp-card">
+            <div class="sp-card-top"><div class="sp-icon">ENV</div><div class="sp-arrow">↗</div></div>
+            <div class="sp-name">Environmental Sustainability</div>
+            <div class="sp-desc">Targets, data, and detailed information on all three environmental pillars.</div>
+            <div class="sp-url">toyota.com/environment</div>
+          </div>
+          <div class="sp-card">
+            <div class="sp-card-top"><div class="sp-icon">EFX</div><div class="sp-arrow">↗</div></div>
+            <div class="sp-name">Toyota Effect</div>
+            <div class="sp-desc">Stories of community impact, social innovation, and the people behind Toyota's work.</div>
+            <div class="sp-url">toyotaeffect.com</div>
+          </div>
+          <div class="sp-card">
+            <div class="sp-card-top"><div class="sp-icon">SAF</div><div class="sp-arrow">↗</div></div>
+            <div class="sp-name">Safety Research</div>
+            <div class="sp-desc">The Collaborative Safety Research Centre — Toyota's active safety innovation programmes.</div>
+            <div class="sp-url">amrd.toyota.com/csrc</div>
+          </div>
+        </div>
+        <div class="sp-row2" style="margin-top:2px;">
+          <div class="sp-card compact"><div class="sp-icon" style="width:30px;height:30px;font-size:8px;">NEWS</div><div><div class="sp-name">Newsroom</div></div><div class="sp-url">pressroom.toyota.com ↗</div></div>
+          <div class="sp-card compact"><div class="sp-icon" style="width:30px;height:30px;font-size:8px;">EV</div><div><div class="sp-name">Electrified Vehicles</div></div><div class="sp-url">toyota.com/electrified-vehicles ↗</div></div>
+          <div class="sp-card compact"><div class="sp-icon" style="width:30px;height:30px;font-size:8px;">CAR</div><div><div class="sp-name">Careers at Toyota</div></div><div class="sp-url">careers.toyota.com/us/en ↗</div></div>
+        </div>
+      </div>
+      <div class="ann-bar green"><span class="ann-bar-icon">◉</span><span><strong>SEO opportunity:</strong> These cross-property links are the most direct lever for elevating search visibility across the ecosystem. Anchor text should use target search terms (to be defined in content strategy phase). Full property register in Findings Doc v2, Section 3.5. Safety explicitly named in the client's email note — confirmed inclusion.</span></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div>
+      <div class="slb">
+        <div class="slb-num">08</div>
+        <div class="slb-body"><span class="slb-title">Footer — Standard Toyota. Sustainability nav + all sister site links + legal.</span></div>
+      </div>
+      <div class="footer">
+        <div>
+          <div class="nav-logo" style="margin-bottom:10px;">
+            <div class="nav-logo-ring" style="width:32px;height:32px;">
+              <svg width="17" height="12" viewBox="0 0 22 16" fill="none"><ellipse cx="11" cy="8" rx="10" ry="7" stroke="white" stroke-width="1.5"/><ellipse cx="11" cy="8" rx="4" ry="7" stroke="white" stroke-width="1.5"/><line x1="1" y1="8" x2="21" y2="8" stroke="white" stroke-width="1.5"/></svg>
+            </div>
+            <div class="nav-logo-text"><strong>TOYOTA</strong>Sustainability</div>
+          </div>
+          <div class="footer-brand-desc">Producing Happiness for All — a commitment to people, planet, and the communities we serve.</div>
+        </div>
+        <div>
+          <div class="ft-col-label">Sustainability</div>
+          <div class="ft-links"><span class="ft-link">Our Commitment</span><span class="ft-link">Environment</span><span class="ft-link">Social</span><span class="ft-link">Governance</span><span class="ft-link">Reports</span></div>
+        </div>
+        <div>
+          <div class="ft-col-label">Explore</div>
+          <div class="ft-links"><span class="ft-link">Toyota Effect</span><span class="ft-link">Newsroom</span><span class="ft-link">EV Vehicles</span><span class="ft-link">Safety Research</span><span class="ft-link">Careers</span></div>
+        </div>
+        <div>
+          <div class="ft-col-label">Company</div>
+          <div class="ft-links"><span class="ft-link">About Toyota</span><span class="ft-link">Investors</span><span class="ft-link">Press + Media</span><span class="ft-link">Contact</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="ft-legal">© 2026 Toyota Motor North America &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Terms of Use &nbsp;·&nbsp; Accessibility</div>
+        <div class="ft-legal">toyota.com/sustainability</div>
+      </div>
+    </div>
+
+  </div><!-- /browser -->
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="summary-head">
+      <div class="summary-head-title">Wireframe Notes — v3 Compliance + Key Decisions</div>
+      <div class="summary-head-sub">Sequence matches client sketch. All annotations retained from v2.</div>
+    </div>
+    <div class="summary-grid">
+      <div class="sum-item">
+        <div class="sum-head"><div class="sum-dot" style="background:var(--ann-green);"></div><div class="sum-title" style="color:var(--ann-green);">Sequence Compliance</div></div>
+        <ul>
+          <li>All 7 client sketch sections present in correct order</li>
+          <li>Reports moved from position 7 → position 3 (client direction)</li>
+          <li>Key Figures moved from position 2 → position 5 (client direction)</li>
+          <li>Leadership moved from position 3 → position 6 (client direction)</li>
+          <li>Signpost section added per email brief note on redirect links</li>
+          <li>Safety specifically named in email — included as primary signpost card</li>
+        </ul>
+      </div>
+      <div class="sum-item">
+        <div class="sum-head"><div class="sum-dot" style="background:var(--ann-red);"></div><div class="sum-title" style="color:var(--ann-red);">Confirmed Requirements</div></div>
+        <ul>
+          <li>Direct report downloads — now Section 03, prominent and persistent</li>
+          <li>"Producing Happiness for All" — hero + dedicated Key Message section</li>
+          <li>CEO + CSO leadership message with photo — Section 06</li>
+          <li>ESG structure (Env / Social / Gov) — Section 04</li>
+          <li>No content duplication — all deep content signposted outward</li>
+          <li>No "Beyond Zero" references anywhere</li>
+        </ul>
+      </div>
+      <div class="sum-item">
+        <div class="sum-head"><div class="sum-dot" style="background:var(--pd-orange);"></div><div class="sum-title" style="color:var(--pd-orange);">Progressive Disclosure</div></div>
+        <ul>
+          <li>L1: Hero, Key Message, Reports strip, active ESG tab, Figures, Leadership, 3 stories all visible on load</li>
+          <li>L2: Metric expand on hover; ESG tab switching; Leadership carousel; Story filter pills</li>
+          <li>L3: All "go deeper" CTAs exit to sister sites — no deep content lives on this page</li>
+          <li>Mega-menu allows technical audiences to bypass homepage scroll entirely</li>
+        </ul>
+      </div>
+      <div class="sum-item">
+        <div class="sum-head"><div class="sum-dot" style="background:var(--ann-amber);"></div><div class="sum-title" style="color:var(--ann-amber);">Still Open</div></div>
+        <ul>
+          <li>Visual system: Env three-pillar system vs corporate Toyota vs unified new</li>
+          <li>Env pillar icons + palette: in development, April 2026 — design must flex</li>
+          <li>All 4 Key Figures metrics: must be confirmed, real, sourced before design</li>
+          <li>Leadership names + titles: confirm before design; transition ~April 2026</li>
+          <li>Governance content: what exists at launch, if anything?</li>
+          <li>Content refresh mechanism for Stories section: manual vs automated feed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
