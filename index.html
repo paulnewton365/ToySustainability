@@ -39,17 +39,6 @@
 @media(max-width:1099px){.hero-content{padding:40px 28px 44px}.hero-img-note{display:none}.hero-stories{grid-template-columns:1fr}}
 @media(max-width:767px){.hero-content{padding:32px 20px 36px}.hero-h1{font-size:34px}.hero-ctas{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}.hs-teaser{padding:16px 20px}.hs-teaser-read{display:none}}
 
-/* ═══════════════════════════════
-   2. CONTEXT STRIP
-═══════════════════════════════ */
-.context-strip{position:sticky;top:64px;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--grey-200);display:flex;align-items:stretch;overflow-x:auto;height:40px}
-.cs-item{display:flex;align-items:center;padding:0 20px;font-family:var(--font-mono);font-size:10px;color:var(--grey-400);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;gap:6px;cursor:pointer}
-.cs-item:hover{color:var(--grey-700)}
-.cs-item.active{color:var(--black);border-bottom-color:var(--red)}
-.cs-dot{width:5px;height:5px;border-radius:50%;background:var(--grey-300);flex-shrink:0;transition:background .2s}
-.cs-item.active .cs-dot{background:var(--red)}
-.cs-divider{width:1px;background:var(--grey-100);margin:8px 0;flex-shrink:0}
-@media(max-width:767px){.context-strip{top:58px;height:36px}.cs-item{padding:0 14px;font-size:9px}.cs-divider{display:none}}
 
 /* ═══════════════════════════════
    3. NAV SEARCH
@@ -396,24 +385,6 @@
   </div>
 </nav>
 
-<!-- CONTEXT STRIP -->
-<nav class="context-strip" id="ctx" aria-label="Page sections">
-  <a href="#commitment" class="cs-item active" data-section="commitment"><span class="cs-dot"></span>Commitment</a>
-  <div class="cs-divider"></div>
-  <a href="#reports" class="cs-item" data-section="reports"><span class="cs-dot"></span>Reports</a>
-  <div class="cs-divider"></div>
-  <a href="#esg" class="cs-item" data-section="esg"><span class="cs-dot"></span>E · S · G</a>
-  <div class="cs-divider"></div>
-  <a href="#figures" class="cs-item" data-section="figures"><span class="cs-dot"></span>Numbers</a>
-  <div class="cs-divider"></div>
-  <a href="#leadership" class="cs-item" data-section="leadership"><span class="cs-dot"></span>Leadership</a>
-  <div class="cs-divider"></div>
-  <a href="#stories" class="cs-item" data-section="stories"><span class="cs-dot"></span>Stories</a>
-  <div class="cs-divider"></div>
-  <a href="#lineup" class="cs-item" data-section="lineup"><span class="cs-dot"></span>Lineup</a>
-  <div class="cs-divider"></div>
-  <a href="#explore" class="cs-item" data-section="explore"><span class="cs-dot"></span>Explore</a>
-</nav>
 
 <!-- 01: STATIC HERO -->
 <section class="hero" id="hero" aria-label="Hero">
@@ -852,23 +823,6 @@ function doSearch(){
 document.getElementById('search-overlay').addEventListener('click',function(e){if(e.target===this)closeSearch()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch()}});
 
-/* ─── CONTEXT STRIP — active section tracking ─── */
-const CS_SECTIONS = ['commitment','reports','esg','figures','leadership','stories','lineup','explore'];
-const csLinks = document.querySelectorAll('.cs-item');
-function updateCtx(){
-  const offset = 120;
-  let active = CS_SECTIONS[0];
-  CS_SECTIONS.forEach(id=>{
-    const el=document.getElementById(id);
-    if(el && window.scrollY >= el.offsetTop - offset) active=id;
-  });
-  csLinks.forEach(l=>{
-    const isActive = l.dataset.section === active;
-    l.classList.toggle('active', isActive);
-  });
-}
-window.addEventListener('scroll', updateCtx, {passive:true});
-updateCtx();
 
 /* ─── ESG OVERVIEW CARDS sync with tabs ─── */
 function switchTab(panel){
@@ -954,7 +908,7 @@ mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classLi
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-104,behavior:'smooth'})}
+    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-80,behavior:'smooth'})}
   });
 });
 
