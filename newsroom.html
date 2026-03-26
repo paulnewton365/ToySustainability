@@ -142,12 +142,31 @@
 </head>
 <body>
 
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay" role="dialog" aria-label="Search">
+  <button class="so-close" onclick="closeSearch()" aria-label="Close search">✕</button>
+  <div class="search-overlay-inner">
+    <div class="so-label">Search</div>
+    <div class="so-field">
+      <input class="so-input" type="text" placeholder="Carbon neutrality, reports, community…" id="so-input" autocomplete="off">
+      <button class="so-submit" onclick="doSearch()">Search</button>
+    </div>
+    <div class="so-hints">
+      <button class="so-hint" onclick="fillSearch('carbon neutrality')">Carbon neutrality</button>
+      <button class="so-hint" onclick="fillSearch('reports')">Reports</button>
+      <button class="so-hint" onclick="fillSearch('community')">Community</button>
+      <button class="so-hint" onclick="fillSearch('nature positive')">Nature positive</button>
+      <button class="so-hint" onclick="fillSearch('electrified')">Electrified vehicles</button>
+    </div>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-utility">
     <span class="nav-utility-brand">Toyota Motor North America</span>
     <div class="nav-utility-links">
-      <a href="index.html">Sustainability Home</a>
+      <a href="https://toyota.com" target="_blank">toyota.com</a>
       <a href="#">Investors</a>
       <a href="#">Careers</a>
     </div>
@@ -158,24 +177,52 @@
       <div class="nav-logo-text"><strong>TOYOTA</strong><span>Sustainability</span></div>
     </a>
     <div class="nav-links">
-      <a href="index.html" class="nav-link">Overview</a>
-      <a href="index.html#esg" class="nav-link dd">Environment<div class="nav-dropdown"><div class="nav-dropdown-label">Pillars</div><a href="index.html#esg">Carbon Neutrality</a><a href="index.html#esg">Circular Economy</a><a href="index.html#esg">Nature Positive</a></div></a>
-      <a href="index.html#esg" class="nav-link dd">Social<div class="nav-dropdown"><div class="nav-dropdown-label">Areas</div><a href="index.html#esg">Safety</a><a href="index.html#esg">Workforce</a><a href="index.html#esg">Community</a></div></a>
-      <a href="index.html#reports" class="nav-link">Reports</a>
-      <a href="newsroom.html" class="nav-link active">Newsroom</a>
+      <a href="index.html" class="nav-link dd">Overview
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-label">Environment</div>
+          <a href="index.html#esg"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M8 11V6M6 8l2-2 2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Carbon Neutrality</a>
+          <a href="index.html#esg"><svg viewBox="0 0 16 16" fill="none"><path d="M13 8a5 5 0 0 0-5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M3 8a5 5 0 0 0 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8 3L6.5 1.5M8 13l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Circular Economy</a>
+          <a href="index.html#esg"><svg viewBox="0 0 16 16" fill="none"><path d="M12 4C5 6 4.5 10 3 14l1 .3.5-1.3C5 13.5 6 14 7 14c7 0 8-10 8-10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4 14C5 12 7 10 9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Nature Positive</a>
+          <div class="nav-dropdown-divider"></div>
+          <div class="nav-dropdown-label">Social</div>
+          <a href="index.html#esg"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2L2 5v4c0 3 2.5 5.5 6 6.5 3.5-1 6-3.5 6-6.5V5L8 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>Safety</a>
+          <a href="index.html#esg"><svg viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="12" cy="5.5" r="2" stroke="currentColor" stroke-width="1.2"/></svg>Workforce &amp; Community</a>
+          <div class="nav-dropdown-divider"></div>
+          <div class="nav-dropdown-label">Governance</div>
+          <a href="index.html#esg"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Governance — Coming Soon</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="index.html#figures"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" stroke="currentColor" stroke-width="1.2"/><rect x="6.5" y="6" width="3" height="8" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="2" width="3" height="12" stroke="currentColor" stroke-width="1.2"/></svg>Key Figures</a>
+          <a href="index.html#leadership"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M2 15c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Leadership</a>
+        </div>
+      </a>
+      <a href="reports.html" class="nav-link ">Reports</a>
+      <a href="newsroom.html" class="nav-link active ">Newsroom</a>
     </div>
-    <button class="nav-cta" onclick="window.location='index.html#reports'">↓ Reports</button>
-    <button class="nav-hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-search-field" role="search">
+      <input class="nav-search-input" type="text" placeholder="Search…" aria-label="Search" onfocus="openSearch()" readonly>
+      <button class="nav-search-icon" onclick="openSearch()" aria-label="Open search">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="12.5" y1="12.5" x2="17" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="mob">
-    <div class="nav-mobile-section">Navigate</div>
-    <a href="index.html" class="nav-mobile-link">Overview</a>
-    <a href="newsroom.html" class="nav-mobile-link active">Newsroom</a>
+    <div class="nav-mobile-search">
+      <input type="text" placeholder="Search sustainability…" onfocus="openSearch()" readonly>
+      <button onclick="openSearch()">Search</button>
+    </div>
+    <div class="nav-mobile-section">Sustainability</div>
+    <a href="index.html" class="nav-mobile-link ">Overview</a>
     <a href="index.html#esg" class="nav-mobile-link">Environment</a>
     <a href="index.html#esg" class="nav-mobile-link">Social</a>
-    <a href="index.html#reports" class="nav-mobile-link">Reports</a>
+    <a href="index.html#esg" class="nav-mobile-link">Governance</a>
+    <div class="nav-mobile-section">More</div>
+    <a href="reports.html" class="nav-mobile-link ">Reports</a>
+    <a href="newsroom.html" class="nav-mobile-link active ">Newsroom</a>
   </div>
 </nav>
+
+
 
 <!-- MASTHEAD -->
 <header class="nm-masthead fade-up">
@@ -474,6 +521,17 @@ document.getElementById('search-input').addEventListener('input',e=>{if(!e.targe
 /* fade up */
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+/* ─── SEARCH OVERLAY ─── */
+function openSearch(){
+  document.getElementById('search-overlay').classList.add('open');
+  setTimeout(()=>document.getElementById('so-input').focus(),80);
+}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open')}
+function fillSearch(q){document.getElementById('so-input').value=q;document.getElementById('so-input').focus()}
+function doSearch(){const q=document.getElementById('so-input').value.trim();if(q)closeSearch();}
+document.getElementById('search-overlay').addEventListener('click',function(e){if(e.target===this)closeSearch()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch()}});
 </script>
 </body>
 </html>

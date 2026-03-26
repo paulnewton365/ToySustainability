@@ -331,7 +331,6 @@
     <span class="nav-utility-brand">Toyota Motor North America</span>
     <div class="nav-utility-links">
       <a href="https://toyota.com" target="_blank">toyota.com</a>
-      <a href="newsroom.html">Newsroom</a>
       <a href="#">Investors</a>
       <a href="#">Careers</a>
     </div>
@@ -342,46 +341,51 @@
       <div class="nav-logo-text"><strong>TOYOTA</strong><span>Sustainability</span></div>
     </a>
     <div class="nav-links">
-      <a href="index.html" class="nav-link active">Overview</a>
-      <a href="#esg" class="nav-link dd">Environment
+      <a href="index.html" class="nav-link active dd">Overview
         <div class="nav-dropdown">
-          <div class="nav-dropdown-label">Environmental Pillars</div>
-          <a href="#esg">Carbon Neutrality</a><a href="#esg">Circular Economy</a><a href="#esg">Nature Positive</a>
-          <div class="nav-dropdown-label">Resources</div>
-          <a href="#reports">Reports + Data</a>
+          <div class="nav-dropdown-label">Environment</div>
+          <a href="#esg"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M8 11V6M6 8l2-2 2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Carbon Neutrality</a>
+          <a href="#esg"><svg viewBox="0 0 16 16" fill="none"><path d="M13 8a5 5 0 0 0-5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M3 8a5 5 0 0 0 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8 3L6.5 1.5M8 13l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Circular Economy</a>
+          <a href="#esg"><svg viewBox="0 0 16 16" fill="none"><path d="M12 4C5 6 4.5 10 3 14l1 .3.5-1.3C5 13.5 6 14 7 14c7 0 8-10 8-10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4 14C5 12 7 10 9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Nature Positive</a>
+          <div class="nav-dropdown-divider"></div>
+          <div class="nav-dropdown-label">Social</div>
+          <a href="#esg"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2L2 5v4c0 3 2.5 5.5 6 6.5 3.5-1 6-3.5 6-6.5V5L8 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>Safety</a>
+          <a href="#esg"><svg viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="12" cy="5.5" r="2" stroke="currentColor" stroke-width="1.2"/></svg>Workforce &amp; Community</a>
+          <div class="nav-dropdown-divider"></div>
+          <div class="nav-dropdown-label">Governance</div>
+          <a href="#esg"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Governance — Coming Soon</a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="#figures"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" stroke="currentColor" stroke-width="1.2"/><rect x="6.5" y="6" width="3" height="8" stroke="currentColor" stroke-width="1.2"/><rect x="11" y="2" width="3" height="12" stroke="currentColor" stroke-width="1.2"/></svg>Key Figures</a>
+          <a href="#leadership"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M2 15c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Leadership</a>
         </div>
       </a>
-      <a href="#esg" class="nav-link dd">Social
-        <div class="nav-dropdown">
-          <div class="nav-dropdown-label">Social Areas</div>
-          <a href="#esg">Safety</a><a href="#esg">Workforce</a><a href="#esg">Community</a><a href="#esg">Customer Satisfaction</a>
-        </div>
-      </a>
-      <a href="#esg" class="nav-link">Governance</a>
-      <a href="#reports" class="nav-link">Reports</a>
+      <a href="reports.html" class="nav-link">Reports</a>
       <a href="newsroom.html" class="nav-link">Newsroom</a>
     </div>
-    <!-- search in nav -->
-    <div class="nav-search">
-      <button class="nav-search-toggle" onclick="openSearch()" aria-label="Search" title="Search">
+    <!-- Inline search field -->
+    <div class="nav-search-field" role="search">
+      <input class="nav-search-input" type="text" placeholder="Search…" aria-label="Search" onfocus="openSearch()" readonly>
+      <button class="nav-search-icon" onclick="openSearch()" aria-label="Open search">
         <svg viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="12.5" y1="12.5" x2="17" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
     </div>
-    <button class="nav-cta" onclick="document.getElementById('reports').scrollIntoView({behavior:'smooth'})">↓ Reports</button>
     <button class="nav-hamburger" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="mob">
-    <div class="nav-mobile-section">Navigate</div>
-    <a href="index.html" class="nav-mobile-link active">Overview</a>
-    <a href="#reports" class="nav-mobile-link">Reports</a>
+    <div class="nav-mobile-search">
+      <input type="text" placeholder="Search sustainability…" onfocus="openSearch()" readonly>
+      <button onclick="openSearch()">Search</button>
+    </div>
     <div class="nav-mobile-section">Sustainability</div>
+    <a href="index.html" class="nav-mobile-link active">Overview</a>
     <a href="#esg" class="nav-mobile-link">Environment</a>
     <a href="#esg" class="nav-mobile-link">Social</a>
     <a href="#esg" class="nav-mobile-link">Governance</a>
+    <a href="#figures" class="nav-mobile-link">Key Figures</a>
+    <a href="#leadership" class="nav-mobile-link">Leadership</a>
     <div class="nav-mobile-section">More</div>
+    <a href="reports.html" class="nav-mobile-link">Reports</a>
     <a href="newsroom.html" class="nav-mobile-link">Newsroom</a>
-    <a href="#explore" class="nav-mobile-link">Explore Further</a>
-    <button class="nav-mobile-cta" onclick="openSearch()">Search this site</button>
   </div>
 </nav>
 
