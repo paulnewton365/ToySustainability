@@ -189,29 +189,38 @@
 /* ═══════════════════════════════
    LEADERSHIP
 ═══════════════════════════════ */
-.leadership-section{background:var(--white);display:grid;grid-template-columns:280px 1fr;border-bottom:4px solid var(--black);min-height:280px}
-.leader-photo{background:var(--grey-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;overflow:hidden;padding:32px}
+.leadership-section{background:var(--white);display:grid;grid-template-columns:1fr 1fr;border-bottom:4px solid var(--black)}
+.leader-panel{display:grid;grid-template-columns:140px 1fr;min-height:260px}
+.leader-panel:first-child{border-right:1px solid var(--grey-100)}
+.leader-photo{background:var(--grey-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;padding:24px 20px}
 .leader-photo-bg{position:absolute;inset:0;background:repeating-linear-gradient(45deg,#e8e8e8,#e8e8e8 2px,#f0f0f0 2px,#f0f0f0 16px);opacity:.6}
-.leader-photo-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--font-mono);font-size:9px;color:var(--grey-500);text-align:center}
-.leader-avatar{width:88px;height:88px;border-radius:50%;border:2px dashed var(--grey-300);display:flex;align-items:center;justify-content:center;background:var(--grey-200)}
-.leader-dots{display:flex;gap:7px}
-.leader-dot{width:8px;height:8px;border-radius:50%;background:var(--grey-300);cursor:pointer;border:none;transition:background .2s}
-.leader-dot.active{background:var(--red)}
-.leader-body{padding:40px 52px;display:flex;flex-direction:column;justify-content:center}
-.leader-eyebrow{font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
-.leader-qmark{font-family:Georgia,serif;font-size:64px;color:var(--red);line-height:.6;margin-bottom:10px;opacity:.1}
-.leader-quote{font-family:var(--font-display);font-size:clamp(15px,1.6vw,19px);font-weight:300;color:var(--grey-800);line-height:1.6;letter-spacing:-.01em;margin-bottom:20px;font-style:italic;border-left:2px solid var(--red);padding-left:16px;max-width:520px}
+.leader-photo-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--font-mono);font-size:8px;color:var(--grey-500);text-align:center;line-height:1.5}
+.leader-avatar{width:72px;height:72px;border-radius:50%;border:2px dashed var(--grey-300);display:flex;align-items:center;justify-content:center;background:var(--grey-200);flex-shrink:0}
+.leader-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;gap:0}
+.leader-eyebrow{font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+.leader-qmark{font-family:Georgia,serif;font-size:52px;color:var(--red);line-height:.5;margin-bottom:8px;opacity:.1}
+.leader-quote{font-family:var(--font-display);font-size:clamp(13px,1.4vw,17px);font-weight:300;color:var(--grey-800);line-height:1.62;letter-spacing:-.01em;margin-bottom:16px;font-style:italic;border-left:2px solid var(--red);padding-left:14px}
 .leader-name{font-weight:600;font-size:13px;color:var(--black)}
-.leader-role{font-family:var(--font-mono);font-size:10px;color:var(--grey-500);margin-top:3px;margin-bottom:14px}
+.leader-role{font-family:var(--font-mono);font-size:9px;color:var(--grey-500);margin-top:2px;margin-bottom:12px}
 .leader-links{display:flex;gap:16px;flex-wrap:wrap}
 .leader-link{font-family:var(--font-mono);font-size:10px;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap .2s}
 .leader-link:hover{gap:8px}
 .leader-link-sec{font-family:var(--font-mono);font-size:10px;color:var(--grey-400);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s}
 .leader-link-sec:hover{color:var(--grey-700)}
-.leader-slide{display:none}
-.leader-slide.active{display:flex;flex-direction:column;justify-content:center}
-@media(max-width:1099px){.leadership-section{grid-template-columns:200px 1fr}.leader-body{padding:28px 32px}}
-@media(max-width:767px){.leadership-section{grid-template-columns:1fr}.leader-photo{min-height:140px;flex-direction:row;justify-content:flex-start;padding:20px}.leader-photo-inner{flex-direction:row;gap:14px;align-items:center}.leader-avatar{width:64px;height:64px;flex-shrink:0}.leader-body{padding:24px 20px 28px}.leader-quote{font-size:15px}.leader-links{flex-direction:column;gap:10px}}
+@media(max-width:1099px){
+  .leadership-section{grid-template-columns:1fr}
+  .leader-panel:first-child{border-right:none;border-bottom:1px solid var(--grey-100)}
+  .leader-photo{min-height:0}
+  .leader-body{padding:24px 28px}
+}
+@media(max-width:767px){
+  .leader-panel{grid-template-columns:100px 1fr}
+  .leader-photo{padding:16px 12px}
+  .leader-avatar{width:56px;height:56px}
+  .leader-body{padding:20px 16px}
+  .leader-quote{font-size:13px}
+  .leader-links{flex-direction:column;gap:8px}
+}
 
 /* ═══════════════════════════════
    6. STORIES — WITH EXCERPT + READ TIME
@@ -657,41 +666,51 @@
 
 <!-- 06: LEADERSHIP -->
 <section class="leadership-section fade-up" id="leadership">
-  <div class="leader-photo">
-    <div class="leader-photo-bg"></div>
-    <div class="leader-photo-inner">
-      <div class="leader-avatar"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" stroke="#aaa" stroke-width="1.5"/><path d="M4 38c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#aaa" stroke-width="1.5"/></svg></div>
-      <span id="leader-photo-label">CEO PHOTO<br>Portrait or headshot</span>
-      <div class="leader-dots">
-        <button class="leader-dot active" data-leader="0" aria-label="CEO message"></button>
-        <button class="leader-dot" data-leader="1" aria-label="CSO message"></button>
+
+  <!-- CEO -->
+  <div class="leader-panel">
+    <div class="leader-photo">
+      <div class="leader-photo-bg"></div>
+      <div class="leader-photo-inner">
+        <div class="leader-avatar"><svg width="30" height="30" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" stroke="#aaa" stroke-width="1.5"/><path d="M4 38c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#aaa" stroke-width="1.5"/></svg></div>
+        CEO PHOTO<br>Portrait or<br>headshot
       </div>
     </div>
-  </div>
-  <div class="leader-body">
-    <div class="leader-slide active" id="leader-0">
-      <div class="leader-eyebrow">A message from our leadership</div>
+    <div class="leader-body">
+      <div class="leader-eyebrow">A message from our CEO</div>
       <div class="leader-qmark">"</div>
       <blockquote class="leader-quote">Pull quote from the CEO — personal, direct, grounded in a specific commitment. Not corporate language. Written in the individual's voice, referencing one real initiative or milestone.</blockquote>
       <div class="leader-name">[ CEO Name ]</div>
       <div class="leader-role">President, Toyota Motor North America</div>
       <div class="leader-links">
         <a href="#" class="leader-link">Read full message →</a>
-        <a href="#reports" class="leader-link-sec">Download Annual Report ↓</a>
+        <a href="reports.html" class="leader-link-sec">Annual Report ↓</a>
       </div>
     </div>
-    <div class="leader-slide" id="leader-1">
-      <div class="leader-eyebrow">A message from our leadership</div>
+  </div>
+
+  <!-- CSO -->
+  <div class="leader-panel">
+    <div class="leader-photo">
+      <div class="leader-photo-bg"></div>
+      <div class="leader-photo-inner">
+        <div class="leader-avatar"><svg width="30" height="30" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" stroke="#aaa" stroke-width="1.5"/><path d="M4 38c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#aaa" stroke-width="1.5"/></svg></div>
+        CSO PHOTO<br>Portrait or<br>headshot
+      </div>
+    </div>
+    <div class="leader-body">
+      <div class="leader-eyebrow">A message from our CSO</div>
       <div class="leader-qmark">"</div>
       <blockquote class="leader-quote">Pull quote from the CSO — focused on the strategic sustainability vision. References Toyota's commitment to measurable progress and the broader mission of producing happiness for all.</blockquote>
       <div class="leader-name">[ CSO Name ]</div>
       <div class="leader-role">Chief Sustainability Officer, Toyota Motor North America</div>
       <div class="leader-links">
         <a href="#" class="leader-link">Read full message →</a>
-        <a href="#reports" class="leader-link-sec">Download Annual Report ↓</a>
+        <a href="reports.html" class="leader-link-sec">Annual Report ↓</a>
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- 07: STORIES — WITH EXCERPTS + READ TIMES -->
@@ -844,15 +863,8 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
   btn.addEventListener('click',()=>switchTab(btn.dataset.panel));
 });
 
-/* ─── LEADERSHIP ─── */
-const ldots=document.querySelectorAll('.leader-dot');
-ldots.forEach((d,i)=>{
-  d.addEventListener('click',()=>{
-    ldots.forEach((x,j)=>{x.classList.toggle('active',j===i);x.setAttribute('aria-pressed',j===i)});
-    document.querySelectorAll('.leader-slide').forEach((s,j)=>s.classList.toggle('active',j===i));
-    document.getElementById('leader-photo-label').innerHTML=i===0?'CEO PHOTO<br>Portrait or headshot':'CSO PHOTO<br>Portrait or headshot';
-  });
-});
+
+
 
 /* ─── STORIES — with excerpt + read time ─── */
 const STORIES=[
