@@ -3,27 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Engineers Working to Make Every Journey Safer — Toyota Sustainability</title>
+<title>Where the Forest Meets the Factory — Toyota US Sustainability</title>
 <link rel="stylesheet" href="shared.css">
 <style>
 /* ═══ STORY HERO ═══ */
-.story-hero{position:relative;height:70vh;min-height:480px;max-height:680px;overflow:hidden;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end}
-.sh-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0d1420 0%,#1a1a2a 40%,#1a1a1a 100%)}
-.sh-texture{position:absolute;inset:0;background:repeating-linear-gradient(125deg,#141414 0,#141414 1px,#1c1c1c 1px,#1c1c1c 28px);opacity:.6}
-.sh-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.1) 100%)}
-.sh-img-note{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:1px dashed rgba(255,255,255,.12);padding:14px 22px;font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,.18);text-align:center;line-height:1.7;pointer-events:none}
-.sh-content{position:relative;z-index:2;padding:0 56px 52px;max-width:900px}
+.story-hero{position:relative;height:72vh;min-height:500px;max-height:720px;overflow:hidden;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end}
+.sh-bg{position:absolute;inset:0;background:linear-gradient(160deg,#071510 0%,#0d1a10 40%,#111 100%)}
+.sh-texture{position:absolute;inset:0;background:repeating-linear-gradient(125deg,#0d0d0d 0,#0d0d0d 1px,#141414 1px,#141414 28px);opacity:.6}
+.sh-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.08) 100%)}
+.sh-img-note{position:absolute;top:50%;right:52px;transform:translateY(-50%);border:1px dashed rgba(255,255,255,.14);padding:16px 20px;font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.24);text-align:left;line-height:1.85;pointer-events:none;max-width:270px}
+.sh-img-note strong{color:rgba(255,255,255,.5);display:block;margin-bottom:8px;font-weight:500;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.sh-content{position:relative;z-index:2;padding:0 56px 52px;max-width:860px}
 .sh-breadcrumb{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.3);margin-bottom:20px;flex-wrap:wrap}
 .sh-breadcrumb a{color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
 .sh-breadcrumb a:hover{color:rgba(255,255,255,.7)}
-.sh-breadcrumb span{opacity:.4}
-.sh-category{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;padding:4px 10px;border:1px solid rgba(235,10,30,.3);background:rgba(235,10,30,.08)}
-.sh-headline{font-family:var(--font-display);font-size:clamp(28px,4vw,52px);font-weight:400;color:var(--white);letter-spacing:-.025em;line-height:1.1;margin-bottom:14px}
-.sh-subheadline{font-family:var(--font-display);font-size:clamp(15px,1.8vw,20px);font-weight:300;font-style:italic;color:rgba(255,255,255,.5);line-height:1.5;max-width:680px}
-@media(max-width:1099px){.sh-content{padding:0 28px 40px}.story-hero{height:60vh;min-height:420px}}
-@media(max-width:767px){.sh-content{padding:0 20px 32px}.sh-headline{font-size:26px}.sh-subheadline{font-size:15px}.sh-img-note{display:none}}
+.sh-breadcrumb span{opacity:.35}
+.sh-category{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;padding:4px 10px;border:1px solid rgba(235,10,30,.3);background:rgba(235,10,30,.07)}
+.sh-headline{font-family:var(--font-display);font-size:clamp(30px,4.5vw,56px);font-weight:400;color:var(--white);letter-spacing:-.025em;line-height:1.08;margin-bottom:14px}
+.sh-subheadline{font-family:var(--font-display);font-size:clamp(15px,1.8vw,21px);font-weight:300;font-style:italic;color:rgba(255,255,255,.48);line-height:1.55;max-width:660px}
+@media(max-width:1099px){.sh-content{padding:0 28px 40px}.story-hero{height:60vh;min-height:420px}.sh-img-note{display:none}}
+@media(max-width:767px){.sh-content{padding:0 20px 32px}.sh-headline{font-size:28px}.sh-subheadline{font-size:15px}}
 
-/* ═══ ARTICLE META BAR ═══ */
+/* ═══ META BAR ═══ */
 .article-meta{background:var(--white);padding:20px 56px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--grey-100);flex-wrap:wrap}
 .am-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .am-author{display:flex;align-items:center;gap:10px}
@@ -41,101 +42,120 @@
 @media(max-width:1099px){.article-meta{padding:16px 28px}}
 @media(max-width:767px){.article-meta{padding:14px 20px;flex-direction:column;align-items:flex-start}.am-divider{display:none}}
 
-/* ═══ ARTICLE LAYOUT ═══ */
-.article-wrap{display:grid;grid-template-columns:1fr 280px;gap:0;max-width:1160px;margin:0 auto}
-.article-body{padding:52px 56px 64px;max-width:760px;border-right:1px solid var(--grey-100)}
+/* ═══ LAYOUT ═══ */
+.article-wrap{display:grid;grid-template-columns:1fr 300px;gap:0;max-width:1200px;margin:0 auto}
+.article-body{padding:52px 60px 64px;border-right:1px solid var(--grey-100)}
 .article-sidebar{padding:48px 32px;background:var(--grey-50)}
 
-/* body typography */
-.article-lede{font-family:var(--font-display);font-size:clamp(17px,1.8vw,22px);font-weight:300;color:var(--grey-800);line-height:1.65;letter-spacing:-.01em;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--grey-200)}
-.article-p{font-size:16px;color:var(--grey-700);line-height:1.8;margin-bottom:22px;font-weight:300}
+.article-lede{font-family:var(--font-display);font-size:clamp(18px,1.9vw,23px);font-weight:300;color:var(--grey-800);line-height:1.65;letter-spacing:-.01em;margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--grey-200)}
+.article-p{font-size:16px;color:var(--grey-700);line-height:1.82;margin-bottom:22px;font-weight:300}
 .article-p strong{color:var(--black);font-weight:500}
-.article-h3{font-family:var(--font-display);font-size:clamp(18px,2vw,24px);font-weight:400;color:var(--black);letter-spacing:-.02em;margin:36px 0 14px;line-height:1.2}
+.article-h3{font-family:var(--font-display);font-size:clamp(19px,2vw,25px);font-weight:400;color:var(--black);letter-spacing:-.02em;margin:40px 0 14px;line-height:1.2;border-left:2px solid var(--red);padding-left:14px}
 
-/* pull quote */
-.pull-quote{margin:36px 0;padding:32px 40px;background:var(--grey-50);border-left:3px solid var(--red);position:relative}
-.pq-mark{font-family:Georgia,serif;font-size:72px;color:var(--red);line-height:.5;margin-bottom:16px;opacity:.12;display:block}
+.pull-quote{margin:40px 0;padding:34px 44px;background:var(--grey-50);border-left:3px solid var(--red)}
+.pq-mark{font-family:Georgia,serif;font-size:80px;color:var(--red);line-height:.5;margin-bottom:16px;opacity:.1;display:block}
 .pq-text{font-family:var(--font-display);font-size:clamp(18px,2vw,24px);font-weight:300;font-style:italic;color:var(--black);line-height:1.55;letter-spacing:-.01em;margin-bottom:12px}
-.pq-attribution{font-family:var(--font-mono);font-size:10px;color:var(--grey-500)}
+.pq-attribution{font-family:var(--font-mono);font-size:10px;color:var(--grey-500);display:flex;flex-direction:column;gap:3px}
+.pq-attribution strong{color:var(--grey-700)}
 
-/* inline image */
-.article-img{margin:36px 0}
-.ai-placeholder{background:repeating-linear-gradient(135deg,#e8e8e8,#e8e8e8 2px,#f0f0f0 2px,#f0f0f0 18px);height:320px;display:flex;align-items:center;justify-content:center}
-.ai-placeholder-inner{border:1px dashed var(--grey-300);padding:12px 18px;background:rgba(255,255,255,.8);font-family:var(--font-mono);font-size:10px;color:var(--grey-500);text-align:center;line-height:1.7}
-.ai-caption{margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--grey-400);line-height:1.5}
+.article-img{margin:40px 0}
+.ai-ph{display:flex;align-items:flex-end;justify-content:flex-start;padding:20px;position:relative}
+.ai-ph.tall{height:380px}
+.ai-ph.med{height:270px}
+.ai-green{background:linear-gradient(160deg,#071510 0%,#0d1a10 50%,#111 100%)}
+.ai-earth{background:linear-gradient(160deg,#150f07 0%,#1a140d 50%,#111 100%)}
+.ai-note{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.28);background:rgba(0,0,0,.55);border:1px dashed rgba(255,255,255,.15);padding:10px 14px;line-height:1.8;max-width:290px}
+.ai-note strong{color:rgba(255,255,255,.55);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.07em}
+.ai-caption{margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--grey-400);line-height:1.55;font-style:italic}
 
-/* impact callout */
-.impact-callout{background:var(--black);margin:36px 0;padding:32px 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.ic-item{}
-.ic-val{font-family:var(--font-display);font-size:clamp(28px,3vw,40px);font-weight:400;color:var(--white);letter-spacing:-.02em;line-height:1;margin-bottom:6px}
+.impact-callout{background:var(--black);margin:40px 0;padding:36px 40px}
+.ic-overline{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.18em;margin-bottom:20px;display:block}
+.ic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ic-val{font-family:var(--font-display);font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--white);letter-spacing:-.02em;line-height:1;margin-bottom:6px}
 .ic-val small{font-size:.55em;color:var(--red)}
-.ic-label{font-family:var(--font-mono);font-size:10px;color:var(--grey-600);text-transform:uppercase;letter-spacing:.08em;line-height:1.4}
+.ic-lbl{font-family:var(--font-mono);font-size:10px;color:var(--grey-600);text-transform:uppercase;letter-spacing:.08em;line-height:1.45}
 
-/* progressive disclosure */
-.disclosure-section{margin:36px 0;border:1px solid var(--grey-200)}
-.ds-header{padding:18px 24px;background:var(--grey-50);cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .2s}
-.ds-header:hover{background:var(--grey-100)}
-.ds-header-text{font-family:var(--font-mono);font-size:11px;font-weight:500;color:var(--black);letter-spacing:.04em}
-.ds-header-sub{font-size:12px;color:var(--grey-500);font-weight:300;margin-top:2px}
-.ds-chevron{font-size:16px;color:var(--grey-400);transition:transform .3s;flex-shrink:0}
-.ds-chevron.open{transform:rotate(180deg)}
-.ds-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.ds-body.open{max-height:600px}
-.ds-body-inner{padding:24px;border-top:1px solid var(--grey-200)}
+.ds{margin:36px 0;border:1px solid var(--grey-200)}
+.ds-head{padding:18px 24px;background:var(--grey-50);cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .2s}
+.ds-head:hover{background:var(--grey-100)}
+.ds-title{font-family:var(--font-mono);font-size:11px;font-weight:500;color:var(--black);letter-spacing:.04em}
+.ds-sub{font-size:12px;color:var(--grey-500);font-weight:300;margin-top:2px}
+.ds-chev{font-size:16px;color:var(--grey-400);transition:transform .3s;flex-shrink:0}
+.ds-chev.open{transform:rotate(180deg)}
+.ds-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.ds-body.open{max-height:800px}
+.ds-inner{padding:24px;border-top:1px solid var(--grey-200)}
 
-/* share bar sticky */
+/* ── AUTHOR BIO ── */
+.author-bio{margin:52px 0 0;padding:36px;background:var(--grey-50);border:1px solid var(--grey-200);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+.ab-avatar{width:76px;height:76px;border-radius:50%;background:repeating-linear-gradient(135deg,#cfcfcf,#cfcfcf 2px,#dadada 2px,#dadada 14px);border:2px dashed var(--grey-300);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ab-label{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.15em;margin-bottom:9px}
+.ab-name{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--black);letter-spacing:-.01em;margin-bottom:3px}
+.ab-title{font-family:var(--font-mono);font-size:10px;color:var(--grey-500);margin-bottom:14px}
+.ab-bio{font-size:13px;color:var(--grey-600);line-height:1.75;font-weight:300}
+.ab-bio strong{color:var(--grey-800);font-weight:500}
+@media(max-width:767px){.author-bio{grid-template-columns:1fr;gap:16px}.ab-avatar{width:60px;height:60px}}
+
+/* ── SHARE STICKY ── */
 .share-sticky{position:fixed;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;padding:12px 10px;background:var(--white);border-right:1px solid var(--grey-100);z-index:50;box-shadow:2px 0 12px rgba(0,0,0,.06)}
 .share-sticky .share-btn{width:36px;height:36px}
-.share-sticky-label{font-family:var(--font-mono);font-size:8px;color:var(--grey-400);text-transform:uppercase;letter-spacing:.1em;writing-mode:vertical-lr;transform:rotate(180deg);text-align:center;margin:4px auto}
+.ss-label{font-family:var(--font-mono);font-size:8px;color:var(--grey-400);text-transform:uppercase;letter-spacing:.1em;writing-mode:vertical-lr;transform:rotate(180deg);text-align:center;margin:4px auto}
 
-/* sidebar */
-.sidebar-widget{margin-bottom:32px}
-.sw-label{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.15em;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--grey-200)}
+/* ── SIDEBAR ── */
+.sw{margin-bottom:32px}
+.sw-lbl{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.15em;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--grey-200)}
 .sw-stat{margin-bottom:14px}
-.sw-stat-val{font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--black);letter-spacing:-.02em;line-height:1}
-.sw-stat-val small{font-size:.55em;color:var(--red)}
-.sw-stat-label{font-family:var(--font-mono);font-size:9px;color:var(--grey-500);text-transform:uppercase;letter-spacing:.08em;line-height:1.4;margin-top:4px}
-.sw-cross-link{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--white);border:1px solid var(--grey-200);margin-bottom:8px;cursor:pointer;transition:border-color .2s;text-decoration:none}
-.sw-cross-link:hover{border-color:var(--red)}
-.sw-cl-icon{width:32px;height:32px;background:var(--grey-100);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sw-cl-icon svg{width:16px;height:16px}
-.sw-cl-text{}
-.sw-cl-name{font-size:12px;font-weight:600;color:var(--black);line-height:1.2}
-.sw-cl-url{font-family:var(--font-mono);font-size:9px;color:var(--grey-400)}
+.sw-num{font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--black);letter-spacing:-.02em;line-height:1}
+.sw-num small{font-size:.55em;color:var(--red)}
+.sw-num-lbl{font-family:var(--font-mono);font-size:9px;color:var(--grey-500);text-transform:uppercase;letter-spacing:.08em;line-height:1.4;margin-top:4px}
+.sw-link{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--white);border:1px solid var(--grey-200);margin-bottom:8px;cursor:pointer;transition:border-color .2s;text-decoration:none}
+.sw-link:hover{border-color:var(--red)}
+.sw-link-icon{width:32px;height:32px;background:var(--grey-100);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sw-link-icon svg{width:16px;height:16px}
+.sw-link-name{font-size:12px;font-weight:600;color:var(--black);line-height:1.2}
+.sw-link-url{font-family:var(--font-mono);font-size:9px;color:var(--grey-400)}
+.sw-product{background:var(--white);border:1px solid var(--grey-200);margin-bottom:8px;overflow:hidden;text-decoration:none;display:block;transition:border-color .2s}
+.sw-product:hover{border-color:var(--red)}
+.sw-pimg{height:78px;background:repeating-linear-gradient(135deg,#e8e8e8,#e8e8e8 2px,#f2f2f2 2px,#f2f2f2 16px);display:flex;align-items:center;justify-content:center}
+.sw-pimg-note{font-family:var(--font-mono);font-size:8px;color:var(--grey-400);text-align:center;line-height:1.5}
+.sw-pbody{padding:10px 12px}
+.sw-pmodel{font-size:13px;font-weight:600;color:var(--black)}
+.sw-ptag{font-family:var(--font-mono);font-size:8px;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
 
-/* related stories */
+/* ── RELATED ── */
 .related-section{padding:52px 56px;background:var(--grey-50);border-top:1px solid var(--grey-200)}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
 .rc{border:1px solid var(--grey-200);background:var(--white);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;transition:box-shadow .2s;text-decoration:none}
 .rc:hover{box-shadow:0 6px 24px rgba(0,0,0,.09)}
 .rc-img{height:150px;background:repeating-linear-gradient(135deg,#e8e8e8,#e8e8e8 2px,#f0f0f0 2px,#f0f0f0 18px);display:flex;align-items:center;justify-content:center}
-.rc-img-inner{font-family:var(--font-mono);font-size:9px;color:var(--grey-400);text-align:center;padding:8px;line-height:1.5}
+.rc-img-note{font-family:var(--font-mono);font-size:9px;color:var(--grey-400);text-align:center;padding:8px;line-height:1.5}
 .rc-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:7px}
 .rc-tag{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
 .rc-title{font-family:var(--font-display);font-size:15px;font-weight:400;color:var(--black);line-height:1.4;flex:1}
 .rc-read{font-family:var(--font-mono);font-size:10px;color:var(--red);margin-top:auto;display:flex;align-items:center;gap:3px}
 
-/* back nav */
-.back-nav{background:var(--white);border-bottom:1px solid var(--grey-100);padding:14px 56px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* ── BACK NAV ── */
+.back-nav{background:var(--white);border-bottom:1px solid var(--grey-100);padding:14px 56px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;position:sticky;top:64px;z-index:40}
 .back-link{font-family:var(--font-mono);font-size:10px;color:var(--grey-500);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
 .back-link:hover{color:var(--black)}
-.back-progress{font-family:var(--font-mono);font-size:10px;color:var(--grey-400)}
-.back-progress-bar{width:120px;height:2px;background:var(--grey-200);border-radius:1px;overflow:hidden;display:inline-block;vertical-align:middle;margin:0 6px}
-.back-progress-fill{height:100%;background:var(--red);width:0%;transition:width .1s}
+.back-progress{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--grey-400)}
+.back-bar{width:120px;height:2px;background:var(--grey-200);border-radius:1px;overflow:hidden}
+.back-fill{height:100%;background:var(--red);width:0%;transition:width .1s}
 
 @media(max-width:1099px){
   .article-wrap{grid-template-columns:1fr}
-  .article-body{padding:36px 28px 48px;max-width:100%;border-right:none}
+  .article-body{padding:36px 28px 48px;border-right:none}
   .article-sidebar{padding:32px 28px;border-top:1px solid var(--grey-200)}
   .share-sticky{display:none}
-  .back-nav{padding:12px 28px}
+  .back-nav{padding:12px 28px;top:58px}
   .related-section{padding:36px 28px}
+  .ic-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:767px){
   .article-body{padding:24px 20px 36px}
   .article-sidebar{padding:24px 20px}
-  .impact-callout{grid-template-columns:1fr 1fr;gap:16px}
   .pull-quote{padding:22px 24px}
+  .impact-callout{padding:24px 20px}
   .related-section{padding:28px 20px}
   .related-grid{grid-template-columns:1fr}
   .back-nav{padding:10px 20px}
@@ -145,12 +165,12 @@
 </head>
 <body>
 
-<!-- SHARE STICKY (desktop) -->
+<!-- SHARE STICKY -->
 <div class="share-sticky" aria-label="Share article">
-  <span class="share-sticky-label">Share</span>
-  <button class="share-btn" title="Share on LinkedIn"><svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 6.5v5M4 4.5v.01M7 11.5V8.5a1.5 1.5 0 0 1 3 0v3M7 8.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-  <button class="share-btn" title="Share on X/Twitter"><svg viewBox="0 0 16 16" fill="none"><path d="M2 2l5 5.5M14 2l-5 5.5M2 2l5 5.5L2 14M14 2L9 7.5 14 14M2 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-  <button class="share-btn" title="Copy link"><svg viewBox="0 0 16 16" fill="none"><path d="M6.5 9.5a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 6.5a3.5 3.5 0 0 0-5 0l-2 2a3.5 3.5 0 0 0 5 5L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <span class="ss-label">Share</span>
+  <button class="share-btn" title="LinkedIn"><svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 6.5v5M4 4.5v.01M7 11.5V8.5a1.5 1.5 0 0 1 3 0v3M7 8.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <button class="share-btn" title="Share on X"><svg viewBox="0 0 16 16" fill="none"><path d="M2 2l5 5.5M14 2l-5 5.5M2 2l5 5.5L2 14M14 2L9 7.5 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+  <button class="share-btn" title="Copy link" onclick="navigator.clipboard&&navigator.clipboard.writeText(window.location.href)"><svg viewBox="0 0 16 16" fill="none"><path d="M6.5 9.5a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 6.5a3.5 3.5 0 0 0-5 0l-2 2a3.5 3.5 0 0 0 5 5L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
 </div>
 
 <!-- NAV -->
@@ -171,7 +191,7 @@
     <div class="nav-links">
       <a href="index.html" class="nav-link">Overview</a>
       <a href="index.html#esg" class="nav-link dd">Environment<div class="nav-dropdown"><div class="nav-dropdown-label">Pillars</div><a href="index.html#esg">Carbon Neutrality</a><a href="index.html#esg">Circular Economy</a><a href="index.html#esg">Nature Positive</a></div></a>
-      <a href="index.html#esg" class="nav-link dd">Social<div class="nav-dropdown"><div class="nav-dropdown-label">Areas</div><a href="index.html#esg">Safety</a><a href="index.html#esg">Community</a><a href="index.html#esg">Workforce</a></div></a>
+      <a href="index.html#esg" class="nav-link dd">Social<div class="nav-dropdown"><div class="nav-dropdown-label">Areas</div><a href="index.html#esg">Safety</a><a href="index.html#esg">Workforce</a><a href="index.html#esg">Community</a></div></a>
       <a href="index.html#reports" class="nav-link">Reports</a>
       <a href="newsroom.html" class="nav-link active">Newsroom</a>
     </div>
@@ -191,211 +211,248 @@
 <div class="back-nav">
   <a href="newsroom.html" class="back-link">← Back to Newsroom</a>
   <div class="back-progress">
-    Reading progress <span class="back-progress-bar"><span class="back-progress-fill" id="prog-fill"></span></span>
+    Reading
+    <div class="back-bar"><div class="back-fill" id="prog-fill"></div></div>
     <span id="prog-pct">0%</span>
   </div>
 </div>
 
-<!-- STORY HERO -->
+<!-- HERO -->
 <section class="story-hero">
-  <div class="sh-bg"></div>
-  <div class="sh-texture"></div>
-  <div class="sh-overlay"></div>
-  <div class="sh-img-note">STORY HERO IMAGE<br>Research environment · Human scale<br>CSRC / Lab setting · Authentic</div>
+  <div class="sh-bg"></div><div class="sh-texture"></div><div class="sh-overlay"></div>
+  <div class="sh-img-note">
+    <strong>Hero image — Nature Positive</strong>
+    Wide shot connecting Toyota's industrial presence to living landscape. Options: a reforestation site near a Toyota facility with workers visible at human scale; an aerial of a green buffer zone adjacent to a plant; a restored wetland edge with native vegetation and open water in the foreground. Natural light — overcast or golden hour both work. Deep greens, warm earth. No stock. Real programme, real place, high resolution landscape.
+  </div>
   <div class="sh-content fade-up">
     <div class="sh-breadcrumb">
       <a href="index.html">Sustainability</a><span>›</span>
       <a href="newsroom.html">Newsroom</a><span>›</span>
-      <span>Social — Safety</span>
+      <span>Environment — Nature Positive</span>
     </div>
-    <div class="sh-category">Social — Safety Research</div>
-    <h1 class="sh-headline">The Engineers Working to Make Every Journey Safer</h1>
-    <p class="sh-subheadline">Inside Toyota's Collaborative Safety Research Centre, where human factors science and engineering converge to protect every passenger on every road</p>
+    <div class="sh-category">Environment — Nature Positive</div>
+    <h1 class="sh-headline">Where the Forest<br>Meets the Factory</h1>
+    <p class="sh-subheadline">How Toyota is restoring native habitats, planting tens of thousands of trees, and reimagining what it means for an industrial site to give something back</p>
   </div>
 </section>
 
-<!-- ARTICLE META -->
+<!-- META -->
 <div class="article-meta fade-up">
   <div class="am-left">
     <div class="am-author">
-      <div class="am-author-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#aaa" stroke-width="1.5"/><path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div><div class="am-author-name">Toyota Newsroom Team</div><div class="am-author-title">Collaborative Safety Research Centre</div></div>
+      <div class="am-author-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div><div class="am-author-name">Maya Osei-Bonsu</div><div class="am-author-title">Environmental Programmes, Toyota Newsroom</div></div>
     </div>
     <div class="am-divider"></div>
-    <div class="am-meta-item"><strong>Social · Safety</strong></div>
+    <div class="am-meta-item"><strong>Environment · Nature Positive</strong></div>
     <div class="am-divider"></div>
-    <div class="am-meta-item">6 min read</div>
+    <div class="am-meta-item">8 min read</div>
     <div class="am-divider"></div>
-    <div class="am-meta-item">Source: <strong>CSRC / Toyota Newsroom</strong></div>
+    <div class="am-meta-item">Source: <strong>Toyota Newsroom / Environmental Site</strong></div>
   </div>
   <div class="am-share">
     <span class="am-share-label">Share</span>
-    <button class="share-btn" title="LinkedIn"><svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 6.5v5M4 4.5v.01M7 11.5V8.5a1.5 1.5 0 0 1 3 0v3M7 8.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-    <button class="share-btn" title="X"><svg viewBox="0 0 16 16" fill="none"><path d="M2 2l5 5.5M14 2l-5 5.5M2 2l5 5.5L2 14M14 2L9 7.5 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-    <button class="share-btn" title="Copy link" onclick="navigator.clipboard&&navigator.clipboard.writeText(window.location.href)"><svg viewBox="0 0 16 16" fill="none"><path d="M6.5 9.5a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 6.5a3.5 3.5 0 0 0-5 0l-2 2a3.5 3.5 0 0 0 5 5L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <button class="share-btn"><svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 6.5v5M4 4.5v.01M7 11.5V8.5a1.5 1.5 0 0 1 3 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <button class="share-btn"><svg viewBox="0 0 16 16" fill="none"><path d="M2 2l5 5.5M14 2l-5 5.5M2 2l5 5.5L2 14M14 2L9 7.5 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText(window.location.href)"><svg viewBox="0 0 16 16" fill="none"><path d="M6.5 9.5a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9.5 6.5a3.5 3.5 0 0 0-5 0l-2 2a3.5 3.5 0 0 0 5 5L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
   </div>
 </div>
 
-<!-- ARTICLE -->
+<!-- ARTICLE BODY + SIDEBAR -->
 <div class="article-wrap">
-  <article class="article-body fade-up">
+<article class="article-body fade-up">
 
-    <p class="article-lede">
-      In a research facility just outside Ann Arbor, Michigan, a team of engineers and behavioral scientists spend their days thinking about the moments most of us would rather forget: the near-miss, the distracted second, the split-second decision that separates a close call from a tragedy. They do this work not as a cautionary exercise, but as an act of optimism — because understanding how accidents happen is the first step toward making them stop.
-    </p>
+  <p class="article-lede">
+    Drive past a Toyota manufacturing plant and what you notice first is the scale — the sprawl of buildings, the precision of logistics, the quiet hum of industry at work. What you might not notice is what's growing at the edges: native grasses reclaiming a former parking lot, a pond where stormwater once ran to waste, a stand of oaks where there was once compacted earth. These aren't accidents of neglect. They're the result of a deliberate, ambitious, and quietly extraordinary commitment to give back to the land.
+  </p>
 
-    <p class="article-p">
-      Toyota's Collaborative Safety Research Centre — known as CSRC — was established to bridge a gap that the industry had long struggled to close: the space between what engineering can build and what human behavior actually demands. Since its founding, the Centre has published peer-reviewed research, developed testing protocols now used industry-wide, and contributed insights that have shaped real-world vehicle safety improvements across Toyota's global lineup.
-    </p>
+  <p class="article-p">
+    Toyota's Nature Positive programme — one of three pillars in the company's environmental commitment — starts from a disarmingly simple premise: that a company with Toyota's footprint has an obligation not merely to do less harm, but to actively restore the ecosystems it inhabits. Carbon neutrality is necessary. Circular economy is necessary. But nature positive asks something harder: what if the places where we work could become genuinely better — for wildlife, for biodiversity, for the communities around them?
+  </p>
 
-    <p class="article-p">
-      But what makes CSRC distinct isn't just its research output. It's the fundamental belief that <strong>safety is inseparable from the promise of mobility itself.</strong> If Toyota's mission is producing happiness for all, then ensuring that every journey ends safely — for drivers, passengers, pedestrians, and the communities that roads pass through — is the most literal possible expression of that commitment.
-    </p>
+  <p class="article-p">
+    The answer, it turns out, is yes. And the evidence is already growing in the soil around Toyota's North American plants.
+  </p>
 
-    <div class="pull-quote">
-      <span class="pq-mark">"</span>
-      <p class="pq-text">Safety isn't a feature you add to a vehicle. It's the foundation on which every journey depends. Our job is to make sure that foundation never fails.</p>
-      <div class="pq-attribution">[ Senior Researcher Name ] · Toyota Collaborative Safety Research Centre</div>
+  <div class="pull-quote">
+    <span class="pq-mark">"</span>
+    <p class="pq-text">We started by asking what the land wanted to be. Not what was convenient for us — but what had been here before, and what could thrive here again.</p>
+    <div class="pq-attribution">
+      <strong>[ Environmental Lead Name ]</strong>
+      <span>Director of Environmental Sustainability, Toyota Motor North America</span>
     </div>
+  </div>
 
-    <h2 class="article-h3">Where Human Factors Meet Engineering</h2>
+  <h2 class="article-h3">What "Nature Positive" Actually Means</h2>
 
-    <p class="article-p">
-      The research at CSRC operates at an intersection that isn't always easy to navigate: the space between what technology can do and what people actually do when they're behind the wheel, on a bicycle, or crossing a street. Most accidents, the research shows, aren't caused by mechanical failure. They're caused by the gap between human attention, expectation, and response time — and the unforgiving physics of vehicles in motion.
-    </p>
+  <p class="article-p">
+    The term has gained significant traction in sustainability circles, but it can sound abstract — a target without a texture. At Toyota, the translation is practical. It means conducting detailed ecological assessments of every major facility site: what species are present, what habitats exist or have been lost, what the land could become if given the right conditions. It means setting measurable targets — not just "plant some trees" but specific hectares of native habitat restored, specific species supported, specific water systems improved.
+  </p>
 
-    <p class="article-p">
-      CSRC's human factors team works to understand this gap from the inside out. Using driving simulators, instrumented test vehicles, and analysis of real-world collision data, researchers build detailed models of how people perceive risk, how long it takes them to respond, and — crucially — where those response times fall short. The goal isn't to blame the driver. It's to design systems that account for human limitations and compensate for them.
-    </p>
+  <p class="article-p">
+    It also means accepting that this work is slow. <strong>Ecosystems don't recover on a quarterly cycle.</strong> A restored prairie meadow may take three to five years to fully establish. A woodland planting may take a decade before it begins providing meaningful habitat for the species it's intended to support. Toyota's nature positive commitment is therefore, in an important sense, a commitment to a timeline that extends well beyond the usual rhythms of corporate reporting. That matters.
+  </p>
 
-    <div class="article-img">
-      <div class="ai-placeholder"><div class="ai-placeholder-inner">RESEARCH ENVIRONMENT IMAGE<br>Driving simulator / instrumented vehicle / lab setting<br>Authentic, human-centred photography</div></div>
-      <p class="ai-caption">CSRC researchers use a combination of simulator studies and real-world data analysis to understand how drivers perceive and respond to risk. All photography to be sourced from actual research environments.</p>
-    </div>
-
-    <h2 class="article-h3">The Research in Practice</h2>
-
-    <p class="article-p">
-      One of CSRC's active research threads focuses on distracted driving — not the obvious distraction of a phone, but the subtler, harder-to-measure cognitive load that builds when a driver is navigating, listening to navigation instructions, managing a conversation, or simply running through the mental to-do list of a long drive. The research team has found that this "background noise" of thought can meaningfully increase response time, even when eyes remain on the road.
-    </p>
-
-    <p class="article-p">
-      The practical implications of this work feed directly into the design of Toyota's driver-assist systems: when to alert, how loudly, in what format, and — just as importantly — when to stay silent. An alert that comes too often becomes background noise. One that comes too rarely misses the moment. <strong>Getting that balance right is both a science and, in the truest sense, a matter of life and death.</strong>
-    </p>
-
-    <div class="impact-callout">
-      <div class="ic-item"><div class="ic-val">XX<small>+</small></div><div class="ic-label">Peer-reviewed studies published</div></div>
-      <div class="ic-item"><div class="ic-val">XX</div><div class="ic-label">Active research programmes</div></div>
-      <div class="ic-item"><div class="ic-val">XX<small>%</small></div><div class="ic-label">Of CSRC research openly published</div></div>
-    </div>
-
-    <h2 class="article-h3">Collaboration as a Safety Strategy</h2>
-
-    <p class="article-p">
-      What sets CSRC apart from purely internal research departments is its commitment to open science. Much of the Centre's research is published in academic journals and shared with industry partners, regulators, and competitors alike — because road safety is not a competitive advantage. A safer road for a Toyota vehicle is a safer road for every vehicle.
-    </p>
-
-    <div class="pull-quote">
-      <span class="pq-mark">"</span>
-      <p class="pq-text">When we publish our research, we're not giving anything away. We're contributing to a shared body of knowledge that makes every road safer for every person who uses it.</p>
-      <div class="pq-attribution">[ Research Director Name ] · Toyota Collaborative Safety Research Centre</div>
-    </div>
-
-    <p class="article-p">
-      This philosophy of open collaboration has made CSRC a trusted voice in national conversations about vehicle safety standards, driver-assist technology regulation, and the emerging challenges of automated driving. When policymakers and standards bodies need grounded, empirical evidence about human-vehicle interaction, CSRC is frequently among the first calls they make.
-    </p>
-
-    <h2 class="article-h3">The Happiness in Safety</h2>
-
-    <p class="article-p">
-      There's something quietly profound about the way the CSRC team talks about their work. They don't speak in terms of accident statistics or liability metrics. They speak in terms of the journeys that don't make the news: the school run that arrives safely, the highway drive that ends without incident, the pedestrian who crosses the road and reaches the other side. These are the moments that constitute most of human life — and the ones that safety research exists to protect.
-    </p>
-
-    <p class="article-p">
-      "Producing happiness for all" is Toyota's stated mission. At CSRC, that phrase lands with particular weight — because every safe journey is, in the most direct sense possible, a moment of happiness preserved. The work is unglamorous, incremental, and deeply technical. And it is, in every meaningful sense, essential.
-    </p>
-
-    <!-- PROGRESSIVE DISCLOSURE -->
-    <div class="disclosure-section">
-      <div class="ds-header" id="ds1-header">
-        <div>
-          <div class="ds-header-text">What This Means for Toyota's Safety Commitment</div>
-          <div class="ds-header-sub">Technical detail and forward direction — expand to read more</div>
-        </div>
-        <span class="ds-chevron" id="ds1-chevron">▾</span>
-      </div>
-      <div class="ds-body" id="ds1-body">
-        <div class="ds-body-inner">
-          <p class="article-p">CSRC's research feeds directly into Toyota Safety Sense — the suite of driver-assist technologies standard across much of Toyota's lineup — and into the longer-horizon development of automated driving systems. The research also informs Toyota's engagement with NHTSA and other regulatory bodies, helping shape the standards that govern the entire industry.</p>
-          <p class="article-p">Looking forward, CSRC is expanding its research into the interaction between human drivers and increasingly automated systems — particularly the question of how drivers maintain appropriate attention and readiness to intervene when vehicle automation is managing most of the driving task. This is arguably the defining safety challenge of the coming decade.</p>
-        </div>
+  <div class="article-img">
+    <div class="ai-ph tall ai-green">
+      <div class="ai-note">
+        <strong>Image — restoration in progress</strong>
+        Workers or volunteers planting native species at a Toyota facility. Human scale within landscape context — ideally with the plant or facility visible behind, making the connection between industry and nature explicit. Genuine activity, not posed. Overcast or golden hour light. Portrait or landscape orientation, high resolution.
       </div>
     </div>
+    <p class="ai-caption">Habitat restoration at [Toyota facility name]. Native species planting programme — [season, year]. Photography to be sourced from actual restoration events and verified with the environmental team prior to publication.</p>
+  </div>
 
-    <div class="disclosure-section">
-      <div class="ds-header" id="ds2-header">
-        <div>
-          <div class="ds-header-text">About the Collaborative Safety Research Centre</div>
-          <div class="ds-header-sub">Background, team, and research focus areas</div>
-        </div>
-        <span class="ds-chevron" id="ds2-chevron">▾</span>
+  <h2 class="article-h3">The Science Behind the Soil</h2>
+
+  <p class="article-p">
+    Toyota's approach to habitat restoration is grounded in ecological science rather than aesthetic landscaping. The company works with specialist ecologists and conservation organisations to identify the native plant communities that would naturally occur in each location — the grasses, wildflowers, shrubs, and trees that evolved alongside local insect populations, birds, and mammals over millennia. These are the species that provide real ecological value: the right nectar for the right pollinators, the right seeds for the right birds, the right root structures for the right soil organisms.
+  </p>
+
+  <p class="article-p">
+    This matters because biodiversity restoration isn't simply a matter of planting more plants. A meadow of non-native ornamentals provides almost no ecological value. A meadow of the right native grasses and wildflowers can support hundreds of invertebrate species, provide nesting habitat for ground-nesting bees, and create the food webs that sustain birds and mammals up the chain. <strong>Getting the species selection right is the difference between a green photo opportunity and genuinely functioning habitat.</strong>
+  </p>
+
+  <div class="impact-callout">
+    <span class="ic-overline">Progress to date — Nature Positive programme</span>
+    <div class="ic-grid">
+      <div><div class="ic-val">XX<small>k</small></div><div class="ic-lbl">Trees planted across North American sites</div></div>
+      <div><div class="ic-val">XX<small>ha</small></div><div class="ic-lbl">Native habitat restored or created</div></div>
+      <div><div class="ic-val">XX<small>%</small></div><div class="ic-lbl">Of sites with active biodiversity programmes</div></div>
+    </div>
+  </div>
+
+  <h2 class="article-h3">Water, Wetlands, and the Long View</h2>
+
+  <p class="article-p">
+    Some of the most significant interventions across Toyota's sites have been in how water is managed. Replacing impermeable surfaces and engineered drainage with wetlands, rain gardens, and infiltration areas — systems that slow water, filter it, and allow it to replenish local groundwater rather than running off as waste. The results are measurable: reduced stormwater volumes, improved water quality in adjacent watercourses, and the creation of wetland habitats that support dragonflies, amphibians, and the birds that feed on them.
+  </p>
+
+  <p class="article-p">
+    These are not incidental outcomes. They were designed for. And they are proof that industrial sites, managed thoughtfully, can become functioning parts of local ecosystems — rather than holes in them.
+  </p>
+
+  <div class="article-img">
+    <div class="ai-ph med ai-earth">
+      <div class="ai-note">
+        <strong>Image — restored wetland or rain garden</strong>
+        A stormwater wetland or restored pond on a Toyota site with native vegetation established. Close-to-mid-distance shot showing ecological detail — native plants, open water, visible wildlife if possible (birds, insects) or at minimum healthy established vegetation. Morning light preferred. Shows the contrast between engineered drainage and natural systems.
       </div>
-      <div class="ds-body" id="ds2-body">
-        <div class="ds-body-inner">
-          <p class="article-p">The Toyota Collaborative Safety Research Centre (CSRC) is Toyota Motor North America's primary safety research facility. Located in Ann Arbor, Michigan, CSRC focuses on human factors, driver behaviour, and the interaction between people and vehicle safety systems. All research is published openly and contributes to the broader body of automotive safety science.</p>
-          <p class="article-p">CSRC works in collaboration with universities, government bodies, and other research institutions. Current focus areas include distracted driving, older driver mobility, pedestrian and cyclist safety, and the human factors of automated driving systems.</p>
-          <p class="article-p"><strong>Visit:</strong> amrd.toyota.com/division/csrc &nbsp;·&nbsp; <strong>Safety Sense:</strong> toyota.com/safety-sense</p>
-        </div>
+    </div>
+    <p class="ai-caption">Restored stormwater wetland at [site name]. Native aquatic planting established [season/year]. The wetland now manages approximately [XX] litres of stormwater annually and supports [XX] recorded invertebrate species. All figures to be verified at time of publication.</p>
+  </div>
+
+  <div class="pull-quote">
+    <span class="pq-mark">"</span>
+    <p class="pq-text">What surprised us most was how quickly nature responded. Within two seasons, species we hadn't seen on this site in years were returning. The land, given half a chance, knows what to do.</p>
+    <div class="pq-attribution">
+      <strong>[ Ecologist Name ]</strong>
+      <span>Conservation partner, [Organisation name] — working with Toyota since [year]</span>
+    </div>
+  </div>
+
+  <h2 class="article-h3">The People Who Do This Work</h2>
+
+  <p class="article-p">
+    One of the quieter dimensions of Toyota's nature positive programme is how it has become a genuine source of meaning for the people involved — not just environmental specialists, but production team members who volunteer for planting days, local schools who visit restored habitats as part of environmental education, community groups who have helped establish native seed banks.
+  </p>
+
+  <p class="article-p">
+    Toyota's stated purpose — producing happiness for all — is most vividly alive in moments where work connects people to something beyond the transactional. A team member who has spent a morning planting native oaks on a site they walk past every working day has a relationship with that land that no sustainability report can fully capture. The trees will outlast all of us. That, in the end, is the point.
+  </p>
+
+  <!-- DISCLOSURES -->
+  <div class="ds">
+    <div class="ds-head" id="d1h">
+      <div><div class="ds-title">How Nature Positive fits Toyota's broader environmental strategy</div><div class="ds-sub">Relationship to Carbon Neutrality and Circular Economy pillars</div></div>
+      <span class="ds-chev" id="d1c">▾</span>
+    </div>
+    <div class="ds-body" id="d1b">
+      <div class="ds-inner">
+        <p class="article-p">Nature Positive is one of Toyota's three environmental pillars alongside Carbon Neutrality and Circular Economy — and the three are deeply complementary. Reducing emissions addresses what goes into the atmosphere. Circular economy addresses materials and resources. Nature positive addresses the living systems that both shape and are shaped by Toyota's presence in the world.</p>
+        <p class="article-p">In practice the pillars interact: a restored wetland captures and stores carbon. A native meadow supports pollinators essential to agricultural systems. Circular economy initiatives that reduce waste also reduce pressure on the ecosystems that provide raw materials. Toyota's integrated approach treats these as dimensions of a single commitment to operating within planetary boundaries — not separate programmes with separate targets.</p>
       </div>
     </div>
+  </div>
 
-  </article>
-
-  <!-- SIDEBAR -->
-  <aside class="article-sidebar fade-up">
-
-    <div class="sidebar-widget">
-      <div class="sw-label">Impact at a Glance</div>
-      <div class="sw-stat"><div class="sw-stat-val">XX<small>+</small></div><div class="sw-stat-label">Studies published by CSRC</div></div>
-      <div class="sw-stat"><div class="sw-stat-val">XX</div><div class="sw-stat-label">Active research programmes</div></div>
-      <div class="sw-stat"><div class="sw-stat-val">XX</div><div class="sw-stat-label">Toyota Safety Sense models</div></div>
+  <div class="ds">
+    <div class="ds-head" id="d2h">
+      <div><div class="ds-title">Targets, methodology, and how we measure progress</div><div class="ds-sub">Full data available in the Annual Environmental Report — summary here</div></div>
+      <span class="ds-chev" id="d2c">▾</span>
     </div>
-
-    <div class="sidebar-widget">
-      <div class="sw-label">Related Properties</div>
-      <a href="#" class="sw-cross-link">
-        <div class="sw-cl-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2L3 5v5c0 3 2.5 5.5 5 6 2.5-.5 5-3 5-6V5L8 2z" stroke="#555" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
-        <div><div class="sw-cl-name">Safety Research Centre</div><div class="sw-cl-url">amrd.toyota.com/csrc</div></div>
-      </a>
-      <a href="#" class="sw-cross-link">
-        <div class="sw-cl-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M8 1L1 5v5c0 3.5 3 7 7 8 4-1 7-4.5 7-8V5L8 1z" stroke="#555" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 8l2 2 4-4" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><div class="sw-cl-name">Toyota Safety Sense</div><div class="sw-cl-url">toyota.com/safety-sense</div></div>
-      </a>
-      <a href="#" class="sw-cross-link">
-        <div class="sw-cl-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="#555" stroke-width="1.5"/><path d="M2 15c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div><div class="sw-cl-name">R&amp;D / Mobility</div><div class="sw-cl-url">amrd.toyota.com</div></div>
-      </a>
+    <div class="ds-body" id="d2b">
+      <div class="ds-inner">
+        <p class="article-p">Toyota measures nature positive progress against science-based indicators including: hectares of habitat created or restored, species diversity indices at monitored sites, percentage of sites with active biodiversity management plans, and stormwater volumes managed through nature-based solutions.</p>
+        <p class="article-p">Full methodology, site-by-site data, and progress against targets is published annually in the Toyota Environmental Sustainability Report and the TMC Sustainability Data Book. All ecological assessments are conducted by independent specialist ecologists and verified against nationally recognised habitat classification frameworks.</p>
+        <p class="article-p"><a href="index.html#reports" style="color:var(--red);font-family:var(--font-mono);font-size:13px">↓ Download Annual Environmental Report + TMC Sustainability Data Book</a></p>
+      </div>
     </div>
+  </div>
 
-    <div class="sidebar-widget">
-      <div class="sw-label">In This Series</div>
-      <a href="story.html" class="sw-cross-link">
-        <div><div class="sw-cl-name" style="font-size:11px;line-height:1.35">Road to carbon neutrality: emissions across the lifecycle</div><div class="sw-cl-url">Environment · 4 min</div></div>
-      </a>
-      <a href="story.html" class="sw-cross-link">
-        <div><div class="sw-cl-name" style="font-size:11px;line-height:1.35">Mobility that builds community</div><div class="sw-cl-url">Social · 5 min</div></div>
-      </a>
-      <a href="story.html" class="sw-cross-link">
-        <div><div class="sw-cl-name" style="font-size:11px;line-height:1.35">What sustainability looks like from inside Toyota</div><div class="sw-cl-url">People · 3 min</div></div>
-      </a>
+  <!-- AUTHOR BIO -->
+  <div class="author-bio">
+    <div class="ab-avatar">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" stroke="#bbb" stroke-width="1.5"/><path d="M4 38c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg>
     </div>
-
-    <div class="sidebar-widget">
-      <div class="sw-label">Back to Home</div>
-      <a href="index.html" class="btn-dark" style="width:100%;justify-content:center">← Sustainability Home</a>
+    <div>
+      <div class="ab-label">About the author</div>
+      <div class="ab-name">Maya Osei-Bonsu</div>
+      <div class="ab-title">Environmental Programmes Writer · Toyota Motor North America Newsroom</div>
+      <p class="ab-bio">Maya covers Toyota's environmental and sustainability programmes for the North America Newsroom. <strong>She holds a degree in Environmental Communication</strong> from [University] and has reported from Toyota facilities across the US, Canada, and Mexico. She is particularly interested in the intersection of industrial practice and ecological restoration — and in the people who make that work real on the ground. When not writing, she volunteers with a native plant conservation programme in [state]. Her work has appeared in [publication] and [publication].</p>
     </div>
+  </div>
 
-  </aside>
+</article>
+
+<!-- SIDEBAR -->
+<aside class="article-sidebar fade-up">
+
+  <div class="sw">
+    <div class="sw-lbl">Programme at a Glance</div>
+    <div class="sw-stat"><div class="sw-num">XX<small>k</small></div><div class="sw-num-lbl">Trees planted — North America</div></div>
+    <div class="sw-stat"><div class="sw-num">XX</div><div class="sw-num-lbl">Sites with active habitat programmes</div></div>
+    <div class="sw-stat"><div class="sw-num">XX<small>ha</small></div><div class="sw-num-lbl">Native habitat restored</div></div>
+  </div>
+
+  <div class="sw">
+    <div class="sw-lbl">Sustainability in the Lineup</div>
+    <a href="index.html#lineup" class="sw-product">
+      <div class="sw-pimg"><div class="sw-pimg-note">bZ4X IMAGE<br>Vehicle thumbnail</div></div>
+      <div class="sw-pbody"><div class="sw-pmodel">Toyota bZ4X</div><div class="sw-ptag">Battery Electric · Zero tailpipe emissions</div></div>
+    </a>
+    <a href="index.html#lineup" class="sw-product">
+      <div class="sw-pimg"><div class="sw-pimg-note">RAV4 Hybrid IMAGE<br>Vehicle thumbnail</div></div>
+      <div class="sw-pbody"><div class="sw-pmodel">RAV4 Hybrid</div><div class="sw-ptag">Self-Charging Hybrid</div></div>
+    </a>
+    <a href="index.html#lineup" class="sw-product">
+      <div class="sw-pimg"><div class="sw-pimg-note">Mirai IMAGE<br>Vehicle thumbnail</div></div>
+      <div class="sw-pbody"><div class="sw-pmodel">Toyota Mirai</div><div class="sw-ptag">Hydrogen Fuel Cell · Emits only water</div></div>
+    </a>
+    <a href="index.html#lineup" style="font-family:var(--font-mono);font-size:10px;color:var(--red);display:flex;align-items:center;gap:4px;margin-top:4px;text-decoration:none">See full electrified lineup →</a>
+  </div>
+
+  <div class="sw">
+    <div class="sw-lbl">Related Properties</div>
+    <a href="#" class="sw-link">
+      <div class="sw-link-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M12 4C5 6 4 10 2 14l1 .4.5-1.4C4 13.5 5 14 6 14c7 0 9-10 9-10" stroke="#555" stroke-width="1.5" stroke-linecap="round"/><path d="M3 14C4 12 6 10 8 9" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div><div class="sw-link-name">Environmental Sustainability</div><div class="sw-link-url">toyota.com/environment</div></div>
+    </a>
+    <a href="index.html#reports" class="sw-link">
+      <div class="sw-link-icon"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="14" rx="1" stroke="#555" stroke-width="1.5"/><line x1="5" y1="6" x2="11" y2="6" stroke="#555" stroke-width="1.5" stroke-linecap="round"/><line x1="5" y1="9" x2="11" y2="9" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div><div class="sw-link-name">Download Annual Report</div><div class="sw-link-url">Full data + methodology</div></div>
+    </a>
+  </div>
+
+  <div class="sw">
+    <div class="sw-lbl">In This Series</div>
+    <a href="story.html" class="sw-link"><div><div class="sw-link-name" style="font-size:11px;line-height:1.35">The road to carbon neutrality: emissions across the lifecycle</div><div class="sw-link-url">Environment · 4 min</div></div></a>
+    <a href="story.html" class="sw-link"><div><div class="sw-link-name" style="font-size:11px;line-height:1.35">Turning end-of-life vehicles into tomorrow's materials</div><div class="sw-link-url">Circular Economy · 3 min</div></div></a>
+    <a href="story.html" class="sw-link"><div><div class="sw-link-name" style="font-size:11px;line-height:1.35">Mobility that builds community</div><div class="sw-link-url">Social · Community · 5 min</div></div></a>
+  </div>
+
+  <a href="index.html" class="btn-dark" style="width:100%;justify-content:center">← Sustainability Home</a>
+
+</aside>
 </div>
 
 <!-- RELATED -->
@@ -404,28 +461,16 @@
   <h2 class="section-h2" style="font-size:clamp(20px,2vw,26px)">More Stories from the Work</h2>
   <div class="related-grid">
     <a href="story.html" class="rc">
-      <div class="rc-img"><div class="rc-img-inner">ENVIRONMENT IMAGE<br>Carbon Neutrality</div></div>
-      <div class="rc-body">
-        <div class="rc-tag">Environment — Carbon Neutrality</div>
-        <h3 class="rc-title">The road to carbon neutrality: how Toyota is cutting emissions across every stage</h3>
-        <span class="rc-read">Read →</span>
-      </div>
+      <div class="rc-img"><div class="rc-img-note">IMAGE · Carbon Neutrality<br>Manufacturing environment</div></div>
+      <div class="rc-body"><div class="rc-tag">Environment — Carbon Neutrality</div><h3 class="rc-title">The road to carbon neutrality: how Toyota is cutting emissions across every stage</h3><span class="rc-read">Read →</span></div>
     </a>
     <a href="story.html" class="rc">
-      <div class="rc-img"><div class="rc-img-inner">COMMUNITY IMAGE<br>Toyota Effect</div></div>
-      <div class="rc-body">
-        <div class="rc-tag">Social — Community</div>
-        <h3 class="rc-title">Mobility that builds community: Toyota Effect stories from across North America</h3>
-        <span class="rc-read">Read →</span>
-      </div>
+      <div class="rc-img"><div class="rc-img-note">IMAGE · Community<br>Toyota Effect story</div></div>
+      <div class="rc-body"><div class="rc-tag">Social — Community</div><h3 class="rc-title">Mobility that builds community: Toyota Effect stories from across North America</h3><span class="rc-read">Read →</span></div>
     </a>
     <a href="story.html" class="rc">
-      <div class="rc-img"><div class="rc-img-inner">TEAM IMAGE<br>People · Workforce</div></div>
-      <div class="rc-body">
-        <div class="rc-tag">People — Team</div>
-        <h3 class="rc-title">What does sustainability look like from inside Toyota? Team members share their perspective</h3>
-        <span class="rc-read">Read →</span>
-      </div>
+      <div class="rc-img"><div class="rc-img-note">IMAGE · Circular Economy<br>Materials / recycling</div></div>
+      <div class="rc-body"><div class="rc-tag">Environment — Circular Economy</div><h3 class="rc-title">Turning end-of-life vehicles into tomorrow's materials</h3><span class="rc-read">Read →</span></div>
     </a>
   </div>
 </section>
@@ -438,7 +483,7 @@
       <p class="footer-brand-desc">Producing Happiness for All — a commitment to people, planet, and the communities we serve.</p>
     </div>
     <div><div class="footer-col-label">Sustainability</div><div class="footer-links"><a href="index.html#commitment" class="footer-link">Our Commitment</a><a href="index.html#esg" class="footer-link">Environment</a><a href="index.html#esg" class="footer-link">Social</a><a href="index.html#reports" class="footer-link">Reports</a></div></div>
-    <div><div class="footer-col-label">Explore</div><div class="footer-links"><a href="newsroom.html" class="footer-link">Newsroom</a><a href="#" class="footer-link">Toyota Effect</a><a href="#" class="footer-link">Safety Research</a><a href="#" class="footer-link">Electrified Vehicles</a></div></div>
+    <div><div class="footer-col-label">Explore</div><div class="footer-links"><a href="newsroom.html" class="footer-link">Newsroom</a><a href="index.html#lineup" class="footer-link">Electrified Vehicles</a><a href="#" class="footer-link">Toyota Effect</a><a href="#" class="footer-link">Environmental Site</a></div></div>
     <div><div class="footer-col-label">Company</div><div class="footer-links"><a href="#" class="footer-link">About Toyota</a><a href="#" class="footer-link">Investors</a><a href="#" class="footer-link">Careers</a><a href="#" class="footer-link">Contact</a></div></div>
   </div>
   <div class="footer-bottom">
@@ -448,30 +493,20 @@
 </footer>
 
 <script>
-/* hamburger */
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
 ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open');ham.setAttribute('aria-expanded',o)});
-
-/* reading progress */
 window.addEventListener('scroll',()=>{
-  const doc=document.documentElement;
-  const pct=Math.min(100,Math.round(doc.scrollTop/(doc.scrollHeight-doc.clientHeight)*100));
+  const d=document.documentElement,pct=Math.min(100,Math.round(d.scrollTop/(d.scrollHeight-d.clientHeight)*100));
   document.getElementById('prog-fill').style.width=pct+'%';
   document.getElementById('prog-pct').textContent=pct+'%';
 },{passive:true});
-
-/* disclosures */
-['ds1','ds2'].forEach(id=>{
-  document.getElementById(id+'-header').addEventListener('click',()=>{
-    const body=document.getElementById(id+'-body');
-    const chevron=document.getElementById(id+'-chevron');
-    const open=body.classList.toggle('open');
-    chevron.classList.toggle('open',open);
+[['d1h','d1c','d1b'],['d2h','d2c','d2b']].forEach(([h,c,b])=>{
+  document.getElementById(h).addEventListener('click',()=>{
+    const open=document.getElementById(b).classList.toggle('open');
+    document.getElementById(c).classList.toggle('open',open);
   });
 });
-
-/* fade up */
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.07,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
 </script>
 </body>
