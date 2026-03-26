@@ -6,70 +6,126 @@
 <title>Toyota US Sustainability</title>
 <link rel="stylesheet" href="shared.css">
 <style>
-/* ═══ CAROUSEL ═══ */
-.hero-carousel{position:relative;min-height:560px;overflow:hidden;background:var(--black)}
-.hero-slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity .9s ease;pointer-events:none;min-height:560px}
-.hero-slide.active{opacity:1;pointer-events:all}
-.slide-bg{position:absolute;inset:0;background:var(--grey-900)}
-.slide-bg.s1{background:repeating-linear-gradient(130deg,#141414 0,#141414 1px,#1c1c1c 1px,#1c1c1c 22px)}
-.slide-bg.s2{background:linear-gradient(160deg,#0d1a0d 0%,#1a1a1a 60%,#141414 100%)}
-.slide-bg.s3{background:linear-gradient(160deg,#0d0d1a 0%,#1a1a1a 60%,#141414 100%)}
-.slide-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,rgba(0,0,0,.3) 70%,rgba(0,0,0,.1) 100%)}
-.slide-img-note{position:absolute;top:50%;right:56px;transform:translateY(-50%);text-align:center;pointer-events:none;border:1px dashed rgba(255,255,255,.15);padding:14px 20px;font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,.2);line-height:1.7;max-width:220px}
-.slide-content{position:relative;z-index:2;padding:52px 56px 80px;max-width:720px}
-.slide-category{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;padding:4px 10px;border:1px solid rgba(235,10,30,.3);background:rgba(235,10,30,.08)}
-.slide-h1{font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:400;color:var(--white);line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
-.slide-h1 em{display:block;font-weight:300;color:rgba(255,255,255,.55);font-style:normal;font-size:.78em}
-.slide-sub{font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:30px;font-weight:300;max-width:500px}
-.slide-ctas{display:flex;gap:12px;flex-wrap:wrap}
-/* carousel controls */
-.carousel-nav{position:absolute;bottom:28px;left:56px;right:56px;display:flex;align-items:center;gap:14px;z-index:10}
-.c-dot{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:all .35s;padding:0}
-.c-dot.active{background:var(--red);width:22px}
-.c-progress{flex:1;height:1px;background:rgba(255,255,255,.1);overflow:hidden}
-.c-bar{height:100%;background:var(--red);width:0}
-.c-bar.running{animation:cBar 6s linear forwards}
-@keyframes cBar{from{width:0}to{width:100%}}
-.c-arrows{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);display:flex;justify-content:space-between;padding:0 16px;pointer-events:none;z-index:10}
-.c-arrow{width:44px;height:44px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:all;transition:background .2s;font-size:16px}
-.c-arrow:hover{background:rgba(0,0,0,.7)}
-@media(max-width:767px){
-  .slide-content{padding:32px 20px 72px}
-  .slide-h1{font-size:32px}
-  .slide-ctas{flex-direction:column}
-  .btn-primary,.btn-ghost{width:100%;justify-content:center}
-  .slide-img-note{display:none}
-  .c-arrows{padding:0 8px}
-  .carousel-nav{left:20px;right:20px}
-}
+/* ═══════════════════════════════
+   1. STATIC HERO
+═══════════════════════════════ */
+.hero{position:relative;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--black)}
+.hero-bg{position:absolute;inset:0;background:repeating-linear-gradient(130deg,#141414 0,#141414 1px,#1c1c1c 1px,#1c1c1c 22px)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.82) 0%,rgba(0,0,0,.45) 65%,rgba(0,0,0,.1) 100%)}
+.hero-img-note{position:absolute;top:50%;right:56px;transform:translateY(-50%);border:1px dashed rgba(255,255,255,.14);padding:16px 20px;font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,.22);line-height:1.85;max-width:260px;pointer-events:none}
+.hero-img-note strong{display:block;color:rgba(255,255,255,.5);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.hero-content{position:relative;z-index:2;padding:56px 56px 52px;max-width:700px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--red)}
+.hero-eyebrow-text{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.18em;text-transform:uppercase}
+.hero-h1{font-family:var(--font-display);font-size:clamp(38px,5vw,60px);font-weight:400;color:var(--white);line-height:1.08;letter-spacing:-.025em;margin-bottom:18px}
+.hero-h1 em{display:block;font-weight:300;color:rgba(255,255,255,.5);font-style:normal;font-size:.78em}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.6);line-height:1.72;margin-bottom:32px;font-weight:300;max-width:500px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ═══ KEY MESSAGE ═══ */
+/* Hero story teasers — below the fold of the hero */
+.hero-stories{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--black)}
+.hs-teaser{background:#141414;border-top:1px solid #222;padding:22px 28px;display:flex;align-items:center;gap:18px;cursor:pointer;text-decoration:none;transition:background .2s}
+.hs-teaser:hover{background:#1c1c1c}
+.hs-teaser-icon{width:44px;height:44px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hs-teaser-icon.env{background:#0d1a10}
+.hs-teaser-icon.soc{background:#0d0d1a}
+.hs-teaser-icon svg{width:20px;height:20px}
+.hs-teaser-label{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:4px}
+.hs-teaser-title{font-family:var(--font-display);font-size:14px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.4}
+.hs-teaser-read{font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,.28);margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:4px;transition:color .2s}
+.hs-teaser:hover .hs-teaser-read{color:var(--red)}
+
+@media(max-width:1099px){.hero-content{padding:40px 28px 44px}.hero-img-note{display:none}.hero-stories{grid-template-columns:1fr}}
+@media(max-width:767px){.hero-content{padding:32px 20px 36px}.hero-h1{font-size:34px}.hero-ctas{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}.hs-teaser{padding:16px 20px}.hs-teaser-read{display:none}}
+
+/* ═══════════════════════════════
+   2. CONTEXT STRIP
+═══════════════════════════════ */
+.context-strip{position:sticky;top:64px;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--grey-200);display:flex;align-items:stretch;overflow-x:auto;height:40px}
+.cs-item{display:flex;align-items:center;padding:0 20px;font-family:var(--font-mono);font-size:10px;color:var(--grey-400);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;gap:6px;cursor:pointer}
+.cs-item:hover{color:var(--grey-700)}
+.cs-item.active{color:var(--black);border-bottom-color:var(--red)}
+.cs-dot{width:5px;height:5px;border-radius:50%;background:var(--grey-300);flex-shrink:0;transition:background .2s}
+.cs-item.active .cs-dot{background:var(--red)}
+.cs-divider{width:1px;background:var(--grey-100);margin:8px 0;flex-shrink:0}
+@media(max-width:767px){.context-strip{top:58px;height:36px}.cs-item{padding:0 14px;font-size:9px}.cs-divider{display:none}}
+
+/* ═══════════════════════════════
+   3. NAV SEARCH
+═══════════════════════════════ */
+.nav-search{position:relative;display:flex;align-items:center}
+.nav-search-toggle{width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#888;transition:color .2s;background:none;border:none}
+.nav-search-toggle:hover{color:var(--white)}
+.nav-search-toggle svg{width:16px;height:16px}
+.nav-search-input-wrap{position:absolute;right:100%;top:50%;transform:translateY(-50%);width:0;overflow:hidden;transition:width .3s ease}
+.nav-search-input-wrap.open{width:220px}
+.nav-search-input{width:100%;background:#1a1a1a;border:none;border-bottom:1px solid #444;padding:8px 12px;font-family:var(--font-mono);font-size:11px;color:var(--white);outline:none}
+.nav-search-input::placeholder{color:#555}
+/* Site-wide search overlay */
+.search-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;display:flex;flex-direction:column;align-items:center;padding-top:120px;opacity:0;pointer-events:none;transition:opacity .25s}
+.search-overlay.open{opacity:1;pointer-events:all}
+.search-overlay-inner{width:100%;max-width:640px;padding:0 24px}
+.so-label{font-family:var(--font-mono);font-size:10px;color:var(--red);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.so-field{display:flex;border-bottom:2px solid var(--red)}
+.so-input{flex:1;background:none;border:none;padding:16px 0;font-family:var(--font-display);font-size:clamp(22px,3vw,32px);color:var(--white);outline:none;font-weight:300}
+.so-input::placeholder{color:#333}
+.so-submit{background:var(--red);color:var(--white);border:none;padding:0 20px;font-family:var(--font-mono);font-size:11px;cursor:pointer;letter-spacing:.08em}
+.so-close{position:absolute;top:28px;right:32px;background:none;border:none;color:#555;font-size:24px;cursor:pointer;transition:color .2s;line-height:1}
+.so-close:hover{color:var(--white)}
+.so-hints{margin-top:24px;display:flex;gap:8px;flex-wrap:wrap}
+.so-hint{font-family:var(--font-mono);font-size:10px;color:#444;border:1px solid #2a2a2a;padding:5px 12px;cursor:pointer;transition:all .2s}
+.so-hint:hover{background:#1a1a1a;color:var(--white);border-color:#444}
+
+/* ═══════════════════════════════
+   KEY MESSAGE
+═══════════════════════════════ */
 .key-message{background:var(--white);padding:52px 56px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;border-bottom:1px solid var(--grey-100)}
 .km-headline{font-family:var(--font-display);font-size:clamp(26px,3vw,36px);font-weight:400;color:var(--black);letter-spacing:-.02em;line-height:1.2;margin-bottom:14px}
 .km-body{font-size:15px;color:var(--grey-600);line-height:1.75;max-width:600px;font-weight:300}
 @media(max-width:1099px){.key-message{padding:36px 28px;grid-template-columns:1fr;gap:20px}}
 @media(max-width:767px){.key-message{padding:28px 20px}}
 
-/* ═══ REPORTS STRIP ═══ */
-.reports-strip{background:var(--black);padding:24px 56px;display:flex;align-items:center;gap:24px;border-bottom:1px solid #1a1a1a}
-.rs-label{font-family:var(--font-mono);font-size:10px;color:#555;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;display:flex;align-items:center;gap:8px;flex-shrink:0}
-.rs-label::before{content:'↓';color:var(--red);font-size:14px}
-.rs-cards{display:flex;gap:10px;flex:1;overflow-x:auto;padding-bottom:2px}
-.rs-card{background:#181818;border:1px solid #2a2a2a;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;flex-shrink:0;min-width:200px;transition:border-color .2s;text-decoration:none}
-.rs-card:hover{border-color:var(--red)}
-.rs-card-icon{flex-shrink:0}
-.rs-card-name{font-size:12px;font-weight:500;color:var(--white);line-height:1.3;display:block}
-.rs-card-meta{font-family:var(--font-mono);font-size:9px;color:#555;display:block;margin-top:2px}
-.rs-card-dl{font-family:var(--font-mono);font-size:9px;color:var(--red);display:flex;align-items:center;gap:3px;margin-top:4px}
-.rs-more{font-family:var(--font-mono);font-size:10px;color:#555;white-space:nowrap;flex-shrink:0;cursor:pointer;transition:color .2s;margin-left:auto;text-decoration:none}
-.rs-more:hover{color:var(--white)}
-@media(max-width:1099px){.reports-strip{padding:18px 28px;flex-wrap:wrap;gap:14px}.rs-more{display:none}}
-@media(max-width:767px){.reports-strip{padding:16px 20px;flex-direction:column;align-items:flex-start}}
+/* ═══════════════════════════════
+   4. REPORTS — EXPANDED
+═══════════════════════════════ */
+.reports-section{background:var(--black);padding:40px 56px;border-bottom:1px solid #1a1a1a}
+.reports-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.rs-h{font-family:var(--font-display);font-size:clamp(18px,2vw,22px);font-weight:400;color:var(--white);letter-spacing:-.02em;margin-top:6px}
+.rs-sub{font-size:13px;color:#444;font-weight:300;margin-top:4px}
+.rs-all{font-family:var(--font-mono);font-size:10px;color:#555;text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s;white-space:nowrap}
+.rs-all:hover{color:var(--white)}
+.reports-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.report-card{background:#141414;border:1px solid #1e1e1e;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,background .2s;text-decoration:none}
+.report-card:hover{border-color:var(--red);background:#181818}
+.rc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.rc-icon{width:40px;height:40px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rc-icon svg{width:18px;height:18px}
+.rc-audience{font-family:var(--font-mono);font-size:8px;padding:3px 8px;border:1px solid #2a2a2a;color:#555;letter-spacing:.1em;text-transform:uppercase}
+.rc-title{font-size:14px;font-weight:600;color:var(--white);line-height:1.35}
+.rc-desc{font-size:12px;color:#555;line-height:1.65;font-weight:300;flex:1}
+.rc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid #1e1e1e}
+.rc-meta{font-family:var(--font-mono);font-size:9px;color:#333}
+.rc-dl{font-family:var(--font-mono);font-size:10px;color:var(--red);display:flex;align-items:center;gap:4px}
+@media(max-width:1099px){.reports-section{padding:32px 28px}.reports-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:767px){.reports-section{padding:24px 20px}.reports-header{flex-direction:column;align-items:flex-start}.reports-grid{grid-template-columns:1fr}}
 
-/* ═══ ESG TABS ═══ */
+/* ═══════════════════════════════
+   5. ESG — OVERVIEW + TABS
+═══════════════════════════════ */
 .esg-section{background:var(--grey-50)}
 .esg-header{padding:48px 56px 0}
-.tab-nav{display:flex;padding:0 56px;border-bottom:1px solid var(--grey-200);overflow-x:auto}
+/* overview strip */
+.esg-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:28px 0 0}
+.eo-item{background:var(--white);border:1px solid var(--grey-200);padding:20px 24px;display:flex;align-items:center;gap:14px;transition:box-shadow .15s,border-color .15s;cursor:pointer}
+.eo-item:hover{box-shadow:0 3px 14px rgba(0,0,0,.07);border-color:var(--grey-300)}
+.eo-item.active-tab{border-bottom-color:var(--red);border-bottom-width:2px}
+.eo-icon{width:40px;height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.eo-icon svg{width:18px;height:18px}
+.eo-name{font-size:13px;font-weight:600;color:var(--black)}
+.eo-tagline{font-family:var(--font-mono);font-size:9px;color:var(--grey-500);margin-top:2px;line-height:1.4}
+/* tab nav */
+.tab-nav{display:flex;padding:0 56px;border-bottom:1px solid var(--grey-200);overflow-x:auto;margin-top:24px}
 .tab-btn{padding:14px 28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-500);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;margin-bottom:-1px;transition:color .2s,border-color .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .tab-btn:hover{color:var(--grey-800)}
 .tab-btn.active{color:var(--black);border-bottom-color:var(--red)}
@@ -77,7 +133,7 @@
 .tab-btn.active .tab-count{background:var(--red);color:var(--white)}
 .tab-panel{display:none;padding:28px 56px 48px}
 .tab-panel.active{display:block}
-/* env */
+/* env cards */
 .env-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
 .env-card{background:var(--white);border:1px solid var(--grey-200);border-top:3px solid var(--red);padding:24px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s}
 .env-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
@@ -94,28 +150,40 @@
 .env-deeper-btn:hover{border-color:var(--red);color:var(--red)}
 /* social */
 .social-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
-.social-item{background:var(--white);border:1px solid var(--grey-200);padding:18px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;transition:box-shadow .2s,border-color .2s;cursor:default}
+.social-item{background:var(--white);border:1px solid var(--grey-200);padding:18px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;transition:box-shadow .2s,border-color .2s}
 .social-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.07);border-color:var(--grey-300)}
 .social-label{font-size:13px;font-weight:600;color:var(--black)}
 .social-sub{font-family:var(--font-mono);font-size:9px;color:var(--grey-500);line-height:1.4}
 .social-sub a{color:var(--red);text-decoration:none}
 .status-tag{font-family:var(--font-mono);font-size:8px;padding:2px 6px;border-radius:2px}
-.s-ok{background:#edf7ed;color:#1a6b2a}.s-hold{background:#fde8e8;color:#c0000a}.s-forming{background:#fff8ec;color:#9a6a00}
+.s-ok{background:#edf7ed;color:#1a6b2a}.s-hold{background:#fde8e8;color:#c0000a}
 .social-deeper{background:var(--grey-100);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .social-deeper-text{font-size:13px;color:var(--grey-600);font-weight:300}
-.gov-hold{background:var(--white);border:1px dashed var(--grey-300);padding:48px;text-align:center}
-.gov-hold-title{font-family:var(--font-display);font-size:22px;font-weight:300;color:var(--grey-400);margin-bottom:10px}
-.gov-hold-note{font-family:var(--font-mono);font-size:11px;color:var(--grey-300);line-height:1.6;max-width:360px;margin:0 auto}
-@media(max-width:1099px){.esg-header{padding:36px 28px 0}.tab-nav{padding:0 28px}.tab-panel{padding:24px 28px 36px}.env-grid{grid-template-columns:1fr 1fr}.social-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:767px){.esg-header{padding:28px 20px 0}.tab-btn{padding:12px 16px;font-size:10px}.tab-nav{padding:0 20px}.tab-panel{padding:20px 20px 32px}.env-grid{grid-template-columns:1fr}.env-deeper{flex-direction:column;align-items:flex-start}.social-grid{grid-template-columns:1fr 1fr}.social-deeper{flex-direction:column;align-items:flex-start}}
+/* governance — notify */
+.gov-notify{background:var(--white);border:1px solid var(--grey-200);padding:40px 48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.gn-left{}
+.gn-tag{font-family:var(--font-mono);font-size:9px;color:var(--red);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.gn-title{font-family:var(--font-display);font-size:clamp(20px,2vw,26px);font-weight:400;color:var(--black);letter-spacing:-.02em;margin-bottom:10px}
+.gn-body{font-size:14px;color:var(--grey-600);font-weight:300;line-height:1.7;max-width:480px}
+.gn-form{display:flex;flex-direction:column;gap:10px;align-items:flex-end;min-width:240px}
+.gn-input{width:100%;background:var(--grey-50);border:1px solid var(--grey-200);padding:11px 14px;font-family:var(--font-mono);font-size:11px;color:var(--black);outline:none;transition:border-color .2s}
+.gn-input:focus{border-color:var(--red)}
+.gn-input::placeholder{color:var(--grey-400)}
+.gn-btn{background:var(--black);color:var(--white);padding:11px 20px;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;width:100%}
+.gn-btn:hover{background:var(--grey-800)}
+.gn-note{font-family:var(--font-mono);font-size:9px;color:var(--grey-400);text-align:center}
+@media(max-width:1099px){.esg-header{padding:36px 28px 0}.esg-overview{grid-template-columns:1fr 1fr}.tab-nav{padding:0 28px}.tab-panel{padding:24px 28px 36px}.env-grid{grid-template-columns:1fr 1fr}.social-grid{grid-template-columns:repeat(3,1fr)}.gov-notify{grid-template-columns:1fr;gap:24px}.gn-form{align-items:flex-start;min-width:0}}
+@media(max-width:767px){.esg-header{padding:28px 20px 0}.tab-btn{padding:12px 16px;font-size:10px}.tab-nav{padding:0 20px}.tab-panel{padding:20px 20px 32px}.esg-overview{grid-template-columns:1fr}.env-grid{grid-template-columns:1fr}.env-deeper{flex-direction:column;align-items:flex-start}.social-grid{grid-template-columns:1fr 1fr}.social-deeper{flex-direction:column;align-items:flex-start}.gov-notify{padding:24px 20px}}
 
-/* ═══ FIGURES ═══ */
+/* ═══════════════════════════════
+   FIGURES
+═══════════════════════════════ */
 .figures-section{background:var(--black)}
 .figures-header{padding:40px 56px 0;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
 .figures-h2{font-family:var(--font-display);font-size:clamp(20px,2vw,26px);font-weight:400;color:var(--white);letter-spacing:-.02em;margin-top:6px}
 .figures-source{font-family:var(--font-mono);font-size:9px;color:#333;text-align:right;line-height:1.6}
 .figures-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:20px}
-.figure-item{padding:28px 32px;border-right:1px solid #1e1e1e;border-top:1px solid #1e1e1e;cursor:default;transition:background .2s;position:relative}
+.figure-item{padding:28px 32px;border-right:1px solid #1e1e1e;border-top:1px solid #1e1e1e;cursor:default;transition:background .2s}
 .figure-item:last-child{border-right:none}
 .figure-item:hover{background:#141414}
 .figure-num{font-family:var(--font-display);font-size:clamp(32px,3vw,44px);font-weight:400;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
@@ -129,7 +197,9 @@
 @media(max-width:1099px){.figures-header{padding:28px 28px 0}.figures-grid{grid-template-columns:repeat(2,1fr)}.figure-item:nth-child(2){border-right:none}.figure-item:nth-child(3){border-right:1px solid #1e1e1e}.figure-item:nth-child(4){border-right:none}}
 @media(max-width:767px){.figures-header{padding:24px 20px 0;flex-direction:column;align-items:flex-start}.figures-grid{grid-template-columns:1fr 1fr}.figure-item{padding:20px}.figure-item:nth-child(2n){border-right:none}.figure-item:nth-child(3){border-right:1px solid #1e1e1e}}
 
-/* ═══ LEADERSHIP ═══ */
+/* ═══════════════════════════════
+   LEADERSHIP
+═══════════════════════════════ */
 .leadership-section{background:var(--white);display:grid;grid-template-columns:280px 1fr;border-bottom:4px solid var(--black);min-height:280px}
 .leader-photo{background:var(--grey-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;overflow:hidden;padding:32px}
 .leader-photo-bg{position:absolute;inset:0;background:repeating-linear-gradient(45deg,#e8e8e8,#e8e8e8 2px,#f0f0f0 2px,#f0f0f0 16px);opacity:.6}
@@ -154,7 +224,9 @@
 @media(max-width:1099px){.leadership-section{grid-template-columns:200px 1fr}.leader-body{padding:28px 32px}}
 @media(max-width:767px){.leadership-section{grid-template-columns:1fr}.leader-photo{min-height:140px;flex-direction:row;justify-content:flex-start;padding:20px}.leader-photo-inner{flex-direction:row;gap:14px;align-items:center}.leader-avatar{width:64px;height:64px;flex-shrink:0}.leader-body{padding:24px 20px 28px}.leader-quote{font-size:15px}.leader-links{flex-direction:column;gap:10px}}
 
-/* ═══ STORIES ═══ */
+/* ═══════════════════════════════
+   6. STORIES — WITH EXCERPT + READ TIME
+═══════════════════════════════ */
 .stories-section{background:var(--white);padding:48px 56px;border-top:1px solid var(--grey-100)}
 .stories-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:20px;flex-wrap:wrap}
 .stories-filters{display:flex;gap:6px;flex-wrap:wrap}
@@ -169,18 +241,56 @@
 .story-img{background:repeating-linear-gradient(135deg,#e8e8e8,#e8e8e8 2px,#f0f0f0 2px,#f0f0f0 18px);height:170px;display:flex;align-items:center;justify-content:center}
 .story-card.featured .story-img{height:240px}
 .story-img-inner{border:1px dashed var(--grey-300);padding:8px 12px;background:rgba(255,255,255,.7);font-family:var(--font-mono);font-size:9px;color:var(--grey-500);text-align:center;line-height:1.6}
-.story-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:8px}
+.story-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:7px}
 .story-tag{font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
-.story-title{font-family:var(--font-display);font-size:15px;font-weight:400;color:var(--black);line-height:1.45;flex:1}
+.story-title{font-family:var(--font-display);font-size:15px;font-weight:400;color:var(--black);line-height:1.45}
 .story-card.featured .story-title{font-size:18px}
-.story-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.story-excerpt{font-size:13px;color:var(--grey-500);line-height:1.6;font-weight:300}
+.story-card:not(.featured) .story-excerpt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.story-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;border-top:1px solid var(--grey-100)}
+.story-meta-left{display:flex;align-items:center;gap:10px}
 .story-source{font-family:var(--font-mono);font-size:9px;color:var(--grey-400)}
+.story-readtime{font-family:var(--font-mono);font-size:9px;color:var(--grey-300)}
 .story-read{font-family:var(--font-mono);font-size:10px;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:3px}
 .stories-refresh{margin-top:16px;padding:12px 16px;background:var(--grey-50);border:1px dashed var(--grey-200);font-family:var(--font-mono);font-size:10px;color:var(--grey-400);text-align:center}
 @media(max-width:1099px){.stories-section{padding:36px 28px}#stories-grid{grid-template-columns:1fr 1fr}.story-card.featured{grid-column:1/-1}.story-card.featured .story-img{height:200px}}
-@media(max-width:767px){.stories-section{padding:28px 20px}.stories-top{flex-direction:column;align-items:flex-start}#stories-grid{grid-template-columns:1fr}.story-card.featured .story-img,.story-img{height:170px}.story-card.featured .story-title{font-size:16px}}
+@media(max-width:767px){.stories-section{padding:28px 20px}.stories-top{flex-direction:column;align-items:flex-start}#stories-grid{grid-template-columns:1fr}.story-card.featured .story-img,.story-img{height:160px}.story-card.featured .story-title{font-size:16px}.story-excerpt{display:none}}
 
-/* ═══ SIGNPOST ═══ */
+/* ═══════════════════════════════
+   PRODUCT SPOTLIGHT
+═══════════════════════════════ */
+.product-spotlight{background:var(--grey-50);padding:56px;border-top:1px solid var(--grey-200)}
+.ps-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+.ps-right-link{font-family:var(--font-mono);font-size:10px;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap .2s;white-space:nowrap}
+.ps-right-link:hover{gap:8px}
+.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ps-card{background:var(--white);border:1px solid var(--grey-200);display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .2s;text-decoration:none}
+.ps-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.1)}
+.ps-img{height:210px;background:repeating-linear-gradient(145deg,#e4e4e4,#e4e4e4 2px,#ececec 2px,#ececec 20px);display:flex;align-items:flex-end;justify-content:flex-start;padding:16px;position:relative}
+.ps-img-note{font-family:var(--font-mono);font-size:9px;color:rgba(0,0,0,.35);background:rgba(255,255,255,.85);border:1px dashed rgba(0,0,0,.15);padding:8px 12px;line-height:1.65;max-width:200px}
+.ps-badge{position:absolute;top:14px;right:14px;background:var(--black);color:var(--white);font-family:var(--font-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px}
+.ps-badge.green{background:#1a6b2a}
+.ps-body{padding:22px;display:flex;flex-direction:column;gap:9px}
+.ps-model{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--black);letter-spacing:-.02em}
+.ps-tagline{font-family:var(--font-mono);font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
+.ps-sustainability{background:var(--grey-50);padding:12px 14px;display:flex;flex-direction:column;gap:6px;border-left:2px solid var(--red)}
+.ps-s-label{font-family:var(--font-mono);font-size:8px;color:var(--grey-400);text-transform:uppercase;letter-spacing:.1em}
+.ps-s-stat{font-size:13px;color:var(--black);font-weight:500;line-height:1.3}
+.ps-cta-row{display:flex;align-items:center;justify-content:space-between;padding-top:4px}
+.ps-cta{font-family:var(--font-mono);font-size:10px;color:var(--red);display:flex;align-items:center;gap:4px;transition:gap .2s}
+.ps-cta:hover{gap:8px}
+.ps-secondary{font-family:var(--font-mono);font-size:9px;color:var(--grey-400)}
+.ps-foot{background:var(--black);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:2px}
+.ps-foot-text{font-size:13px;color:var(--grey-500);font-weight:300;max-width:520px}
+.ps-foot-text strong{color:var(--white);font-weight:500}
+.ps-foot-btn{font-family:var(--font-mono);font-size:10px;color:var(--white);border:1px solid #444;padding:9px 18px;white-space:nowrap;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.ps-foot-btn:hover{border-color:var(--red);color:var(--red)}
+@media(max-width:1099px){.product-spotlight{padding:40px 28px}.ps-grid{grid-template-columns:1fr 1fr}.ps-foot{flex-direction:column;align-items:flex-start;gap:12px}}
+@media(max-width:767px){.product-spotlight{padding:28px 20px}.ps-grid{grid-template-columns:1fr}.ps-header{flex-direction:column;align-items:flex-start}.ps-foot{padding:16px 18px}}
+
+/* ═══════════════════════════════
+   SIGNPOST
+═══════════════════════════════ */
 .signpost-section{background:var(--grey-900);padding:52px 56px}
 .sp-header{margin-bottom:28px}
 .sp-h2{font-family:var(--font-display);font-size:clamp(22px,2.5vw,30px);font-weight:400;color:var(--white);letter-spacing:-.02em;margin-bottom:8px}
@@ -203,38 +313,28 @@
 .sp-card.compact .sp-url{border:none;padding:0;margin-left:auto;font-size:10px;color:#444}
 @media(max-width:1099px){.signpost-section{padding:40px 28px}.sp-grid,.sp-row2{grid-template-columns:1fr 1fr}}
 @media(max-width:767px){.signpost-section{padding:32px 20px}.sp-grid,.sp-row2{grid-template-columns:1fr}}
-/* ═══ PRODUCT SPOTLIGHT ═══ */
-.product-spotlight{background:var(--grey-50);padding:56px;border-top:1px solid var(--grey-200)}
-.ps-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px;flex-wrap:wrap}
-.ps-right-link{font-family:var(--font-mono);font-size:10px;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap .2s;white-space:nowrap}
-.ps-right-link:hover{gap:8px}
-.ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.ps-card{background:var(--white);border:1px solid var(--grey-200);display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .2s;text-decoration:none}
-.ps-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.1)}
-.ps-img{height:210px;background:repeating-linear-gradient(145deg,#e4e4e4,#e4e4e4 2px,#ececec 2px,#ececec 20px);display:flex;align-items:flex-end;justify-content:flex-start;padding:16px;position:relative}
-.ps-img-note{font-family:var(--font-mono);font-size:9px;color:rgba(0,0,0,.35);background:rgba(255,255,255,.85);border:1px dashed rgba(0,0,0,.15);padding:8px 12px;line-height:1.65;max-width:200px}
-.ps-badge{position:absolute;top:14px;right:14px;background:var(--black);color:var(--white);font-family:var(--font-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px}
-.ps-badge.green{background:#1a6b2a;color:#fff}
-.ps-body{padding:22px;display:flex;flex-direction:column;gap:9px}
-.ps-model{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--black);letter-spacing:-.02em}
-.ps-tagline{font-family:var(--font-mono);font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:.1em}
-.ps-sustainability{background:var(--grey-50);padding:12px 14px;display:flex;flex-direction:column;gap:6px;border-left:2px solid var(--red)}
-.ps-s-label{font-family:var(--font-mono);font-size:8px;color:var(--grey-400);text-transform:uppercase;letter-spacing:.1em}
-.ps-s-stat{font-size:13px;color:var(--black);font-weight:500;line-height:1.3}
-.ps-cta-row{display:flex;align-items:center;justify-content:space-between;padding-top:4px}
-.ps-cta{font-family:var(--font-mono);font-size:10px;color:var(--red);display:flex;align-items:center;gap:4px;transition:gap .2s}
-.ps-cta:hover{gap:8px}
-.ps-secondary{font-family:var(--font-mono);font-size:9px;color:var(--grey-400)}
-.ps-foot{background:var(--black);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:2px}
-.ps-foot-text{font-size:13px;color:var(--grey-500);font-weight:300;max-width:520px}
-.ps-foot-text strong{color:var(--white);font-weight:500}
-.ps-foot-btn{font-family:var(--font-mono);font-size:10px;color:var(--white);border:1px solid #444;padding:9px 18px;white-space:nowrap;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
-.ps-foot-btn:hover{border-color:var(--red);color:var(--red)}
-@media(max-width:1099px){.product-spotlight{padding:40px 28px}.ps-grid{grid-template-columns:1fr 1fr}.ps-foot{flex-direction:column;align-items:flex-start;gap:12px}}
-@media(max-width:767px){.product-spotlight{padding:28px 20px}.ps-grid{grid-template-columns:1fr}.ps-header{flex-direction:column;align-items:flex-start}.ps-foot{padding:16px 18px}}
 </style>
 </head>
 <body>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay" role="dialog" aria-label="Search">
+  <button class="so-close" onclick="closeSearch()" aria-label="Close search">✕</button>
+  <div class="search-overlay-inner">
+    <div class="so-label">Search</div>
+    <div class="so-field">
+      <input class="so-input" type="text" placeholder="Environment, community, electrified…" id="so-input" autocomplete="off">
+      <button class="so-submit" onclick="doSearch()">Search</button>
+    </div>
+    <div class="so-hints">
+      <button class="so-hint" onclick="fillSearch('carbon neutrality')">Carbon neutrality</button>
+      <button class="so-hint" onclick="fillSearch('electrified vehicles')">Electrified vehicles</button>
+      <button class="so-hint" onclick="fillSearch('community')">Community</button>
+      <button class="so-hint" onclick="fillSearch('annual report')">Annual report</button>
+      <button class="so-hint" onclick="fillSearch('nature positive')">Nature positive</button>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="site-nav">
@@ -249,9 +349,7 @@
   </div>
   <div class="nav-main">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-ring">
-        <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><ellipse cx="11" cy="8" rx="10" ry="7" stroke="white" stroke-width="1.5"/><ellipse cx="11" cy="8" rx="4" ry="7" stroke="white" stroke-width="1.5"/><line x1="1" y1="8" x2="21" y2="8" stroke="white" stroke-width="1.5"/></svg>
-      </div>
+      <div class="nav-logo-ring"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><ellipse cx="11" cy="8" rx="10" ry="7" stroke="white" stroke-width="1.5"/><ellipse cx="11" cy="8" rx="4" ry="7" stroke="white" stroke-width="1.5"/><line x1="1" y1="8" x2="21" y2="8" stroke="white" stroke-width="1.5"/></svg></div>
       <div class="nav-logo-text"><strong>TOYOTA</strong><span>Sustainability</span></div>
     </a>
     <div class="nav-links">
@@ -259,9 +357,7 @@
       <a href="#esg" class="nav-link dd">Environment
         <div class="nav-dropdown">
           <div class="nav-dropdown-label">Environmental Pillars</div>
-          <a href="#esg">Carbon Neutrality</a>
-          <a href="#esg">Circular Economy</a>
-          <a href="#esg">Nature Positive</a>
+          <a href="#esg">Carbon Neutrality</a><a href="#esg">Circular Economy</a><a href="#esg">Nature Positive</a>
           <div class="nav-dropdown-label">Resources</div>
           <a href="#reports">Reports + Data</a>
         </div>
@@ -269,15 +365,18 @@
       <a href="#esg" class="nav-link dd">Social
         <div class="nav-dropdown">
           <div class="nav-dropdown-label">Social Areas</div>
-          <a href="#esg">Safety</a>
-          <a href="#esg">Workforce</a>
-          <a href="#esg">Community</a>
-          <a href="#esg">Customer Satisfaction</a>
+          <a href="#esg">Safety</a><a href="#esg">Workforce</a><a href="#esg">Community</a><a href="#esg">Customer Satisfaction</a>
         </div>
       </a>
       <a href="#esg" class="nav-link">Governance</a>
       <a href="#reports" class="nav-link">Reports</a>
       <a href="newsroom.html" class="nav-link">Newsroom</a>
+    </div>
+    <!-- search in nav -->
+    <div class="nav-search">
+      <button class="nav-search-toggle" onclick="openSearch()" aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="12.5" y1="12.5" x2="17" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
     </div>
     <button class="nav-cta" onclick="document.getElementById('reports').scrollIntoView({behavior:'smooth'})">↓ Reports</button>
     <button class="nav-hamburger" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -293,75 +392,71 @@
     <div class="nav-mobile-section">More</div>
     <a href="newsroom.html" class="nav-mobile-link">Newsroom</a>
     <a href="#explore" class="nav-mobile-link">Explore Further</a>
-    <button class="nav-mobile-cta" onclick="document.getElementById('reports').scrollIntoView({behavior:'smooth'})">↓ Download Reports</button>
+    <button class="nav-mobile-cta" onclick="openSearch()">Search this site</button>
   </div>
 </nav>
 
-<!-- 01: HERO CAROUSEL -->
-<section class="hero-carousel" id="hero" aria-label="Hero">
+<!-- CONTEXT STRIP -->
+<nav class="context-strip" id="ctx" aria-label="Page sections">
+  <a href="#commitment" class="cs-item active" data-section="commitment"><span class="cs-dot"></span>Commitment</a>
+  <div class="cs-divider"></div>
+  <a href="#reports" class="cs-item" data-section="reports"><span class="cs-dot"></span>Reports</a>
+  <div class="cs-divider"></div>
+  <a href="#esg" class="cs-item" data-section="esg"><span class="cs-dot"></span>E · S · G</a>
+  <div class="cs-divider"></div>
+  <a href="#figures" class="cs-item" data-section="figures"><span class="cs-dot"></span>Numbers</a>
+  <div class="cs-divider"></div>
+  <a href="#leadership" class="cs-item" data-section="leadership"><span class="cs-dot"></span>Leadership</a>
+  <div class="cs-divider"></div>
+  <a href="#stories" class="cs-item" data-section="stories"><span class="cs-dot"></span>Stories</a>
+  <div class="cs-divider"></div>
+  <a href="#lineup" class="cs-item" data-section="lineup"><span class="cs-dot"></span>Lineup</a>
+  <div class="cs-divider"></div>
+  <a href="#explore" class="cs-item" data-section="explore"><span class="cs-dot"></span>Explore</a>
+</nav>
 
-  <!-- Slide 1: Brand -->
-  <div class="hero-slide active">
-    <div class="slide-bg s1"></div>
-    <div class="slide-overlay"></div>
-    <div class="slide-img-note">SLIDE 1 — BRAND HERO<br><br>Wide landscape. People in motion within a natural or community setting — not a product shot. Warm, optimistic tone. Could be a family, a neighbourhood, workers at a green facility. The image should feel expansive and hopeful. Suggested ratio: 16:9 or wider. Avoid stock clichés.</div>
-    <div class="slide-content">
-      <div class="slide-category">Toyota Sustainability</div>
-      <h1 class="slide-h1">Producing Happiness<em>for All</em></h1>
-      <p class="slide-sub">Our commitment to people, planet, and the communities we serve — across environment, social, and governance.</p>
-      <div class="slide-ctas">
-        <a href="#commitment" class="btn-primary">Explore our commitment</a>
-        <a href="#reports" class="btn-ghost"><span>↓</span> Download Reports</a>
-      </div>
+<!-- 01: STATIC HERO -->
+<section class="hero" id="hero" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-img-note" aria-hidden="true">
+    <strong>Hero Image — Brand</strong>
+    Wide landscape. People in motion in a natural or community setting — not a product shot. Warm, hopeful tone. Workers at a green facility, a family, a neighbourhood. Expansive, not dramatic. 16:9 or wider. Avoid stock. Faces at human scale against landscape.
+  </div>
+  <div class="hero-content fade-up">
+    <div class="hero-eyebrow"><span class="hero-eyebrow-text">Toyota North America · Sustainability</span></div>
+    <h1 class="hero-h1">Producing Happiness<em>for All</em></h1>
+    <p class="hero-sub">Our commitment to people, planet, and the communities we serve — across environment, social, and governance.</p>
+    <div class="hero-ctas">
+      <a href="#commitment" class="btn-primary">Explore our commitment</a>
+      <a href="#reports" class="btn-ghost">↓ Download Reports</a>
     </div>
-  </div>
-
-  <!-- Slide 2: Environmental story -->
-  <div class="hero-slide">
-    <div class="slide-bg s2"></div>
-    <div class="slide-overlay"></div>
-    <div class="slide-img-note">SLIDE 2 — ENVIRONMENTAL HERO<br><br>Manufacturing or nature scene that shows scale and intention. Options: solar panels on a Toyota facility roof, a worker in a forest restoration programme, an aerial of a green plant site. Not an EV — this slide is about the broader environmental commitment. Natural light. Real locations preferred over CGI.</div>
-    <div class="slide-content">
-      <div class="slide-category">Environment — Carbon Neutrality</div>
-      <h1 class="slide-h1">The Road to<em>Carbon Neutrality</em></h1>
-      <p class="slide-sub">How Toyota is reducing emissions across the full vehicle lifecycle — from manufacturing floor to open road — with measurable targets and real momentum.</p>
-      <div class="slide-ctas">
-        <a href="story.html" class="btn-primary">Read the story</a>
-        <a href="#esg" class="btn-ghost">Explore Environment →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slide 3: Social/Community story -->
-  <div class="hero-slide">
-    <div class="slide-bg s3"></div>
-    <div class="slide-overlay"></div>
-    <div class="slide-img-note">SLIDE 3 — COMMUNITY / SOCIAL HERO<br><br>A genuine community moment — people gathered, supported, or connected through Toyota programmes. Could be a Toyota Effect event, a community transport initiative, or a volunteer scene. Human scale is everything here. Real faces, real places. Not posed. Warm colour temperature.</div>
-    <div class="slide-content">
-      <div class="slide-category">Social — Community</div>
-      <h1 class="slide-h1">Mobility That<em>Builds Community</em></h1>
-      <p class="slide-sub">The Toyota Effect in action: how our community programmes are creating lasting change — and what it means to produce happiness for all.</p>
-      <div class="slide-ctas">
-        <a href="story.html" class="btn-primary">Read the story</a>
-        <a href="#esg" class="btn-ghost">Explore Social →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Arrows -->
-  <div class="c-arrows">
-    <button class="c-arrow" id="prev" aria-label="Previous slide">&#8592;</button>
-    <button class="c-arrow" id="next" aria-label="Next slide">&#8594;</button>
-  </div>
-
-  <!-- Dots + progress -->
-  <div class="carousel-nav">
-    <button class="c-dot active" data-slide="0" aria-label="Slide 1"></button>
-    <button class="c-dot" data-slide="1" aria-label="Slide 2"></button>
-    <button class="c-dot" data-slide="2" aria-label="Slide 3"></button>
-    <div class="c-progress"><div class="c-bar running" id="cbar"></div></div>
   </div>
 </section>
+
+<!-- HERO STORY TEASERS -->
+<div class="hero-stories">
+  <a href="story.html" class="hs-teaser">
+    <div class="hs-teaser-icon env">
+      <svg viewBox="0 0 22 22" fill="none"><path d="M16 6C8 8 6 13 4 18l1.5.5.7-1.8C7 17.5 8 18 9 18c8 0 11-12 11-12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M4.5 18C6 16 8 14 11 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <span class="hs-teaser-label">Environment — Nature Positive</span>
+      <div class="hs-teaser-title">Where the forest meets the factory: restoring native habitats at Toyota's North American sites</div>
+    </div>
+    <span class="hs-teaser-read">Read story →</span>
+  </a>
+  <a href="story.html" class="hs-teaser">
+    <div class="hs-teaser-icon soc">
+      <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="6" r="2" stroke="white" stroke-width="1.5"/><circle cx="4" cy="14" r="2" stroke="white" stroke-width="1.5"/><circle cx="18" cy="14" r="2" stroke="white" stroke-width="1.5"/><path d="M11 8C8.5 9.5 6 11 4 12M11 8C13.5 9.5 16 11 18 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <span class="hs-teaser-label">Social — Community</span>
+      <div class="hs-teaser-title">Mobility that builds community: Toyota Effect stories from across North America</div>
+    </div>
+    <span class="hs-teaser-read">Read story →</span>
+  </a>
+</div>
 
 <!-- 02: KEY MESSAGE -->
 <section class="key-message fade-up" id="commitment">
@@ -373,85 +468,117 @@
   <button class="btn-dark">Read our full commitment →</button>
 </section>
 
-<!-- 03: REPORTS STRIP -->
-<section class="reports-strip fade-up" id="reports">
-  <div class="rs-label">Download Reports</div>
-  <div class="rs-cards">
-    <a href="#" class="rs-card">
-      <div class="icon-block black rs-card-icon">
-        <svg viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="1" stroke="white" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="15" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="16" x2="11" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+<!-- 03: REPORTS — EXPANDED -->
+<section class="reports-section fade-up" id="reports">
+  <div class="reports-header">
+    <div>
+      <div class="section-eyebrow dark">Data + Reports</div>
+      <div class="rs-h">Our Transparency Commitments</div>
+      <div class="rs-sub">Full data, targets, and methodology — for investors, researchers, and anyone who wants the detail.</div>
+    </div>
+    <a href="#" class="rs-all">View all publications →</a>
+  </div>
+  <div class="reports-grid">
+    <a href="#" class="report-card">
+      <div class="rc-top">
+        <div class="rc-icon"><svg viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="1" stroke="white" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="15" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="16" x2="11" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <span class="rc-audience">Investors · Press · Researchers</span>
       </div>
-      <div>
-        <span class="rs-card-name">Annual Environmental Sustainability Report</span>
-        <span class="rs-card-meta">Latest Edition · PDF</span>
-        <span class="rs-card-dl">↓ Download</span>
+      <div class="rc-title">Annual Environmental Sustainability Report</div>
+      <div class="rc-desc">Toyota North America's primary environmental reporting document. Covers emissions data, energy use, water, waste, and progress against all three environmental pillar targets. Includes methodology notes and independent verification statements.</div>
+      <div class="rc-foot">
+        <span class="rc-meta">Latest Edition · PDF · ~4MB</span>
+        <span class="rc-dl">↓ Download</span>
       </div>
     </a>
-    <a href="#" class="rs-card">
-      <div class="icon-block black rs-card-icon">
-        <svg viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="1" stroke="white" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="15" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="16" x2="11" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <a href="#" class="report-card">
+      <div class="rc-top">
+        <div class="rc-icon"><svg viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="1" stroke="white" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="15" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="16" x2="11" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <span class="rc-audience">ESG Analysts · Investors</span>
       </div>
-      <div>
-        <span class="rs-card-name">TMC Sustainability Data Book</span>
-        <span class="rs-card-meta">Latest Edition · PDF</span>
-        <span class="rs-card-dl">↓ Download</span>
+      <div class="rc-title">TMC Sustainability Data Book</div>
+      <div class="rc-desc">Toyota Motor Corporation's comprehensive global sustainability data. The most granular dataset available — covering all sustainability dimensions across every region Toyota operates. Essential reference for ESG analysis and benchmarking.</div>
+      <div class="rc-foot">
+        <span class="rc-meta">Latest Edition · PDF · ~8MB</span>
+        <span class="rc-dl">↓ Download</span>
       </div>
     </a>
-    <a href="#" class="rs-card">
-      <div class="icon-block black rs-card-icon">
-        <svg viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="1" stroke="white" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="13" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <a href="#" class="report-card">
+      <div class="rc-top">
+        <div class="rc-icon"><svg viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="1" stroke="white" stroke-width="1.5"/><line x1="7" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="13" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <span class="rc-audience">General · Press</span>
       </div>
-      <div>
-        <span class="rs-card-name">Joint Sustainability Report</span>
-        <span class="rs-card-meta">Title to be confirmed · PDF</span>
+      <div class="rc-title">Joint Sustainability Report</div>
+      <div class="rc-desc">An accessible overview of Toyota's sustainability strategy for a general audience. Covers the headline story across all pillars — written for readers who want the big picture without the technical depth of the full data publications.</div>
+      <div class="rc-foot">
+        <span class="rc-meta">Title to be confirmed · PDF</span>
+        <span class="rc-dl">↓ Download</span>
       </div>
     </a>
   </div>
-  <a href="#" class="rs-more">View all reports →</a>
 </section>
 
-<!-- 04: ESG TABS -->
+<!-- 04: ESG — OVERVIEW + TABS -->
 <section class="esg-section fade-up" id="esg">
   <div class="esg-header">
     <div class="section-eyebrow">Our Approach</div>
     <h2 class="section-h2">How We're Shaping a Better Future</h2>
     <p class="section-body">Two sentences. Plain language. Connects "Producing Happiness for All" to all three pillars without using ESG jargon externally.</p>
+    <!-- Overview: always visible, shows all pillars at a glance -->
+    <div class="esg-overview">
+      <div class="eo-item active-tab" onclick="switchTab('env')">
+        <div class="eo-icon icon-block red"><svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="white" stroke-width="1.5"/><path d="M11 15V8M8 11l3-3 3 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <div class="eo-name">Environment</div>
+          <div class="eo-tagline">Carbon Neutrality · Circular Economy · Nature Positive</div>
+        </div>
+      </div>
+      <div class="eo-item" onclick="switchTab('social')">
+        <div class="eo-icon icon-block grey"><svg viewBox="0 0 22 22" fill="none"><circle cx="8" cy="8" r="3" stroke="white" stroke-width="1.5"/><path d="M2 18c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="7" r="2.5" stroke="white" stroke-width="1.5"/><path d="M16 13.5h3.5c0-2.5-1.6-4.5-3.5-4.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div>
+          <div class="eo-name">Social</div>
+          <div class="eo-tagline">Safety · Workforce · Community · Customer · Rights</div>
+        </div>
+      </div>
+      <div class="eo-item" onclick="switchTab('gov')">
+        <div class="eo-icon icon-block black"><svg viewBox="0 0 22 22" fill="none"><rect x="4" y="10" width="14" height="9" rx="1" stroke="white" stroke-width="1.5"/><path d="M7 10V7a4 4 0 0 1 8 0v3" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="14.5" r="1.5" fill="white"/></svg></div>
+        <div>
+          <div class="eo-name">Governance</div>
+          <div class="eo-tagline">Strategy · Accountability · Transparency</div>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="tab-nav">
     <button class="tab-btn active" data-panel="env">Environment <span class="tab-count">3 pillars</span></button>
     <button class="tab-btn" data-panel="social">Social <span class="tab-count">5 areas</span></button>
-    <button class="tab-btn" data-panel="gov">Governance <span class="tab-count">TBC</span></button>
+    <button class="tab-btn" data-panel="gov">Governance</button>
   </div>
 
   <!-- ENV -->
   <div class="tab-panel active" id="panel-env">
     <div class="env-grid">
       <div class="env-card fade-up">
-        <div class="icon-block red">
-          <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="white" stroke-width="1.5"/><path d="M11 15V8M8 11l3-3 3 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="icon-block red"><svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="white" stroke-width="1.5"/><path d="M11 15V8M8 11l3-3 3 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 class="env-name">Carbon Neutrality</h3>
         <p class="env-desc">Reducing emissions across the full vehicle lifecycle — manufacturing, logistics, and product — with targets tied to measurable milestones.</p>
         <div class="env-stat">Target: <span>Carbon neutral by [year]</span></div>
         <a href="story.html" class="env-cta">Explore targets + data →</a>
       </div>
       <div class="env-card fade-up">
-        <div class="icon-block grey">
-          <svg viewBox="0 0 22 22" fill="none"><path d="M18 11a7 7 0 0 0-7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M4 11a7 7 0 0 0 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M11 4l-2-2M11 18l2 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <div class="icon-block grey"><svg viewBox="0 0 22 22" fill="none"><path d="M18 11a7 7 0 0 0-7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M4 11a7 7 0 0 0 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M11 4l-2-2M11 18l2 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <h3 class="env-name">Circular Economy</h3>
         <p class="env-desc">Materials, recycling, resource efficiency, and end-of-life vehicle management — making more from less, and building less from waste.</p>
         <div class="env-stat">Recycling rate: <span>XX% of production waste</span></div>
         <a href="story.html" class="env-cta">Explore stories →</a>
       </div>
       <div class="env-card fade-up">
-        <div class="icon-block black">
-          <svg viewBox="0 0 22 22" fill="none"><path d="M16 6C8 8 6 13 4 18l1.5.5.7-1.8C7 17.5 8 18 9 18c8 0 11-12 11-12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 18C6 16 8 14 11 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <div class="icon-block black"><svg viewBox="0 0 22 22" fill="none"><path d="M16 6C8 8 6 13 4 18l1.5.5.7-1.8C7 17.5 8 18 9 18c8 0 11-12 11-12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 18C6 16 8 14 11 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <h3 class="env-name">Nature Positive</h3>
         <p class="env-desc">Biodiversity, ecosystems, and environmental stewardship beyond carbon — caring for the places and species our operations touch.</p>
         <div class="env-stat">Active at: <span>XX sites across XX countries</span></div>
-        <a href="story.html" class="env-cta">Learn more →</a>
+        <a href="story.html" class="env-cta">Read the story →</a>
       </div>
     </div>
     <div class="env-deeper">
@@ -488,23 +615,31 @@
         <span class="status-tag s-ok">Active content</span>
       </div>
       <div class="social-item">
-        <div class="icon-block light-grey"><svg viewBox="0 0 22 22" fill="none"><line x1="11" y1="2" x2="11" y2="20" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M5 8.5l6 1 6-1M3 15.5l8-2 8 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="3" cy="17" r="1.5" fill="white"/><circle cx="19" cy="17" r="1.5" fill="white"/></svg></div>
+        <div class="icon-block light-grey"><svg viewBox="0 0 22 22" fill="none"><line x1="11" y1="2" x2="11" y2="20" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M5 8.5l6 1 6-1M3 15.5l8-2 8 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="social-label">Human Rights</div>
         <div class="social-sub">Supply chain approach<br>US content TBC</div>
         <span class="status-tag s-hold">Handle carefully</span>
       </div>
     </div>
     <div class="social-deeper">
-      <p class="social-deeper-text">Social strategy in development. Stories from all these areas are available now on the Toyota Effect and Newsroom.</p>
+      <p class="social-deeper-text">Social strategy in development. Stories available now on Toyota Effect and Newsroom.</p>
       <a href="newsroom.html" class="btn-outline">Explore social stories →</a>
     </div>
   </div>
 
-  <!-- GOV -->
+  <!-- GOVERNANCE — NOTIFY -->
   <div class="tab-panel" id="panel-gov">
-    <div class="gov-hold">
-      <div class="gov-hold-title">Governance</div>
-      <p class="gov-hold-note">Content and structure to be confirmed. Space reserved — will be populated when the governance strategy is finalised.</p>
+    <div class="gov-notify">
+      <div class="gn-left">
+        <div class="gn-tag">Governance</div>
+        <h3 class="gn-title">Governance content is in development</h3>
+        <p class="gn-body">Toyota's governance strategy, board accountability structures, and transparency commitments are currently being prepared for publication. Leave your email and we'll notify you when this section goes live — you'll be among the first to access the full picture.</p>
+      </div>
+      <div class="gn-form">
+        <input class="gn-input" type="email" placeholder="Your email address" id="gn-email">
+        <button class="gn-btn" onclick="govNotify()">Notify me when published</button>
+        <span class="gn-note">No spam. One email when it's ready.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -522,34 +657,22 @@
     <div class="figure-item">
       <div class="figure-num"><span class="unit">XX</span>%</div>
       <div class="figure-label">CO₂ reduction<br>vs 2013 baseline</div>
-      <div class="figure-detail">
-        <div class="figure-source">Annual Environmental Report</div>
-        <a href="#" class="figure-link">View targets + methodology →</a>
-      </div>
+      <div class="figure-detail"><div class="figure-source">Annual Environmental Report</div><a href="#" class="figure-link">View targets + methodology →</a></div>
     </div>
     <div class="figure-item">
       <div class="figure-num"><span class="unit">XX</span></div>
       <div class="figure-label">Electrified models<br>available now</div>
-      <div class="figure-detail">
-        <div class="figure-source">toyota.com/electrified</div>
-        <a href="#" class="figure-link">Explore the lineup →</a>
-      </div>
+      <div class="figure-detail"><div class="figure-source">toyota.com/electrified</div><a href="#" class="figure-link">Explore the lineup →</a></div>
     </div>
     <div class="figure-item">
       <div class="figure-num">$<span class="unit">XXM</span></div>
       <div class="figure-label">Community<br>investment</div>
-      <div class="figure-detail">
-        <div class="figure-source">Toyota Effect / Newsroom</div>
-        <a href="newsroom.html" class="figure-link">See community stories →</a>
-      </div>
+      <div class="figure-detail"><div class="figure-source">Toyota Effect / Newsroom</div><a href="newsroom.html" class="figure-link">See community stories →</a></div>
     </div>
     <div class="figure-item">
       <div class="figure-num"><span class="unit">XX</span></div>
       <div class="figure-label">Safety research<br>programmes active</div>
-      <div class="figure-detail">
-        <div class="figure-source">amrd.toyota.com/csrc</div>
-        <a href="story.html" class="figure-link">Explore safety research →</a>
-      </div>
+      <div class="figure-detail"><div class="figure-source">amrd.toyota.com/csrc</div><a href="story.html" class="figure-link">Explore safety research →</a></div>
     </div>
   </div>
 </section>
@@ -559,9 +682,7 @@
   <div class="leader-photo">
     <div class="leader-photo-bg"></div>
     <div class="leader-photo-inner">
-      <div class="leader-avatar">
-        <svg width="36" height="36" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" stroke="#aaa" stroke-width="1.5"/><path d="M4 38c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#aaa" stroke-width="1.5"/></svg>
-      </div>
+      <div class="leader-avatar"><svg width="36" height="36" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" stroke="#aaa" stroke-width="1.5"/><path d="M4 38c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#aaa" stroke-width="1.5"/></svg></div>
       <span id="leader-photo-label">CEO PHOTO<br>Portrait or headshot</span>
       <div class="leader-dots">
         <button class="leader-dot active" data-leader="0" aria-label="CEO message"></button>
@@ -584,7 +705,7 @@
     <div class="leader-slide" id="leader-1">
       <div class="leader-eyebrow">A message from our leadership</div>
       <div class="leader-qmark">"</div>
-      <blockquote class="leader-quote">Pull quote from the CSO — focused on the strategic sustainability vision. References Toyota's commitment to measurable progress across the three environmental pillars and the broader mission of producing happiness for all.</blockquote>
+      <blockquote class="leader-quote">Pull quote from the CSO — focused on the strategic sustainability vision. References Toyota's commitment to measurable progress and the broader mission of producing happiness for all.</blockquote>
       <div class="leader-name">[ CSO Name ]</div>
       <div class="leader-role">Chief Sustainability Officer, Toyota Motor North America</div>
       <div class="leader-links">
@@ -595,7 +716,7 @@
   </div>
 </section>
 
-<!-- 07: STORIES -->
+<!-- 07: STORIES — WITH EXCERPTS + READ TIMES -->
 <section class="stories-section fade-up" id="stories">
   <div class="stories-top">
     <div>
@@ -627,64 +748,34 @@
     <a href="#" class="ps-right-link">Full electrified lineup → toyota.com/electrified-vehicles</a>
   </div>
   <div class="ps-grid">
-    <!-- bZ4X -->
     <a href="#" class="ps-card">
-      <div class="ps-img">
-        <div class="ps-img-note">VEHICLE IMAGE — bZ4X<br>Clean 3/4 front angle<br>Outdoor / lifestyle setting<br>White or light background</div>
-        <div class="ps-badge green">Battery EV</div>
-      </div>
+      <div class="ps-img"><div class="ps-img-note">VEHICLE IMAGE — bZ4X<br>Clean 3/4 front angle<br>Outdoor / lifestyle setting<br>White or light background</div><div class="ps-badge green">Battery EV</div></div>
       <div class="ps-body">
         <div class="ps-tagline">Battery Electric</div>
         <div class="ps-model">bZ4X</div>
-        <div class="ps-sustainability">
-          <div class="ps-s-label">Sustainability credentials</div>
-          <div class="ps-s-stat">Zero tailpipe emissions · Up to XXX mile range</div>
-        </div>
-        <p style="font-size:13px;color:var(--grey-600);font-weight:300;line-height:1.6">Toyota's first purpose-built battery electric SUV — designed from the ground up around a zero-emission future, without compromising on the practicality drivers need.</p>
-        <div class="ps-cta-row">
-          <span class="ps-cta">Explore bZ4X →</span>
-          <span class="ps-secondary">toyota.com/bz4x</span>
-        </div>
+        <div class="ps-sustainability"><div class="ps-s-label">Sustainability credentials</div><div class="ps-s-stat">Zero tailpipe emissions · Up to XXX mile range</div></div>
+        <p style="font-size:13px;color:var(--grey-600);font-weight:300;line-height:1.6">Toyota's purpose-built battery electric SUV — designed from the ground up around a zero-emission future, without compromising on practicality.</p>
+        <div class="ps-cta-row"><span class="ps-cta">Explore bZ4X →</span><span class="ps-secondary">toyota.com/bz4x</span></div>
       </div>
     </a>
-    <!-- RAV4 Hybrid -->
     <a href="#" class="ps-card">
-      <div class="ps-img">
-        <div class="ps-img-note">VEHICLE IMAGE — RAV4 Hybrid<br>Active / nature setting preferred<br>Shows the vehicle in use<br>Warm natural light</div>
-        <div class="ps-badge">Self-Charging Hybrid</div>
-      </div>
+      <div class="ps-img"><div class="ps-img-note">VEHICLE IMAGE — RAV4 Hybrid<br>Active / nature setting preferred<br>Shows vehicle in use<br>Warm natural light</div><div class="ps-badge">Self-Charging Hybrid</div></div>
       <div class="ps-body">
         <div class="ps-tagline">Hybrid Electric</div>
         <div class="ps-model">RAV4 Hybrid</div>
-        <div class="ps-sustainability">
-          <div class="ps-s-label">Sustainability credentials</div>
-          <div class="ps-s-stat">XX% better fuel economy than equivalent ICE · Self-charging</div>
-        </div>
-        <p style="font-size:13px;color:var(--grey-600);font-weight:300;line-height:1.6">America's best-selling hybrid SUV. Self-charging hybrid technology means reduced emissions and fuel consumption without any change in how you drive — or where you charge.</p>
-        <div class="ps-cta-row">
-          <span class="ps-cta">Explore RAV4 Hybrid →</span>
-          <span class="ps-secondary">toyota.com/rav4hybrid</span>
-        </div>
+        <div class="ps-sustainability"><div class="ps-s-label">Sustainability credentials</div><div class="ps-s-stat">XX% better fuel economy · Self-charging</div></div>
+        <p style="font-size:13px;color:var(--grey-600);font-weight:300;line-height:1.6">America's best-selling hybrid SUV. Self-charging technology reduces emissions and fuel consumption without changing how you drive — or where you charge.</p>
+        <div class="ps-cta-row"><span class="ps-cta">Explore RAV4 Hybrid →</span><span class="ps-secondary">toyota.com/rav4hybrid</span></div>
       </div>
     </a>
-    <!-- Mirai -->
     <a href="#" class="ps-card">
-      <div class="ps-img">
-        <div class="ps-img-note">VEHICLE IMAGE — Mirai<br>Sleek, forward-looking angle<br>Urban or open road context<br>Conveys innovation + clarity</div>
-        <div class="ps-badge green">Hydrogen Fuel Cell</div>
-      </div>
+      <div class="ps-img"><div class="ps-img-note">VEHICLE IMAGE — Mirai<br>Sleek, forward-looking angle<br>Urban or open road context<br>Conveys innovation + clarity</div><div class="ps-badge green">Hydrogen Fuel Cell</div></div>
       <div class="ps-body">
         <div class="ps-tagline">Hydrogen Fuel Cell</div>
         <div class="ps-model">Mirai</div>
-        <div class="ps-sustainability">
-          <div class="ps-s-label">Sustainability credentials</div>
-          <div class="ps-s-stat">Emits only water · Hydrogen from renewable sources</div>
-        </div>
-        <p style="font-size:13px;color:var(--grey-600);font-weight:300;line-height:1.6">A vehicle that runs on hydrogen and emits only water. Mirai is Toyota's proof that the future of mobility can be clean without compromise — and that no single technology holds all the answers.</p>
-        <div class="ps-cta-row">
-          <span class="ps-cta">Explore Mirai →</span>
-          <span class="ps-secondary">toyota.com/mirai</span>
-        </div>
+        <div class="ps-sustainability"><div class="ps-s-label">Sustainability credentials</div><div class="ps-s-stat">Emits only water · Renewable hydrogen</div></div>
+        <p style="font-size:13px;color:var(--grey-600);font-weight:300;line-height:1.6">A vehicle that runs on hydrogen and emits only water. Proof that the future of mobility can be clean without compromise — and that no single technology holds all the answers.</p>
+        <div class="ps-cta-row"><span class="ps-cta">Explore Mirai →</span><span class="ps-secondary">toyota.com/mirai</span></div>
       </div>
     </a>
   </div>
@@ -703,49 +794,28 @@
   </div>
   <div class="sp-grid">
     <a href="#" class="sp-card">
-      <div class="sp-top">
-        <div class="sp-icon-wrap"><svg viewBox="0 0 20 20" fill="none" width="20" height="20"><path d="M15 5C7 7 5 12 3 17l1.5.5.7-1.8C6 16.5 7 17 8 17c8 0 10-12 10-12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M3.5 17C5 15 7 13 10 11" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div class="sp-arrow">↗</div>
-      </div>
+      <div class="sp-top"><div class="sp-icon-wrap"><svg viewBox="0 0 20 20" fill="none" width="20" height="20"><path d="M15 5C7 7 5 12 3 17l1.5.5.7-1.8C6 16.5 7 17 8 17c8 0 10-12 10-12" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M3.5 17C5 15 7 13 10 11" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="sp-arrow">↗</div></div>
       <div class="sp-name">Environmental Sustainability</div>
       <p class="sp-desc">Targets, data, and detailed information on all three environmental pillars.</p>
       <div class="sp-url">toyota.com/environment</div>
     </a>
     <a href="newsroom.html" class="sp-card">
-      <div class="sp-top">
-        <div class="sp-icon-wrap"><svg viewBox="0 0 20 20" fill="none" width="20" height="20"><circle cx="10" cy="7" r="2.5" stroke="white" stroke-width="1.5"/><circle cx="4" cy="14" r="2" stroke="white" stroke-width="1.5"/><circle cx="16" cy="14" r="2" stroke="white" stroke-width="1.5"/><path d="M10 9.5C7.5 11 5.5 12.5 4 12.5M10 9.5C12.5 11 14.5 12.5 16 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div class="sp-arrow">↗</div>
-      </div>
+      <div class="sp-top"><div class="sp-icon-wrap"><svg viewBox="0 0 20 20" fill="none" width="20" height="20"><circle cx="10" cy="7" r="2.5" stroke="white" stroke-width="1.5"/><circle cx="4" cy="14" r="2" stroke="white" stroke-width="1.5"/><circle cx="16" cy="14" r="2" stroke="white" stroke-width="1.5"/><path d="M10 9.5C7.5 11 5.5 12.5 4 12.5M10 9.5C12.5 11 14.5 12.5 16 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="sp-arrow">↗</div></div>
       <div class="sp-name">Toyota Effect</div>
       <p class="sp-desc">Stories of community impact and the people behind Toyota's work in local communities.</p>
       <div class="sp-url">toyotaeffect.com</div>
     </a>
     <a href="story.html" class="sp-card">
-      <div class="sp-top">
-        <div class="sp-icon-wrap"><svg viewBox="0 0 20 20" fill="none" width="20" height="20"><path d="M10 2L3 6v5c0 3.5 3 7 7 8 4-1 7-4.5 7-8V6L10 2z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="sp-arrow">↗</div>
-      </div>
+      <div class="sp-top"><div class="sp-icon-wrap"><svg viewBox="0 0 20 20" fill="none" width="20" height="20"><path d="M10 2L3 6v5c0 3.5 3 7 7 8 4-1 7-4.5 7-8V6L10 2z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sp-arrow">↗</div></div>
       <div class="sp-name">Safety Research</div>
       <p class="sp-desc">The Collaborative Safety Research Centre — Toyota's active safety innovation programmes.</p>
       <div class="sp-url">amrd.toyota.com/csrc</div>
     </a>
   </div>
   <div class="sp-row2">
-    <a href="newsroom.html" class="sp-card compact">
-      <div class="sp-icon-wrap" style="width:32px;height:32px"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="3" width="16" height="14" rx="1" stroke="white" stroke-width="1.5"/><line x1="5" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="5" y1="12" x2="11" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="sp-name">Newsroom</div>
-      <div class="sp-url">pressroom.toyota.com ↗</div>
-    </a>
-    <a href="#" class="sp-card compact">
-      <div class="sp-icon-wrap" style="width:32px;height:32px"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><polygon points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
-      <div class="sp-name">Electrified Vehicles</div>
-      <div class="sp-url">toyota.com/electrified-vehicles ↗</div>
-    </a>
-    <a href="#" class="sp-card compact">
-      <div class="sp-icon-wrap" style="width:32px;height:32px"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="3" y="7" width="14" height="10" rx="1" stroke="white" stroke-width="1.5"/><path d="M7 7V5a3 3 0 0 1 6 0v2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="sp-name">Careers at Toyota</div>
-      <div class="sp-url">careers.toyota.com/us/en ↗</div>
-    </a>
+    <a href="newsroom.html" class="sp-card compact"><div class="sp-icon-wrap" style="width:32px;height:32px"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="2" y="3" width="16" height="14" rx="1" stroke="white" stroke-width="1.5"/><line x1="5" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="5" y1="12" x2="11" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="sp-name">Newsroom</div><div class="sp-url">pressroom.toyota.com ↗</div></a>
+    <a href="#" class="sp-card compact"><div class="sp-icon-wrap" style="width:32px;height:32px"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><polygon points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div class="sp-name">Electrified Vehicles</div><div class="sp-url">toyota.com/electrified-vehicles ↗</div></a>
+    <a href="#" class="sp-card compact"><div class="sp-icon-wrap" style="width:32px;height:32px"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="3" y="7" width="14" height="10" rx="1" stroke="white" stroke-width="1.5"/><path d="M7 7V5a3 3 0 0 1 6 0v2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="sp-name">Careers at Toyota</div><div class="sp-url">careers.toyota.com/us/en ↗</div></a>
   </div>
 </section>
 
@@ -756,18 +826,9 @@
       <a href="index.html" class="nav-logo"><div class="nav-logo-ring" style="width:34px;height:34px"><svg width="18" height="13" viewBox="0 0 22 16" fill="none"><ellipse cx="11" cy="8" rx="10" ry="7" stroke="white" stroke-width="1.5"/><ellipse cx="11" cy="8" rx="4" ry="7" stroke="white" stroke-width="1.5"/><line x1="1" y1="8" x2="21" y2="8" stroke="white" stroke-width="1.5"/></svg></div><div class="nav-logo-text"><strong>TOYOTA</strong><span>Sustainability</span></div></a>
       <p class="footer-brand-desc">Producing Happiness for All — a commitment to people, planet, and the communities we serve.</p>
     </div>
-    <div>
-      <div class="footer-col-label">Sustainability</div>
-      <div class="footer-links"><a href="#commitment" class="footer-link">Our Commitment</a><a href="#esg" class="footer-link">Environment</a><a href="#esg" class="footer-link">Social</a><a href="#esg" class="footer-link">Governance</a><a href="#reports" class="footer-link">Reports</a></div>
-    </div>
-    <div>
-      <div class="footer-col-label">Explore</div>
-      <div class="footer-links"><a href="newsroom.html" class="footer-link">Toyota Effect</a><a href="newsroom.html" class="footer-link">Newsroom</a><a href="#" class="footer-link">Electrified Vehicles</a><a href="story.html" class="footer-link">Safety Research</a><a href="#" class="footer-link">Careers</a></div>
-    </div>
-    <div>
-      <div class="footer-col-label">Company</div>
-      <div class="footer-links"><a href="#" class="footer-link">About Toyota</a><a href="#" class="footer-link">Investors</a><a href="#" class="footer-link">Press + Media</a><a href="#" class="footer-link">Contact</a></div>
-    </div>
+    <div><div class="footer-col-label">Sustainability</div><div class="footer-links"><a href="#commitment" class="footer-link">Our Commitment</a><a href="#esg" class="footer-link">Environment</a><a href="#esg" class="footer-link">Social</a><a href="#esg" class="footer-link">Governance</a><a href="#reports" class="footer-link">Reports</a></div></div>
+    <div><div class="footer-col-label">Explore</div><div class="footer-links"><a href="newsroom.html" class="footer-link">Toyota Effect</a><a href="newsroom.html" class="footer-link">Newsroom</a><a href="#" class="footer-link">Electrified Vehicles</a><a href="story.html" class="footer-link">Safety Research</a><a href="#" class="footer-link">Careers</a></div></div>
+    <div><div class="footer-col-label">Company</div><div class="footer-links"><a href="#" class="footer-link">About Toyota</a><a href="#" class="footer-link">Investors</a><a href="#" class="footer-link">Press + Media</a><a href="#" class="footer-link">Contact</a></div></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-legal">© 2026 Toyota Motor North America, Inc. · Privacy Policy · Terms of Use · Accessibility</p>
@@ -776,112 +837,130 @@
 </footer>
 
 <script>
-/* ─── CAROUSEL ─── */
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.c-dot');
-const cbar = document.getElementById('cbar');
-let cur = 0, timer;
-const DUR = 6000;
-
-function goTo(n) {
-  slides[cur].classList.remove('active');
-  dots[cur].classList.remove('active');
-  cur = (n + slides.length) % slides.length;
-  slides[cur].classList.add('active');
-  dots[cur].classList.add('active');
-  cbar.style.animation = 'none';
-  void cbar.offsetWidth;
-  cbar.style.animation = `cBar ${DUR}ms linear forwards`;
-  clearInterval(timer);
-  timer = setInterval(() => goTo(cur + 1), DUR);
+/* ─── SEARCH ─── */
+function openSearch(){
+  document.getElementById('search-overlay').classList.add('open');
+  setTimeout(()=>document.getElementById('so-input').focus(),100);
 }
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open')}
+function fillSearch(q){document.getElementById('so-input').value=q;document.getElementById('so-input').focus()}
+function doSearch(){
+  const q=document.getElementById('so-input').value.trim();
+  if(q) closeSearch();
+  // Placeholder — wire to search results in production
+}
+document.getElementById('search-overlay').addEventListener('click',function(e){if(e.target===this)closeSearch()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch()}});
 
-document.getElementById('prev').onclick = () => goTo(cur - 1);
-document.getElementById('next').onclick = () => goTo(cur + 1);
-dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.slide)));
-const carousel = document.querySelector('.hero-carousel');
-carousel.addEventListener('mouseenter', () => clearInterval(timer));
-carousel.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(cur + 1), DUR); });
-timer = setInterval(() => goTo(cur + 1), DUR);
-
-/* ─── ESG TABS ─── */
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.querySelector('.tab-count').style.background=''; });
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+/* ─── CONTEXT STRIP — active section tracking ─── */
+const CS_SECTIONS = ['commitment','reports','esg','figures','leadership','stories','lineup','explore'];
+const csLinks = document.querySelectorAll('.cs-item');
+function updateCtx(){
+  const offset = 120;
+  let active = CS_SECTIONS[0];
+  CS_SECTIONS.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - offset) active=id;
   });
+  csLinks.forEach(l=>{
+    const isActive = l.dataset.section === active;
+    l.classList.toggle('active', isActive);
+  });
+}
+window.addEventListener('scroll', updateCtx, {passive:true});
+updateCtx();
+
+/* ─── ESG OVERVIEW CARDS sync with tabs ─── */
+function switchTab(panel){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.panel===panel));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+panel));
+  document.querySelectorAll('.eo-item').forEach((el,i)=>{
+    const panels=['env','social','gov'];
+    el.classList.toggle('active-tab', panels[i]===panel);
+  });
+}
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>switchTab(btn.dataset.panel));
 });
 
 /* ─── LEADERSHIP ─── */
-const ldots = document.querySelectorAll('.leader-dot');
-ldots.forEach((d, i) => {
-  d.addEventListener('click', () => {
-    ldots.forEach((x, j) => { x.classList.toggle('active', j === i); x.setAttribute('aria-pressed', j === i); });
-    document.querySelectorAll('.leader-slide').forEach((s, j) => s.classList.toggle('active', j === i));
-    document.getElementById('leader-photo-label').innerHTML = i === 0 ? 'CEO PHOTO<br>Portrait or headshot' : 'CSO PHOTO<br>Portrait or headshot';
+const ldots=document.querySelectorAll('.leader-dot');
+ldots.forEach((d,i)=>{
+  d.addEventListener('click',()=>{
+    ldots.forEach((x,j)=>{x.classList.toggle('active',j===i);x.setAttribute('aria-pressed',j===i)});
+    document.querySelectorAll('.leader-slide').forEach((s,j)=>s.classList.toggle('active',j===i));
+    document.getElementById('leader-photo-label').innerHTML=i===0?'CEO PHOTO<br>Portrait or headshot':'CSO PHOTO<br>Portrait or headshot';
   });
 });
 
-/* ─── DYNAMIC STORIES ─── */
-const STORIES = [
-  { id:'s1', cat:'environment', tag:'Environment — Carbon Neutrality', title:'The road to carbon neutrality: how Toyota is cutting emissions across every stage of the vehicle lifecycle', source:'Toyota Newsroom' },
-  { id:'s2', cat:'environment', tag:'Environment — Circular Economy', title:'Turning end-of-life vehicles into tomorrow\'s materials', source:'Environmental Site' },
-  { id:'s3', cat:'environment', tag:'Environment — Nature Positive', title:'Planting forests and restoring habitats: Toyota\'s biodiversity commitment in action', source:'Toyota Newsroom' },
-  { id:'s4', cat:'social', tag:'Social — Community', title:'How Toyota is helping communities across North America access the benefits of mobility', source:'Toyota Effect' },
-  { id:'s5', cat:'social', tag:'Social — Safety', title:'The engineers at CSRC working to make every journey safer', source:'CSRC' },
-  { id:'s6', cat:'social', tag:'Social — Workforce', title:'Building careers that build stronger communities', source:'Toyota Careers' },
-  { id:'s7', cat:'people', tag:'People — Team', title:'What does sustainability look like from inside Toyota? Team members share their perspective', source:'Toyota Newsroom' },
-  { id:'s8', cat:'people', tag:'People — Volunteers', title:'Meet the people behind Toyota\'s community volunteering programmes', source:'Toyota Effect' },
-  { id:'s9', cat:'people', tag:'People — Careers', title:'Why I joined Toyota: stories from members of the sustainability team', source:'Toyota Careers' }
+/* ─── STORIES — with excerpt + read time ─── */
+const STORIES=[
+  {id:'s1',cat:'environment',tag:'Environment — Carbon Neutrality',title:'The road to carbon neutrality: how Toyota is cutting emissions across every stage of the vehicle lifecycle',excerpt:'A transparent look at Toyota\'s emissions reduction strategy, what\'s working, and what comes next.',source:'Toyota Newsroom',time:'4 min read'},
+  {id:'s2',cat:'environment',tag:'Environment — Circular Economy',title:'Turning end-of-life vehicles into tomorrow\'s materials',excerpt:'How Toyota\'s circular economy programme is rethinking what happens when a vehicle reaches the end of its life.',source:'Environmental Site',time:'3 min read'},
+  {id:'s3',cat:'environment',tag:'Environment — Nature Positive',title:'Where the forest meets the factory: restoring native habitats at Toyota\'s sites',excerpt:'Tens of thousands of trees planted, wetlands restored, and ecosystems returning to Toyota\'s North American facilities.',source:'Toyota Newsroom',time:'8 min read'},
+  {id:'s4',cat:'social',tag:'Social — Community',title:'Mobility that builds community: Toyota Effect stories from across North America',excerpt:'How Toyota\'s community investment programmes are creating lasting change in the places we operate.',source:'Toyota Effect',time:'5 min read'},
+  {id:'s5',cat:'social',tag:'Social — Safety',title:'The engineers at CSRC working to make every journey safer',excerpt:'Inside Toyota\'s Collaborative Safety Research Centre and the human factors science behind every vehicle improvement.',source:'CSRC',time:'6 min read'},
+  {id:'s6',cat:'social',tag:'Social — Workforce',title:'Building careers that build stronger communities',excerpt:'Toyota\'s workforce development programmes and what they mean for the people — and communities — they serve.',source:'Toyota Careers',time:'4 min read'},
+  {id:'s7',cat:'people',tag:'People — Team',title:'What does sustainability look like from inside Toyota? Team members share their perspective',excerpt:'Eight Toyota team members from across departments on what the sustainability mission means to their everyday work.',source:'Toyota Newsroom',time:'3 min read'},
+  {id:'s8',cat:'people',tag:'People — Volunteers',title:'Meet the people behind Toyota\'s community volunteering programmes',excerpt:'Every year thousands of Toyota employees volunteer in their local communities. These are some of their stories.',source:'Toyota Effect',time:'3 min read'},
+  {id:'s9',cat:'people',tag:'People — Careers',title:'Why I joined Toyota: stories from members of the sustainability team',excerpt:'What draws people to work on sustainability at Toyota — and what keeps them there.',source:'Toyota Careers',time:'4 min read'}
 ];
-const SETS = { all:['s1','s4','s7'], environment:['s1','s2','s3'], social:['s4','s5','s6'], people:['s7','s8','s9'] };
+const SETS={all:['s1','s4','s7'],environment:['s1','s2','s3'],social:['s4','s5','s6'],people:['s7','s8','s9']};
 
-function renderStories(filter) {
-  const pool = SETS[filter].map(id => STORIES.find(s => s.id === id));
-  document.getElementById('stories-grid').innerHTML = pool.map((s, i) => {
-    const f = i === 0;
-    const cat = s.tag.split('—')[0].trim().toUpperCase();
+function renderStories(filter){
+  const pool=SETS[filter].map(id=>STORIES.find(s=>s.id===id));
+  document.getElementById('stories-grid').innerHTML=pool.map((s,i)=>{
+    const f=i===0;
+    const cat=s.tag.split('—')[0].trim().toUpperCase();
     return `<article class="story-card${f?' featured':''}" onclick="window.location='story.html'">
-      <div class="story-img"><div class="story-img-inner">${cat} IMAGE<br>Sourced from ${s.source}</div></div>
+      <div class="story-img"><div class="story-img-inner">${cat} IMAGE<br>${s.source}</div></div>
       <div class="story-body">
         <div class="story-tag">${s.tag}</div>
         <h3 class="story-title">${s.title}</h3>
-        <div class="story-meta"><span class="story-source">${s.source}</span><a href="story.html" class="story-read">Read${f?' story':''} →</a></div>
+        <p class="story-excerpt">${s.excerpt}</p>
+        <div class="story-meta">
+          <div class="story-meta-left"><span class="story-source">${s.source}</span><span class="story-readtime">· ${s.time}</span></div>
+          <a href="story.html" class="story-read">Read${f?' story':''} →</a>
+        </div>
       </div>
     </article>`;
   }).join('');
 }
 renderStories('all');
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     renderStories(btn.dataset.filter);
   });
 });
 
+/* ─── GOVERNANCE NOTIFY ─── */
+function govNotify(){
+  const email=document.getElementById('gn-email').value.trim();
+  if(!email)return;
+  document.querySelector('.gn-btn').textContent='✓ You\'re on the list';
+  document.querySelector('.gn-btn').style.background='#1a6b2a';
+  document.querySelector('.gn-note').textContent='We\'ll email '+email+' when governance content is published.';
+  document.getElementById('gn-email').disabled=true;
+}
+
 /* ─── HAMBURGER ─── */
-const ham = document.getElementById('ham'), mob = document.getElementById('mob');
-ham.addEventListener('click', () => {
-  const o = ham.classList.toggle('open');
-  mob.classList.toggle('open');
-  ham.setAttribute('aria-expanded', o);
-});
-mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open');ham.setAttribute('aria-expanded',o)});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
 
 /* ─── SMOOTH SCROLL ─── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-104,behavior:'smooth'})}
   });
 });
 
 /* ─── FADE UP ─── */
-const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
