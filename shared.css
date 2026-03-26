@@ -71,13 +71,14 @@ a{text-decoration:none}
 .nav-logo-text{line-height:1.3}
 .nav-logo-text strong{display:block;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--white);letter-spacing:.1em}
 .nav-logo-text span{font-family:var(--font-mono);font-size:10px;color:#555;letter-spacing:.06em}
-/* Primary links — only 3 items now */
+/* Primary links */
 .nav-links{display:flex;align-items:stretch;height:64px;flex-shrink:0}
-.nav-link{display:flex;align-items:center;padding:0 18px;font-family:var(--font-mono);font-size:10px;color:#888;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;position:relative;white-space:nowrap}
+.nav-item{position:relative;display:flex;align-items:stretch}
+.nav-item:hover .nav-dropdown,.nav-item:focus-within .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+.nav-link{display:flex;align-items:center;padding:0 18px;font-family:var(--font-mono);font-size:10px;color:#888;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
 .nav-link:hover,.nav-link.active{color:var(--white);border-bottom-color:var(--red)}
-.nav-link.dd::after{content:' ▾';font-size:9px;opacity:.5;margin-left:2px}
+.nav-item.dd > .nav-link::after{content:' ▾';font-size:9px;opacity:.5;margin-left:2px}
 .nav-dropdown{position:absolute;top:100%;left:0;background:var(--grey-900);border-top:2px solid var(--red);min-width:180px;padding:8px 0;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .18s,transform .18s;z-index:10}
-.nav-link:hover .nav-dropdown,.nav-link:focus-within .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
 .nav-dropdown a{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:var(--font-mono);font-size:10px;color:#888;text-decoration:none;letter-spacing:.04em;transition:background .12s,color .12s;white-space:nowrap}
 .nav-dropdown a:hover{background:#222;color:var(--white)}
 .nav-dropdown a svg{width:14px;height:14px;opacity:.4;flex-shrink:0;transition:opacity .12s}
