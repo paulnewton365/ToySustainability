@@ -76,14 +76,14 @@ a{text-decoration:none}
 .nav-link{display:flex;align-items:center;padding:0 18px;font-family:var(--font-mono);font-size:10px;color:#888;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;position:relative;white-space:nowrap}
 .nav-link:hover,.nav-link.active{color:var(--white);border-bottom-color:var(--red)}
 .nav-link.dd::after{content:' ▾';font-size:9px;opacity:.5;margin-left:2px}
-.nav-dropdown{position:absolute;top:100%;left:0;background:var(--grey-900);border-top:2px solid var(--red);min-width:220px;padding:10px 0;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s,transform .2s;z-index:10}
+.nav-dropdown{position:absolute;top:100%;left:0;background:var(--grey-900);border-top:2px solid var(--red);min-width:180px;padding:8px 0;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .18s,transform .18s;z-index:10}
 .nav-link:hover .nav-dropdown,.nav-link:focus-within .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
-.nav-dropdown a{display:block;padding:10px 20px;font-family:var(--font-mono);font-size:10px;color:#888;text-decoration:none;letter-spacing:.04em;transition:background .15s,color .15s;display:flex;align-items:center;gap:10px}
+.nav-dropdown a{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:var(--font-mono);font-size:10px;color:#888;text-decoration:none;letter-spacing:.04em;transition:background .12s,color .12s;white-space:nowrap}
 .nav-dropdown a:hover{background:#222;color:var(--white)}
-.nav-dropdown a svg{width:14px;height:14px;opacity:.4;flex-shrink:0}
-.nav-dropdown a:hover svg{opacity:.7}
+.nav-dropdown a svg{width:14px;height:14px;opacity:.4;flex-shrink:0;transition:opacity .12s}
+.nav-dropdown a:hover svg{opacity:.8}
 .nav-dropdown-label{padding:8px 20px 3px;font-family:var(--font-mono);font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.12em}
-.nav-dropdown-divider{height:1px;background:#222;margin:8px 0}
+.nav-dropdown-divider{height:1px;background:#222;margin:6px 0}
 /* Search field — visible in header */
 .nav-search-field{margin-left:auto;display:flex;align-items:center;gap:0;background:#1a1a1a;border:1px solid #2a2a2a;height:36px;transition:border-color .2s;flex-shrink:0}
 .nav-search-field:focus-within{border-color:#444}
