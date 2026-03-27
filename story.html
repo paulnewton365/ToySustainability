@@ -164,6 +164,85 @@
 </style>
 </head>
 <body>
+<!-- ANTENNA GROUP PASSWORD GATE -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#E8E6E1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif">
+  <style>
+    #pw-gate *{box-sizing:border-box}
+    #pw-input{width:100%;padding:14px 16px;border:1px solid #D9D6D0;background:#fff;font-family:'Inter',-apple-system,sans-serif;font-size:14px;color:#1A1A1A;border-radius:0;outline:none;transition:border-color .2s;letter-spacing:.02em}
+    #pw-input::placeholder{color:#999;font-weight:300}
+    #pw-input:focus{border-color:#1A1A1A}
+    #pw-btn{width:100%;background:#E8FF00;color:#1A1A1A;border:none;padding:15px 28px;font-family:'Inter',-apple-system,sans-serif;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:0;transition:background .15s}
+    #pw-btn:hover{background:#D4E800}
+    @keyframes ag-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .ag-in{animation:ag-up .4s ease both}
+    .ag-in-2{animation:ag-up .4s .1s ease both}
+    .ag-in-3{animation:ag-up .4s .2s ease both}
+  </style>
+
+  <!-- Top left wordmark -->
+  <div class="ag-in" style="position:absolute;top:28px;left:32px">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#1A1A1A;text-transform:uppercase;line-height:1">ANTENNA<span style="font-weight:300"> GROUP</span></div>
+    <div style="font-size:8px;font-weight:500;letter-spacing:.22em;color:#666666;text-transform:uppercase;margin-top:3px">FULLY CONSCIOUS</div>
+  </div>
+
+  <!-- Top right label -->
+  <div class="ag-in" style="position:absolute;top:32px;right:32px">
+    <span style="font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#999">Confidential Preview</span>
+  </div>
+
+  <!-- Centre -->
+  <div class="ag-in-2" style="width:100%;max-width:400px;padding:0 24px">
+
+    <!-- Yellow accent bar -->
+    <div style="width:40px;height:4px;background:#E8FF00;margin-bottom:28px"></div>
+
+    <div style="margin-bottom:8px">
+      <div style="font-size:22px;font-weight:600;color:#1A1A1A;letter-spacing:-.02em;line-height:1.15">Toyota US Sustainability</div>
+      <div style="font-size:22px;font-weight:300;color:#1A1A1A;letter-spacing:-.02em;line-height:1.15">Prototype Preview</div>
+    </div>
+
+    <div style="font-size:13px;font-weight:300;color:#666666;margin-bottom:28px;line-height:1.5">Enter your access code to continue.</div>
+
+    <!-- Input -->
+    <div style="margin-bottom:6px">
+      <input id="pw-input" type="password" placeholder="Access code" autocomplete="off" onkeydown="if(event.key==='Enter')checkPw()">
+    </div>
+
+    <!-- Error -->
+    <div id="pw-err" style="font-size:11px;color:#E53935;min-height:20px;margin-bottom:10px;font-weight:400;letter-spacing:.02em"></div>
+
+    <!-- Button -->
+    <button id="pw-btn" onclick="checkPw()">Enter</button>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="ag-in-3" style="position:absolute;bottom:28px;left:0;right:0;text-align:center">
+    <div style="font-size:10px;color:#999;letter-spacing:.1em;font-weight:400">antennagroup.com</div>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('ag_auth')==='1'){document.getElementById('pw-gate').style.display='none';}
+  else{setTimeout(function(){var i=document.getElementById('pw-input');if(i)i.focus();},200);}
+})();
+function checkPw(){
+  var v=document.getElementById('pw-input').value.trim().toLowerCase();
+  if(v==='antennagroup'){
+    sessionStorage.setItem('ag_auth','1');
+    var g=document.getElementById('pw-gate');
+    g.style.transition='opacity .3s ease';g.style.opacity='0';
+    setTimeout(function(){g.style.display='none'},320);
+  } else {
+    var e=document.getElementById('pw-err');
+    e.textContent='Incorrect access code. Please try again.';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-input').focus();
+    setTimeout(function(){e.textContent=''},3000);
+  }
+}
+</script>
 
 <!-- SHARE STICKY -->
 <div class="share-sticky" aria-label="Share article">
@@ -195,7 +274,7 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-utility">
-    <span class="nav-utility-brand">Toyota Motor North America</span>
+    
     <div class="nav-utility-links">
       <a href="https://toyota.com" target="_blank">toyota.com</a>
       <a href="#">Investors</a>
